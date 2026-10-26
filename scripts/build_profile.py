@@ -338,7 +338,7 @@ def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str
     current, longest = streaks(days)
     stars = sum(r["stargazers_count"] for r in repos)
     kpis = [
-        (fmt_num(cal["totalContributions"]), "contributions · last year", ORANGE),
+        (fmt_num(cal["totalContributions"]), "public contributions · 1y", ORANGE),
         (f"{current}d", "current streak", RED),
         (f"{longest}d", "longest streak", VIOLET),
         (fmt_num(stars), "stars earned", STAR),
@@ -357,8 +357,8 @@ def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str
     peak = max((c for _, c in days), default=0) or 1
     scale = HEAT
     cell, gap, hx, hy = 11, 3, 52, 152
-    parts.append(f'<text x="20" y="124" font-size="13" font-weight="700" fill="{TEXT}">Contribution heatmap</text>')
-    parts.append(f'<text x="820" y="124" font-size="11.5" fill="{MUTED}" text-anchor="end">{t(cal["totalContributions"])} contributions in the last year</text>')
+    parts.append(f'<text x="20" y="124" font-size="13" font-weight="700" fill="{TEXT}">Public contribution heatmap</text>')
+    parts.append(f'<text x="820" y="124" font-size="11.5" fill="{MUTED}" text-anchor="end">{t(cal["totalContributions"])} public contributions in the last year</text>')
     last_month = None
     for wi, w in enumerate(weeks):
         for d in w["contributionDays"]:
