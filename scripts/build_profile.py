@@ -20,17 +20,37 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "generated"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-# ── palette ────────────────────────────────────────────────────────────────
-BG = "#0B1020"
-PANEL = "#111833"
-BORDER = "#22305A"
-TEXT = "#E6EDF3"
-MUTED = "#8B98B8"
-ORANGE = "#22C55E"  # primary accent (green)
-RED = "#A3E635"  # lime
-CYAN = "#22D3EE"
-VIOLET = "#2DD4BF"  # teal
-GREEN = "#34D399"
+# ── palettes ───────────────────────────────────────────────────────────────
+# Every SVG is drawn twice; README picks the variant matching the viewer's theme.
+# ORANGE/RED/VIOLET are historical names: primary green, lime and teal accents.
+THEMES = {
+    "dark": dict(
+        BG="#0B1020", PANEL="#111833", BORDER="#22305A", TEXT="#E6EDF3", MUTED="#8B98B8",
+        ORANGE="#22C55E", RED="#A3E635", CYAN="#22D3EE", VIOLET="#2DD4BF", GREEN="#34D399",
+        MINT="#5EEAD4", STAR="#FBBF24",
+        HERO_A="#0B1020", HERO_B="#131B3A", GRID="#1B2547", GRID_OPACITY="0.55",
+        NAME_A="#FFFFFF", NAME_B="#86EFAC", ORB_OPACITY="0.45",
+        HEAT=["#1A2342", "#14532D", "#15803D", "#22C55E", "#86EFAC"],
+    ),
+    "light": dict(
+        BG="#F6F8FA", PANEL="#FFFFFF", BORDER="#D0D7DE", TEXT="#1F2328", MUTED="#59636E",
+        ORANGE="#16A34A", RED="#4D7C0F", CYAN="#0E7490", VIOLET="#0F766E", GREEN="#047857",
+        MINT="#0D9488", STAR="#B45309",
+        HERO_A="#F0FDF4", HERO_B="#ECFEFF", GRID="#D1FAE5", GRID_OPACITY="0.9",
+        NAME_A="#14532D", NAME_B="#16A34A", ORB_OPACITY="0.22",
+        HEAT=["#EBEDF0", "#BBF7D0", "#4ADE80", "#16A34A", "#14532D"],
+    ),
+}
+# The terminal window stays dark in both themes.
+TERM = dict(BG="#0A0F1E", BAR="#151E3F", TEXT="#E6EDF3", MUTED="#8B98B8",
+            PROMPT="#A3E635", OK="#34D399", INFO="#22D3EE", CURSOR="#22C55E")
+
+
+def apply_theme(name: str) -> None:
+    globals().update(THEMES[name])
+
+
+apply_theme("dark")
 SANS = "'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace"
 
@@ -42,7 +62,8 @@ LANG_COLORS = {
 }
 
 # Curated copy for the featured cards; numbers are always fetched live.
-FEATURED = [
+def featured() -> list[tuple[str, str, str, str, str]]:
+    return [
     ("Otter", "🦦", ORANGE, "Rust · Tauri · Windows",
      "A local-first workspace time machine. Saves apps, tabs, terminals, Docker and files as a context, then restores them with verified results."),
     ("nest_codebase", "🧱", RED, "NestJS 11 · Fastify · Prisma",
@@ -53,9 +74,9 @@ FEATURED = [
      "Pet-care platform: TypeScript backend, a customer app with QR scanning and a clinic portal with analytics."),
     ("Vietnamosaic", "🇻🇳", VIOLET, "Product spec · 12 screens",
      "A social network for discovering Việt Nam through everyday stories, experience mosaic pieces and mini postage stamps."),
-    ("EXE", "🧩", "#5EEAD4", "Express · MongoDB · JWT",
+    ("EXE", "🧩", MINT, "Express · MongoDB · JWT",
      "Express MVC API with routers, controllers, Joi validators and middleware, JWT auth and Cloudinary uploads."),
-]
+    ]
 
 
 # ── GitHub API ─────────────────────────────────────────────────────────────
@@ -120,19 +141,19 @@ def write(name: str, content: str) -> None:
 # ── static artwork ─────────────────────────────────────────────────────────
 def hero() -> str:
     lines = [
-        ("$", "whoami", TEXT),
-        ("›", "mundo · full-stack engineer · Hà Nội", GREEN),
-        ("$", "cat focus.txt", TEXT),
-        ("›", "AI-native workspaces", CYAN),
-        ("›", "secure backend platforms", CYAN),
-        ("›", "local-first desktop tools", CYAN),
-        ("$", "otter restore --verify", TEXT),
-        ("✓", "context restored · all checks green", GREEN),
+        ("$", "whoami", TERM["TEXT"]),
+        ("›", "mundo · full-stack engineer · Hà Nội", TERM["OK"]),
+        ("$", "cat focus.txt", TERM["TEXT"]),
+        ("›", "AI-native workspaces", TERM["INFO"]),
+        ("›", "secure backend platforms", TERM["INFO"]),
+        ("›", "local-first desktop tools", TERM["INFO"]),
+        ("$", "otter restore --verify", TERM["TEXT"]),
+        ("✓", "context restored · all checks green", TERM["OK"]),
     ]
     term = []
     for i, (p, s, color) in enumerate(lines):
         y = 110 + i * 20
-        pc = RED if p == "$" else color
+        pc = TERM["PROMPT"] if p == "$" else color
         term.append(
             "<g>"
             f'<text x="502" y="{y}" class="mono" font-size="12.5" fill="{pc}">{t(p)}</text>'
@@ -156,16 +177,16 @@ def hero() -> str:
     )
     body = f"""
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1020"/><stop offset="1" stop-color="#131B3A"/></linearGradient>
-  <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{ORANGE}" stop-opacity="0.45"/><stop offset="1" stop-color="{ORANGE}" stop-opacity="0"/></radialGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{HERO_A}"/><stop offset="1" stop-color="{HERO_B}"/></linearGradient>
+  <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{ORANGE}" stop-opacity="{ORB_OPACITY}"/><stop offset="1" stop-color="{ORANGE}" stop-opacity="0"/></radialGradient>
   <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{VIOLET}" stop-opacity="0.30"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#1B2547" stroke-width="1"/></pattern>
-  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#86EFAC"/></linearGradient>
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="{GRID}" stroke-width="1"/></pattern>
+  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="{NAME_A}"/><stop offset="1" stop-color="{NAME_B}"/></linearGradient>
   <clipPath id="clip"><rect width="840" height="300" rx="18"/></clipPath>
 </defs>
 <g clip-path="url(#clip)">
   <rect width="840" height="300" fill="url(#bg)"/>
-  <rect width="840" height="300" fill="url(#grid)" opacity="0.55"/>
+  <rect width="840" height="300" fill="url(#grid)" opacity="{GRID_OPACITY}"/>
   <circle class="orb" cx="760" cy="40" r="190" fill="url(#orb)"/>
   <circle class="orb" cx="80" cy="300" r="170" fill="url(#orb2)" style="animation-delay:3s"/>
 </g>
@@ -178,12 +199,12 @@ def hero() -> str:
 </g>
 {''.join(chip_svg)}
 <!-- terminal -->
-<rect x="482" y="62" width="326" height="222" rx="12" fill="#0A0F1E" fill-opacity="0.92" stroke="{BORDER}"/>
-<rect x="482" y="62" width="326" height="28" rx="12" fill="#151E3F"/><rect x="482" y="80" width="326" height="10" fill="#151E3F"/>
+<rect x="482" y="62" width="326" height="222" rx="12" fill="{TERM['BG']}" stroke="#22305A"/>
+<rect x="482" y="62" width="326" height="28" rx="12" fill="{TERM['BAR']}"/><rect x="482" y="80" width="326" height="10" fill="{TERM['BAR']}"/>
 <circle cx="500" cy="76" r="5" fill="#FF5F57"/><circle cx="516" cy="76" r="5" fill="#FEBC2E"/><circle cx="532" cy="76" r="5" fill="#28C840"/>
-<text x="645" y="80" class="mono" font-size="11" fill="{MUTED}" text-anchor="middle">mundo@hanoi: ~</text>
+<text x="645" y="80" class="mono" font-size="11" fill="{TERM['MUTED']}" text-anchor="middle">mundo@hanoi: ~</text>
 {''.join(term)}
-<rect class="cur" x="502" y="{cursor_y - 11}" width="8" height="14" fill="{ORANGE}"/>
+<rect class="cur" x="502" y="{cursor_y - 11}" width="8" height="14" fill="{TERM['CURSOR']}"/>
 """
     return svg(840, 300, body, style)
 
@@ -192,7 +213,7 @@ def section(num: str, title: str, sub: str, color: str = ORANGE) -> str:
     body = f"""
 <defs><linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="{color}"/><stop offset="0.45" stop-color="{color}" stop-opacity="0.25"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></linearGradient></defs>
 <text x="2" y="40" class="mono" font-size="30" font-weight="700" fill="{color}">{num}</text>
-<text x="58" y="30" font-size="21" font-weight="700" fill="{TEXT}" stroke="#0B1020" stroke-width="0.4" paint-order="stroke">{t(title)}</text>
+<text x="58" y="30" font-size="21" font-weight="700" fill="{TEXT}">{t(title)}</text>
 <text x="58" y="50" font-size="12.5" fill="{MUTED}">{t(sub)}</text>
 <rect x="2" y="62" width="836" height="2" rx="1" fill="url(#l)"/>
 """
@@ -320,7 +341,7 @@ def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str
         (fmt_num(cal["totalContributions"]), "contributions · last year", ORANGE),
         (f"{current}d", "current streak", RED),
         (f"{longest}d", "longest streak", VIOLET),
-        (fmt_num(stars), "stars earned", "#FBBF24"),
+        (fmt_num(stars), "stars earned", STAR),
         (str(len(repos)), "public repositories", CYAN),
     ]
     parts = [f'<rect x="0.5" y="0.5" width="839" height="411" rx="16" fill="{PANEL}" stroke="{BORDER}"/>']
@@ -334,7 +355,7 @@ def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str
         )
     # heatmap
     peak = max((c for _, c in days), default=0) or 1
-    scale = ["#1A2342", "#14532D", "#15803D", "#22C55E", "#86EFAC"]
+    scale = HEAT
     cell, gap, hx, hy = 11, 3, 52, 152
     parts.append(f'<text x="20" y="124" font-size="13" font-weight="700" fill="{TEXT}">Contribution heatmap</text>')
     parts.append(f'<text x="820" y="124" font-size="11.5" fill="{MUTED}" text-anchor="end">{t(cal["totalContributions"])} contributions in the last year</text>')
@@ -417,9 +438,30 @@ def replace_block(text: str, tag: str, content: str) -> str:
 
 
 def main() -> None:
-    write("hero.svg", hero())
-    write("journey.svg", journey())
-    write("footer.svg", footer())
+    repos = [r for r in rest(f"users/{USER}/repos?per_page=100&type=owner") if not r["fork"]]
+    by_name = {r["name"]: r for r in repos}
+    lang_totals: dict[str, int] = {}
+    for r in repos:
+        for k, v in rest(f"repos/{USER}/{r['name']}/languages").items():
+            lang_totals[k] = lang_totals.get(k, 0) + v
+    card_langs = {name: rest(f"repos/{USER}/{name}/languages") for name, *_ in featured() if name in by_name}
+    user = contributions()
+    for theme in THEMES:
+        apply_theme(theme)
+        draw(theme, repos, by_name, lang_totals, card_langs, user)
+
+    readme = ROOT / "README.md"
+    text = replace_block(readme.read_text(encoding="utf-8"), "ACTIVITY", recent_activity(repos))
+    readme.write_text(bust_cache(text), encoding="utf-8")
+
+
+def draw(theme, repos, by_name, lang_totals, card_langs, user) -> None:
+    def write_t(name: str, content: str) -> None:
+        write(f"{name}-{theme}.svg", content)
+
+    write_t("hero", hero())
+    write_t("journey", journey())
+    write_t("footer", footer())
     for i, (title, sub, color) in enumerate([
         ("About me", "who I am, what I care about", ORANGE),
         ("Toolbox", "languages, frameworks and the tools around them", CYAN),
@@ -427,23 +469,11 @@ def main() -> None:
         ("Activity", "a heatmap, the numbers and what I touched recently", VIOLET),
         ("Journey & principles", "how I got here and how I work", GREEN),
     ], start=1):
-        write(f"section-{i}.svg", section(f"{i:02d}", title, sub, color))
-
-    repos = [r for r in rest(f"users/{USER}/repos?per_page=100&type=owner") if not r["fork"]]
-    by_name = {r["name"]: r for r in repos}
-    lang_totals: dict[str, int] = {}
-    for r in repos:
-        for k, v in rest(f"repos/{USER}/{r['name']}/languages").items():
-            lang_totals[k] = lang_totals.get(k, 0) + v
-    for name, emoji, accent, tagline, desc in FEATURED:
+        write_t(f"section-{i}", section(f"{i:02d}", title, sub, color))
+    for name, emoji, accent, tagline, desc in featured():
         if name in by_name:
-            langs = rest(f"repos/{USER}/{name}/languages")
-            write(f"card-{name.lower()}.svg", repo_card(by_name[name], langs, emoji, accent, tagline, desc))
-    write("dashboard.svg", dashboard(contributions(), repos, lang_totals))
-
-    readme = ROOT / "README.md"
-    text = replace_block(readme.read_text(encoding="utf-8"), "ACTIVITY", recent_activity(repos))
-    readme.write_text(bust_cache(text), encoding="utf-8")
+            write_t(f"card-{name.lower()}", repo_card(by_name[name], card_langs[name], emoji, accent, tagline, desc))
+    write_t("dashboard", dashboard(user, repos, lang_totals))
 
 
 def bust_cache(text: str) -> str:

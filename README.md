@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="assets/generated/hero.svg?v=efff543049" width="100%" alt="Mundo — Full-stack Software Engineer" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=afdca8ca94" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=d03865b10e" width="100%" alt="Mundo — Full-stack Software Engineer" /></picture>
 </p>
 
 <p align="center">
-  <a href="https://github.com/kdy74?tab=followers"><img src="https://img.shields.io/github/followers/kdy74?label=followers&style=flat-square&color=22C55E&labelColor=111833&logo=github" /></a>
-  <a href="https://github.com/kdy74?tab=repositories"><img src="https://img.shields.io/github/stars/kdy74?affiliations=OWNER&label=stars&style=flat-square&color=FBBF24&labelColor=111833&logo=github" /></a>
+  <a href="https://github.com/kdy74?tab=followers"><img src="https://img.shields.io/github/followers/kdy74?label=followers&style=flat-square&color=22C55E&labelColor=555555&logo=github" /></a>
+  <a href="https://github.com/kdy74?tab=repositories"><img src="https://img.shields.io/github/stars/kdy74?affiliations=OWNER&label=stars&style=flat-square&color=FBBF24&labelColor=555555&logo=github" /></a>
   <img src="https://komarev.com/ghpvc/?username=kdy74&style=flat-square&color=2DD4BF&label=profile+views" />
-  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-22D3EE?style=flat-square&labelColor=111833&logo=gmail&logoColor=white" /></a>
-  <img src="https://img.shields.io/badge/based_in-H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam-A3E635?style=flat-square&labelColor=111833" />
+  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-22D3EE?style=flat-square&labelColor=555555&logo=gmail&logoColor=white" /></a>
+  <img src="https://img.shields.io/badge/based_in-H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam-A3E635?style=flat-square&labelColor=555555" />
 </p>
 
 <br/>
 
-<img src="assets/generated/section-1.svg?v=dd7b8b0337" width="100%" alt="01 About me" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.svg?v=99b525ba5e" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.svg?v=fdda095126" width="100%" alt="01 About me" /></picture>
 
 <table>
 <tr>
@@ -52,49 +52,49 @@ believes_in:
 </tr>
 </table>
 
-<img src="assets/generated/section-2.svg?v=5617c7e52c" width="100%" alt="02 Toolbox" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=423453f90d" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=1ed1a6249e" width="100%" alt="02 Toolbox" /></picture>
 
 <table>
   <tr>
     <td align="right" width="20%"><b>Languages</b><br/><sub>daily drivers</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=dark" /><img src="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=light" height="46" /></picture></td>
   </tr>
   <tr>
     <td align="right"><b>Backend</b><br/><sub>APIs &amp; services</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=dark" /><img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=light" height="46" /></picture></td>
   </tr>
   <tr>
     <td align="right"><b>Frontend</b><br/><sub>web UI</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind,html,css&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind,html,css&theme=dark" /><img src="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind,html,css&theme=light" height="46" /></picture></td>
   </tr>
   <tr>
     <td align="right"><b>Desktop &amp; mobile</b><br/><sub>native-ish</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=tauri,flutter&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tauri,flutter&theme=dark" /><img src="https://skillicons.dev/icons?i=tauri,flutter&theme=light" height="46" /></picture></td>
   </tr>
   <tr>
     <td align="right"><b>Data</b><br/><sub>storage &amp; queues</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=dark" /><img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=light" height="46" /></picture></td>
   </tr>
   <tr>
     <td align="right"><b>Ops &amp; tooling</b><br/><sub>ship it safely</sub></td>
-    <td><img src="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,vscode,jest,figma&theme=dark" height="46" /></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,vscode,jest,figma&theme=dark" /><img src="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,vscode,jest,figma&theme=light" height="46" /></picture></td>
   </tr>
 </table>
 
-<img src="assets/generated/section-3.svg?v=f5c9bcc9bf" width="100%" alt="03 Featured work" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.svg?v=2dffcc8548" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.svg?v=9090f376bb" width="100%" alt="03 Featured work" /></picture>
 
 <table>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Otter"><img src="assets/generated/card-otter.svg?v=24a6a2a65b" width="100%" alt="Otter" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/nest_codebase"><img src="assets/generated/card-nest_codebase.svg?v=45e1cbb64e" width="100%" alt="nest_codebase" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Otter"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-otter-dark.svg?v=24a6a2a65b" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-otter-light.svg?v=623489a00f" width="100%" alt="Otter" /></picture></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/nest_codebase"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-nest_codebase-dark.svg?v=45e1cbb64e" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-nest_codebase-light.svg?v=c63adeb227" width="100%" alt="nest_codebase" /></picture></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vinsaky"><img src="assets/generated/card-vinsaky.svg?v=df2c70b110" width="100%" alt="Vinsaky" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/Pettopia"><img src="assets/generated/card-pettopia.svg?v=cfb08ad2a7" width="100%" alt="Pettopia" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Vinsaky"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vinsaky-dark.svg?v=df2c70b110" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vinsaky-light.svg?v=92785531f2" width="100%" alt="Vinsaky" /></picture></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Pettopia"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-dark.svg?v=cfb08ad2a7" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-light.svg?v=4687199eed" width="100%" alt="Pettopia" /></picture></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><img src="assets/generated/card-vietnamosaic.svg?v=894ec10df6" width="100%" alt="Vietnamosaic" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/EXE"><img src="assets/generated/card-exe.svg?v=0652f1f001" width="100%" alt="EXE" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-dark.svg?v=894ec10df6" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-light.svg?v=ff93eb3f5a" width="100%" alt="Vietnamosaic" /></picture></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/EXE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-dark.svg?v=0652f1f001" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-light.svg?v=6f754569bb" width="100%" alt="EXE" /></picture></a></td>
   </tr>
 </table>
 
@@ -115,10 +115,10 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 
 </details>
 
-<img src="assets/generated/section-4.svg?v=4df587680b" width="100%" alt="04 Activity" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=4c4ba70170" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=2513c1bdf9" width="100%" alt="04 Activity" /></picture>
 
 <p align="center">
-  <img src="assets/generated/dashboard.svg?v=1b85369de5" width="100%" alt="Contribution dashboard" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=1b85369de5" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=695e7077bf" width="100%" alt="Contribution dashboard" /></picture>
 </p>
 
 <table>
@@ -152,10 +152,10 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 </tr>
 </table>
 
-<img src="assets/generated/section-5.svg?v=eb85dbb8c4" width="100%" alt="05 Journey and principles" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-5-dark.svg?v=672a09fa9a" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-5-light.svg?v=7409f97aef" width="100%" alt="05 Journey and principles" /></picture>
 
 <p align="center">
-  <img src="assets/generated/journey.svg?v=0eed014709" width="100%" alt="Journey 2024–2026" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/journey-dark.svg?v=0eed014709" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/journey-light.svg?v=85b500f1e7" width="100%" alt="Journey 2024–2026" /></picture>
 </p>
 
 | 🔍 Evidence over assumptions | 🪶 Small, reversible changes | 🧪 Tests that can fail | 🔐 Secure by default | 📝 Docs as code |
@@ -165,5 +165,5 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <br/>
 
 <p align="center">
-  <img src="assets/generated/footer.svg?v=96f447fa34" width="100%" alt="Thanks for stopping by" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=96f447fa34" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=f78476a885" width="100%" alt="Thanks for stopping by" /></picture>
 </p>

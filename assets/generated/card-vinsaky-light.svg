@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="220" viewBox="0 0 410 220" role="img">
+<style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}</style>
+
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E7490" stop-opacity="0.16"/><stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>
+<rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="#FFFFFF" stroke="#D0D7DE"/>
+<rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="url(#g)"/>
+<rect x="24" y="0.5" width="64" height="3" rx="1.5" fill="#0E7490"/>
+<text x="24" y="44" font-size="22">🛒</text>
+<text x="58" y="43" font-size="19" font-weight="700" fill="#1F2328">Vinsaky</text>
+<text x="386" y="42" font-size="12" fill="#59636E" text-anchor="end" class="mono">★ 0  ⑂ 0</text>
+<text x="24" y="66" class="mono" font-size="11.5" fill="#0E7490">NestJS · MongoDB · React</text>
+<text x="24" y="94" font-size="13" fill="#1F2328" fill-opacity="0.86">Full-stack commerce platform with queue workers,</text><text x="24" y="113" font-size="13" fill="#1F2328" fill-opacity="0.86">SePay payments, live chat, dashboards and</text><text x="24" y="132" font-size="13" fill="#1F2328" fill-opacity="0.86">interactive maps.</text>
+<clipPath id="c"><rect x="24" y="148" width="362" height="6" rx="3.0"/></clipPath><g clip-path="url(#c)"><rect x="24.00" y="148" width="254.26" height="6" fill="#F1E05A"/><rect x="277.76" y="148" width="75.13" height="6" fill="#3178C6"/><rect x="352.39" y="148" width="31.66" height="6" fill="#663399"/><rect x="383.55" y="148" width="2.95" height="6" fill="#E34C26"/></g>
+<circle cx="28" cy="168" r="4" fill="#F1E05A"/><text x="37" y="172" font-size="11.5" fill="#59636E">JavaScript 70%</text><circle cx="143.60000000000002" cy="168" r="4" fill="#3178C6"/><text x="152.60000000000002" y="172" font-size="11.5" fill="#59636E">TypeScript 21%</text><circle cx="259.20000000000005" cy="168" r="4" fill="#663399"/><text x="268.20000000000005" y="172" font-size="11.5" fill="#59636E">CSS 9%</text>
+<text x="24" y="202" class="mono" font-size="11" fill="#59636E">updated Apr 2026</text>
+<text x="386" y="202" class="mono" font-size="11" fill="#0E7490" text-anchor="end">view repo →</text>
+
+</svg>
