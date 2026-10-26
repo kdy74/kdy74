@@ -118,7 +118,7 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <img src="assets/generated/section-4.svg?v=4df587680b" width="100%" alt="04 Activity" />
 
 <p align="center">
-  <img src="assets/generated/dashboard.svg?v=fd7116b59f" width="100%" alt="Contribution dashboard" />
+  <img src="assets/generated/dashboard.svg?v=1b85369de5" width="100%" alt="Contribution dashboard" />
 </p>
 
 <table>

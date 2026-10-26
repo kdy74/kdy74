@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="412" viewBox="0 0 840 412" role="img">
 <style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}</style>
 <rect x="0.5" y="0.5" width="839" height="411" rx="16" fill="#111833" stroke="#22305A"/>
-<rect x="20" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="20" y="20" width="3" height="74" rx="1.5" fill="#22C55E"/><text x="38" y="58" font-size="27" font-weight="800" fill="#22C55E">623</text><text x="38" y="80" font-size="11.5" fill="#8B98B8">contributions · last year</text>
+<rect x="20" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="20" y="20" width="3" height="74" rx="1.5" fill="#22C55E"/><text x="38" y="58" font-size="27" font-weight="800" fill="#22C55E">624</text><text x="38" y="80" font-size="11.5" fill="#8B98B8">contributions · last year</text>
 <rect x="182" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="182" y="20" width="3" height="74" rx="1.5" fill="#A3E635"/><text x="200" y="58" font-size="27" font-weight="800" fill="#A3E635">2d</text><text x="200" y="80" font-size="11.5" fill="#8B98B8">current streak</text>
 <rect x="344" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="344" y="20" width="3" height="74" rx="1.5" fill="#2DD4BF"/><text x="362" y="58" font-size="27" font-weight="800" fill="#2DD4BF">10d</text><text x="362" y="80" font-size="11.5" fill="#8B98B8">longest streak</text>
 <rect x="506" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="506" y="20" width="3" height="74" rx="1.5" fill="#FBBF24"/><text x="524" y="58" font-size="27" font-weight="800" fill="#FBBF24">7</text><text x="524" y="80" font-size="11.5" fill="#8B98B8">stars earned</text>
 <rect x="668" y="20" width="150" height="74" rx="10" fill="#0B1020" stroke="#22305A"/><rect x="668" y="20" width="3" height="74" rx="1.5" fill="#22D3EE"/><text x="686" y="58" font-size="27" font-weight="800" fill="#22D3EE">11</text><text x="686" y="80" font-size="11.5" fill="#8B98B8">public repositories</text>
 <text x="20" y="124" font-size="13" font-weight="700" fill="#E6EDF3">Contribution heatmap</text>
-<text x="820" y="124" font-size="11.5" fill="#8B98B8" text-anchor="end">623 contributions in the last year</text>
+<text x="820" y="124" font-size="11.5" fill="#8B98B8" text-anchor="end">624 contributions in the last year</text>
 <rect x="52" y="152" width="11" height="11" rx="2.5" fill="#14532D"><title>2025-10-26: 2</title></rect>
 <rect x="52" y="166" width="11" height="11" rx="2.5" fill="#14532D"><title>2025-10-27: 1</title></rect>
 <rect x="52" y="180" width="11" height="11" rx="2.5" fill="#1A2342"><title>2025-10-28: 0</title></rect>
@@ -385,7 +385,7 @@
 <rect x="766" y="222" width="11" height="11" rx="2.5" fill="#1A2342"><title>2026-10-23: 0</title></rect>
 <rect x="766" y="236" width="11" height="11" rx="2.5" fill="#1A2342"><title>2026-10-24: 0</title></rect>
 <rect x="780" y="152" width="11" height="11" rx="2.5" fill="#14532D"><title>2026-10-25: 1</title></rect>
-<rect x="780" y="166" width="11" height="11" rx="2.5" fill="#14532D"><title>2026-10-26: 8</title></rect>
+<rect x="780" y="166" width="11" height="11" rx="2.5" fill="#14532D"><title>2026-10-26: 9</title></rect>
 <text x="20" y="175" font-size="10" fill="#8B98B8">Mon</text>
 <text x="20" y="203" font-size="10" fill="#8B98B8">Wed</text>
 <text x="20" y="231" font-size="10" fill="#8B98B8">Fri</text>
@@ -397,7 +397,7 @@
 <rect x="776" y="255" width="11" height="11" rx="2.5" fill="#86EFAC"/>
 <text x="794" y="264" font-size="10" fill="#8B98B8">more</text>
 <text x="20" y="302" font-size="13" font-weight="700" fill="#E6EDF3">Languages across public repositories</text>
-<clipPath id="lb"><rect x="20" y="316" width="800" height="10" rx="5.0"/></clipPath><g clip-path="url(#lb)"><rect x="20.00" y="316" width="398.57" height="10" fill="#3178C6"/><rect x="418.07" y="316" width="105.75" height="10" fill="#663399"/><rect x="523.32" y="316" width="103.28" height="10" fill="#DEA584"/><rect x="626.10" y="316" width="99.11" height="10" fill="#F1E05A"/><rect x="724.71" y="316" width="43.28" height="10" fill="#B07219"/><rect x="767.49" y="316" width="29.41" height="10" fill="#C6538C"/><rect x="796.40" y="316" width="15.34" height="10" fill="#4F7CC4"/><rect x="811.23" y="316" width="9.27" height="10" fill="#8B98B8"/></g>
+<clipPath id="lb"><rect x="20" y="316" width="800" height="10" rx="5.0"/></clipPath><g clip-path="url(#lb)"><rect x="20.00" y="316" width="398.55" height="10" fill="#3178C6"/><rect x="418.05" y="316" width="105.75" height="10" fill="#663399"/><rect x="523.29" y="316" width="103.27" height="10" fill="#DEA584"/><rect x="626.07" y="316" width="99.11" height="10" fill="#F1E05A"/><rect x="724.67" y="316" width="43.27" height="10" fill="#B07219"/><rect x="767.45" y="316" width="29.41" height="10" fill="#C6538C"/><rect x="796.35" y="316" width="15.33" height="10" fill="#4F7CC4"/><rect x="811.19" y="316" width="9.31" height="10" fill="#8B98B8"/></g>
 <circle cx="25" cy="350" r="5" fill="#3178C6"/><text x="36" y="354" font-size="12.5" fill="#E6EDF3">TypeScript</text><text x="200" y="354" class="mono" font-size="11.5" fill="#8B98B8" text-anchor="end">49.8%</text>
 <circle cx="230" cy="350" r="5" fill="#663399"/><text x="241" y="354" font-size="12.5" fill="#E6EDF3">CSS</text><text x="405" y="354" class="mono" font-size="11.5" fill="#8B98B8" text-anchor="end">13.2%</text>
 <circle cx="435" cy="350" r="5" fill="#DEA584"/><text x="446" y="354" font-size="12.5" fill="#E6EDF3">Rust</text><text x="610" y="354" class="mono" font-size="11.5" fill="#8B98B8" text-anchor="end">12.8%</text>
