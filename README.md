@@ -114,10 +114,10 @@ I turn messy, real-world workflows into calm, reliable software — from secure 
 
 | | Update | Date |
 |:-:|---|--:|
-| 📐 | **Vietnamosaic** — product & UI specification v1.0 with 12 reference screens | Oct 26, 2026 |
-| 🦦 | **Otter v0.4.1** — first downloadable build: save & restore contexts, encrypted `.paw` packages, browser extension | Jul 13, 2026 |
-| 🦦 | **Otter v0.4.0** — signed handoff packs, one-button share, new-machine migration and session recovery | Jul 9, 2026 |
-| 🧱 | **nest_codebase** — base repository pattern, TypeORM support, standardised pagination & filtering | May 11, 2026 |
+| 📐 | **Vietnamosaic** — product & UI specification v1.0 with 12 reference screens | Oct&nbsp;26,&nbsp;2026 |
+| 🦦 | **Otter v0.4.1** — first downloadable build: save & restore contexts, encrypted `.paw` packages, browser extension | Jul&nbsp;13,&nbsp;2026 |
+| 🦦 | **Otter v0.4.0** — signed handoff packs, one-button share, new-machine migration and session recovery | Jul&nbsp;9,&nbsp;2026 |
+| 🧱 | **nest_codebase** — base repository pattern, TypeORM support, standardised pagination & filtering | May&nbsp;11,&nbsp;2026 |
 
 ---
 
@@ -137,7 +137,7 @@ I turn messy, real-world workflows into calm, reliable software — from secure 
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=kdy74&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&hide_rank=true&theme=github_dark&bg_color=0D1117&icon_color=F97316&title_color=E6EDF3" width="100%" />
+      <img src="https://github-readme-stats.vercel.app/api?username=kdy74&show_icons=true&count_private=true&hide_border=true&hide_rank=true&theme=github_dark&bg_color=0D1117&icon_color=F97316&title_color=E6EDF3" width="100%" />
     </td>
     <td width="50%" align="center">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kdy74&layout=compact&langs_count=8&hide_border=true&theme=github_dark&bg_color=0D1117&title_color=E6EDF3" width="100%" />
