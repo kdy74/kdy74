@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="410" height="220" viewBox="0 0 410 220" role="img">
 <style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}</style>
 
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA" stop-opacity="0.16"/><stop offset="0.55" stop-color="#111833" stop-opacity="0"/></linearGradient></defs>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2DD4BF" stop-opacity="0.16"/><stop offset="0.55" stop-color="#111833" stop-opacity="0"/></linearGradient></defs>
 <rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="#111833" stroke="#22305A"/>
 <rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="url(#g)"/>
-<rect x="24" y="0.5" width="64" height="3" rx="1.5" fill="#A78BFA"/>
-<text x="24" y="44" font-size="22">🏮</text>
+<rect x="24" y="0.5" width="64" height="3" rx="1.5" fill="#2DD4BF"/>
+<text x="24" y="44" font-size="22">🇻🇳</text>
 <text x="58" y="43" font-size="19" font-weight="700" fill="#E6EDF3">Vietnamosaic</text>
 <text x="386" y="42" font-size="12" fill="#8B98B8" text-anchor="end" class="mono">★ 0  ⑂ 0</text>
-<text x="24" y="66" class="mono" font-size="11.5" fill="#A78BFA">Product spec · 12 screens</text>
+<text x="24" y="66" class="mono" font-size="11.5" fill="#2DD4BF">Product spec · 12 screens</text>
 <text x="24" y="94" font-size="13" fill="#E6EDF3" fill-opacity="0.86">A social network for discovering Việt Nam through</text><text x="24" y="113" font-size="13" fill="#E6EDF3" fill-opacity="0.86">everyday stories, experience mosaic pieces and mini</text><text x="24" y="132" font-size="13" fill="#E6EDF3" fill-opacity="0.86">postage stamps.</text>
 <rect x="24" y="148" width="362" height="6" rx="3" fill="#22305A"/>
 <text x="24" y="172" font-size="11.5" fill="#8B98B8">Spec &amp; design documents</text>
 <text x="24" y="202" class="mono" font-size="11" fill="#8B98B8">updated Oct 2026</text>
-<text x="386" y="202" class="mono" font-size="11" fill="#A78BFA" text-anchor="end">view repo →</text>
+<text x="386" y="202" class="mono" font-size="11" fill="#2DD4BF" text-anchor="end">view repo →</text>
 
 </svg>

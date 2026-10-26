@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="assets/generated/hero.svg" width="100%" alt="Nguyễn Khắc Duy — Full-stack Software Engineer" />
+  <img src="assets/generated/hero.svg" width="100%" alt="Mundo — Full-stack Software Engineer" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/kdy74?tab=followers"><img src="https://img.shields.io/github/followers/kdy74?label=followers&style=flat-square&color=F97316&labelColor=111833&logo=github" /></a>
+  <a href="https://github.com/kdy74?tab=followers"><img src="https://img.shields.io/github/followers/kdy74?label=followers&style=flat-square&color=22C55E&labelColor=111833&logo=github" /></a>
   <a href="https://github.com/kdy74?tab=repositories"><img src="https://img.shields.io/github/stars/kdy74?affiliations=OWNER&label=stars&style=flat-square&color=FBBF24&labelColor=111833&logo=github" /></a>
-  <img src="https://komarev.com/ghpvc/?username=kdy74&style=flat-square&color=A78BFA&label=profile+views" />
+  <img src="https://komarev.com/ghpvc/?username=kdy74&style=flat-square&color=2DD4BF&label=profile+views" />
   <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-22D3EE?style=flat-square&labelColor=111833&logo=gmail&logoColor=white" /></a>
-  <img src="https://img.shields.io/badge/based_in-H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam-EF4444?style=flat-square&labelColor=111833" />
+  <img src="https://img.shields.io/badge/based_in-H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam-A3E635?style=flat-square&labelColor=111833" />
 </p>
 
 <br/>
@@ -16,39 +16,36 @@
 
 <table>
 <tr>
-<td width="55%" valign="top">
+<td width="60%" valign="top">
 
-**Xin chào!** I'm Duy — a full-stack engineer from Hà Nội who likes turning messy, real-world workflows into calm, reliable software.
+**Xin chào!** I'm **Mundo** — a full-stack engineer from Hà Nội who likes turning messy, real-world workflows into calm, reliable software.
 
 Day to day I build an **AI-native workspace** for public-sector and enterprise teams: approval engines, secure platform foundations and the developer tooling around them. After hours I build **[Otter](https://github.com/kdy74/Otter)** 🦦, a desktop app that remembers exactly where you left off.
 
-| | |
-|:-:|---|
-| 🔭 | **Now** — AI-native collaboration, approval workflows, local-first desktop |
-| 🌱 | **Learning** — Rust & Tauri internals, LLM product design, evaluation |
-| 💬 | **Ask me about** — NestJS architecture, queues, auth, CI gates |
-| 🌏 | **Languages** — Tiếng Việt · English · 中文 (reading) |
+- 🔭 **Now** — AI-native collaboration, approval workflows, local-first desktop
+- 🌱 **Learning** — Rust & Tauri internals, LLM product design
+- 💬 **Ask me about** — NestJS architecture, queues, auth, CI gates
+- 🌏 **Languages** — Tiếng Việt · English
 
 </td>
-<td width="45%" valign="top">
+<td width="40%" valign="top">
 
 ```yaml
-name: Nguyễn Khắc Duy
-role: Full-stack Software Engineer
+name: Mundo
+role: Full-stack Engineer
 base: Hà Nội, Việt Nam
 building:
-  - AI-native workspace (work)
-  - Otter — workspace time machine
+  - AI-native workspace
+  - Otter (time machine)
 stack:
-  backend:  [NestJS, Express, FastAPI]
-  frontend: [React, Next.js, Vite]
-  desktop:  [Rust, Tauri]
-  mobile:   [Flutter]
-  data:     [PostgreSQL, MongoDB, Redis]
+  api:  [NestJS, Express]
+  web:  [React, Next.js]
+  app:  [Rust, Tauri, Flutter]
+  data: [Postgres, Mongo, Redis]
 believes_in:
-  - evidence over assumptions
+  - evidence > assumptions
   - small, reversible changes
-  - tests that can actually fail
+  - tests that can fail
 ```
 
 </td>

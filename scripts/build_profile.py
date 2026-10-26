@@ -25,10 +25,10 @@ PANEL = "#111833"
 BORDER = "#22305A"
 TEXT = "#E6EDF3"
 MUTED = "#8B98B8"
-ORANGE = "#F97316"
-RED = "#EF4444"
+ORANGE = "#22C55E"  # primary accent (green)
+RED = "#A3E635"  # lime
 CYAN = "#22D3EE"
-VIOLET = "#A78BFA"
+VIOLET = "#2DD4BF"  # teal
 GREEN = "#34D399"
 SANS = "'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace"
@@ -50,9 +50,9 @@ FEATURED = [
      "Full-stack commerce platform with queue workers, SePay payments, live chat, dashboards and interactive maps."),
     ("Pettopia", "🐾", GREEN, "Next.js · Tailwind · Docker",
      "Pet-care platform: TypeScript backend, a customer app with QR scanning and a clinic portal with analytics."),
-    ("Vietnamosaic", "🏮", VIOLET, "Product spec · 12 screens",
+    ("Vietnamosaic", "🇻🇳", VIOLET, "Product spec · 12 screens",
      "A social network for discovering Việt Nam through everyday stories, experience mosaic pieces and mini postage stamps."),
-    ("EXE", "🧩", "#60A5FA", "Express · MongoDB · JWT",
+    ("EXE", "🧩", "#5EEAD4", "Express · MongoDB · JWT",
      "Express MVC API with routers, controllers, Joi validators and middleware, JWT auth and Cloudinary uploads."),
 ]
 
@@ -120,7 +120,7 @@ def write(name: str, content: str) -> None:
 def hero() -> str:
     lines = [
         ("$", "whoami", TEXT),
-        ("›", "duy · full-stack engineer · Hà Nội", GREEN),
+        ("›", "mundo · full-stack engineer · Hà Nội", GREEN),
         ("$", "cat focus.txt", TEXT),
         ("›", "AI-native workspaces", CYAN),
         ("›", "secure backend platforms", CYAN),
@@ -131,7 +131,7 @@ def hero() -> str:
     term = []
     for i, (p, s, color) in enumerate(lines):
         y = 110 + i * 20
-        pc = ORANGE if p == "$" else color
+        pc = RED if p == "$" else color
         term.append(
             "<g>"
             f'<text x="502" y="{y}" class="mono" font-size="12.5" fill="{pc}">{t(p)}</text>'
@@ -159,7 +159,7 @@ def hero() -> str:
   <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{ORANGE}" stop-opacity="0.45"/><stop offset="1" stop-color="{ORANGE}" stop-opacity="0"/></radialGradient>
   <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{VIOLET}" stop-opacity="0.30"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></radialGradient>
   <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#1B2547" stroke-width="1"/></pattern>
-  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FDBA74"/></linearGradient>
+  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#86EFAC"/></linearGradient>
   <clipPath id="clip"><rect width="840" height="300" rx="18"/></clipPath>
 </defs>
 <g clip-path="url(#clip)">
@@ -167,18 +167,11 @@ def hero() -> str:
   <rect width="840" height="300" fill="url(#grid)" opacity="0.55"/>
   <circle class="orb" cx="760" cy="40" r="190" fill="url(#orb)"/>
   <circle class="orb" cx="80" cy="300" r="170" fill="url(#orb2)" style="animation-delay:3s"/>
-  <!-- lanterns -->
-  <g opacity="0.9">
-    <line x1="430" y1="0" x2="430" y2="26" stroke="{RED}" stroke-opacity="0.6"/>
-    <ellipse cx="430" cy="38" rx="10" ry="13" fill="{RED}" fill-opacity="0.85"/><rect x="425" y="49" width="10" height="4" fill="#F59E0B"/>
-    <line x1="455" y1="0" x2="455" y2="14" stroke="{RED}" stroke-opacity="0.6"/>
-    <ellipse cx="455" cy="24" rx="7" ry="9" fill="{ORANGE}" fill-opacity="0.85"/><rect x="451.5" y="32" width="7" height="3" fill="#F59E0B"/>
-  </g>
 </g>
 <rect x="0.5" y="0.5" width="839" height="299" rx="18" fill="none" stroke="{BORDER}"/>
 <g>
-  <text x="40" y="70" class="mono" font-size="13" fill="{ORANGE}" letter-spacing="3">XIN CHÀO · HELLO · 你好</text>
-  <text x="40" y="122" font-size="44" font-weight="800" fill="url(#name)">Nguyễn Khắc Duy</text>
+  <text x="40" y="70" class="mono" font-size="13" fill="{ORANGE}" letter-spacing="3">XIN CHÀO · HELLO</text>
+  <text x="40" y="122" font-size="44" font-weight="800" fill="url(#name)">Mundo</text>
   <text x="40" y="158" font-size="19" font-weight="600" fill="{TEXT}">Full-stack Software Engineer</text>
   <text x="40" y="186" font-size="14" fill="{MUTED}">Turning messy workflows into calm, reliable software.</text>
 </g>
@@ -187,7 +180,7 @@ def hero() -> str:
 <rect x="482" y="62" width="326" height="222" rx="12" fill="#0A0F1E" fill-opacity="0.92" stroke="{BORDER}"/>
 <rect x="482" y="62" width="326" height="28" rx="12" fill="#151E3F"/><rect x="482" y="80" width="326" height="10" fill="#151E3F"/>
 <circle cx="500" cy="76" r="5" fill="#FF5F57"/><circle cx="516" cy="76" r="5" fill="#FEBC2E"/><circle cx="532" cy="76" r="5" fill="#28C840"/>
-<text x="645" y="80" class="mono" font-size="11" fill="{MUTED}" text-anchor="middle">duy@hanoi: ~</text>
+<text x="645" y="80" class="mono" font-size="11" fill="{MUTED}" text-anchor="middle">mundo@hanoi: ~</text>
 {''.join(term)}
 <rect class="cur" x="502" y="{cursor_y - 11}" width="8" height="14" fill="{ORANGE}"/>
 """
@@ -340,7 +333,7 @@ def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str
         )
     # heatmap
     peak = max((c for _, c in days), default=0) or 1
-    scale = ["#1A2342", "#7C2D12", "#C2410C", "#F97316", "#FDBA74"]
+    scale = ["#1A2342", "#14532D", "#15803D", "#22C55E", "#86EFAC"]
     cell, gap, hx, hy = 11, 3, 52, 152
     parts.append(f'<text x="20" y="124" font-size="13" font-weight="700" fill="{TEXT}">Contribution heatmap</text>')
     parts.append(f'<text x="820" y="124" font-size="11.5" fill="{MUTED}" text-anchor="end">{t(cal["totalContributions"])} contributions in the last year</text>')
