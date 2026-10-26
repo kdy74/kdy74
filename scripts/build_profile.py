@@ -7,6 +7,7 @@ Only the standard library is used. Needs GITHUB_TOKEN in the environment.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import json
 import os
 import re
@@ -441,7 +442,17 @@ def main() -> None:
     write("dashboard.svg", dashboard(contributions(), repos, lang_totals))
 
     readme = ROOT / "README.md"
-    readme.write_text(replace_block(readme.read_text(encoding="utf-8"), "ACTIVITY", recent_activity(repos)), encoding="utf-8")
+    text = replace_block(readme.read_text(encoding="utf-8"), "ACTIVITY", recent_activity(repos))
+    readme.write_text(bust_cache(text), encoding="utf-8")
+
+
+def bust_cache(text: str) -> str:
+    """Pin each generated image URL to its content hash so GitHub's CDN never serves a stale copy."""
+    def stamp(m: re.Match) -> str:
+        f = OUT / m.group(1)
+        digest = hashlib.sha1(f.read_bytes()).hexdigest()[:10] if f.exists() else "0"
+        return f"assets/generated/{m.group(1)}?v={digest}"
+    return re.sub(r"assets/generated/([\w.-]+\.svg)(\?v=\w+)?", stamp, text)
 
 
 if __name__ == "__main__":

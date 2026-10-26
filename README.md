@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/generated/hero.svg" width="100%" alt="Mundo — Full-stack Software Engineer" />
+  <img src="assets/generated/hero.svg?v=efff543049" width="100%" alt="Mundo — Full-stack Software Engineer" />
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 
 <br/>
 
-<img src="assets/generated/section-1.svg" width="100%" alt="01 About me" />
+<img src="assets/generated/section-1.svg?v=dd7b8b0337" width="100%" alt="01 About me" />
 
 <table>
 <tr>
@@ -52,7 +52,7 @@ believes_in:
 </tr>
 </table>
 
-<img src="assets/generated/section-2.svg" width="100%" alt="02 Toolbox" />
+<img src="assets/generated/section-2.svg?v=5617c7e52c" width="100%" alt="02 Toolbox" />
 
 <table>
   <tr>
@@ -81,20 +81,20 @@ believes_in:
   </tr>
 </table>
 
-<img src="assets/generated/section-3.svg" width="100%" alt="03 Featured work" />
+<img src="assets/generated/section-3.svg?v=f5c9bcc9bf" width="100%" alt="03 Featured work" />
 
 <table>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Otter"><img src="assets/generated/card-otter.svg" width="100%" alt="Otter" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/nest_codebase"><img src="assets/generated/card-nest_codebase.svg" width="100%" alt="nest_codebase" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Otter"><img src="assets/generated/card-otter.svg?v=24a6a2a65b" width="100%" alt="Otter" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/nest_codebase"><img src="assets/generated/card-nest_codebase.svg?v=45e1cbb64e" width="100%" alt="nest_codebase" /></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vinsaky"><img src="assets/generated/card-vinsaky.svg" width="100%" alt="Vinsaky" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/Pettopia"><img src="assets/generated/card-pettopia.svg" width="100%" alt="Pettopia" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Vinsaky"><img src="assets/generated/card-vinsaky.svg?v=df2c70b110" width="100%" alt="Vinsaky" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Pettopia"><img src="assets/generated/card-pettopia.svg?v=cfb08ad2a7" width="100%" alt="Pettopia" /></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><img src="assets/generated/card-vietnamosaic.svg" width="100%" alt="Vietnamosaic" /></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/EXE"><img src="assets/generated/card-exe.svg" width="100%" alt="EXE" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><img src="assets/generated/card-vietnamosaic.svg?v=894ec10df6" width="100%" alt="Vietnamosaic" /></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/EXE"><img src="assets/generated/card-exe.svg?v=0652f1f001" width="100%" alt="EXE" /></a></td>
   </tr>
 </table>
 
@@ -115,10 +115,10 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 
 </details>
 
-<img src="assets/generated/section-4.svg" width="100%" alt="04 Activity" />
+<img src="assets/generated/section-4.svg?v=4df587680b" width="100%" alt="04 Activity" />
 
 <p align="center">
-  <img src="assets/generated/dashboard.svg" width="100%" alt="Contribution dashboard" />
+  <img src="assets/generated/dashboard.svg?v=fd7116b59f" width="100%" alt="Contribution dashboard" />
 </p>
 
 <table>
@@ -152,10 +152,10 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 </tr>
 </table>
 
-<img src="assets/generated/section-5.svg" width="100%" alt="05 Journey and principles" />
+<img src="assets/generated/section-5.svg?v=eb85dbb8c4" width="100%" alt="05 Journey and principles" />
 
 <p align="center">
-  <img src="assets/generated/journey.svg" width="100%" alt="Journey 2024–2026" />
+  <img src="assets/generated/journey.svg?v=0eed014709" width="100%" alt="Journey 2024–2026" />
 </p>
 
 | 🔍 Evidence over assumptions | 🪶 Small, reversible changes | 🧪 Tests that can fail | 🔐 Secure by default | 📝 Docs as code |
@@ -165,5 +165,5 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <br/>
 
 <p align="center">
-  <img src="assets/generated/footer.svg" width="100%" alt="Thanks for stopping by" />
+  <img src="assets/generated/footer.svg?v=96f447fa34" width="100%" alt="Thanks for stopping by" />
 </p>
