@@ -1,5 +1,5 @@
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=afdca8ca94" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=d03865b10e" width="100%" alt="Mundo — Full-stack Software Engineer" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=afdca8ca94" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=d03865b10e" width="100%" alt="Penguy. — Full-stack Software Engineer" /></picture>
 </p>
 
 <p align="center">
