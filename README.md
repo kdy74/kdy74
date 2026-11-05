@@ -93,7 +93,7 @@ believes_in:
     <td width="50%"><a href="https://github.com/kdy74/Pettopia"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-dark.svg?v=cfb08ad2a7" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-light.svg?v=4687199eed" width="100%" alt="Pettopia" /></picture></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-dark.svg?v=894ec10df6" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-light.svg?v=ff93eb3f5a" width="100%" alt="Vietnamosaic" /></picture></a></td>
+    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-dark.svg?v=8fa534e1c3" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-light.svg?v=b9aa9268e2" width="100%" alt="Vietnamosaic" /></picture></a></td>
     <td width="50%"><a href="https://github.com/kdy74/EXE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-dark.svg?v=0652f1f001" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-light.svg?v=6f754569bb" width="100%" alt="EXE" /></picture></a></td>
   </tr>
 </table>
@@ -118,7 +118,7 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=4c4ba70170" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=2513c1bdf9" width="100%" alt="04 Activity" /></picture>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=b0dba00af5" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=1d50c12e02" width="100%" alt="Contribution dashboard" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=69702c42ec" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=a8d55d6efc" width="100%" alt="Contribution dashboard" /></picture>
 </p>
 
 <table>
@@ -130,7 +130,7 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <!--ACTIVITY:START-->
 | | Latest commit | When |
 |:-:|---|--:|
-| 🔨 | **[Vietnamosaic](https://github.com/kdy74/Vietnamosaic)**<br/><sub>Initialize Vietnamosaic product and UI documentation</sub> | Oct&nbsp;26,&nbsp;2026 |
+| 📝 | **[Vietnamosaic](https://github.com/kdy74/Vietnamosaic)**<br/><sub>docs: ghi lại ý tưởng Ghim nhanh vào README</sub> | Nov&nbsp;05,&nbsp;2026 |
 | 🧹 | **[Otter](https://github.com/kdy74/Otter)**<br/><sub>chore(release): prepare Otter 0.4.1 launch</sub> | Jul&nbsp;13,&nbsp;2026 |
 | ✨ | **[nest_codebase](https://github.com/kdy74/nest_codebase)**<br/><sub>feat(infra): implement base repository pattern and add TypeORM…</sub> | May&nbsp;11,&nbsp;2026 |
 | 🔨 | **[Vinsaky](https://github.com/kdy74/Vinsaky)**<br/><sub>ddd structure</sub> | Apr&nbsp;02,&nbsp;2026 |
