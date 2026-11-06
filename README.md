@@ -118,7 +118,7 @@ Work rarely lives in one window. Otter turns your desktop state into a **named, 
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=4c4ba70170" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=2513c1bdf9" width="100%" alt="04 Activity" /></picture>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=69702c42ec" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=a8d55d6efc" width="100%" alt="Contribution dashboard" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=366ca182ed" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=793e46f483" width="100%" alt="Contribution dashboard" /></picture>
 </p>
 
 <table>
