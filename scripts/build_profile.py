@@ -340,12 +340,22 @@ def main() -> None:
 
 
 def bust_cache(text: str) -> str:
-    """Pin each generated image URL to its content hash so GitHub's CDN never serves a stale copy."""
-    def stamp(m: re.Match) -> str:
-        f = OUT / m.group(1)
-        digest = hashlib.sha1(f.read_bytes()).hexdigest()[:10] if f.exists() else "0"
-        return f"assets/generated/{m.group(1)}?v={digest}"
-    return re.sub(r"assets/generated/([\w.-]+\.svg)(\?v=\w+)?", stamp, text)
+    """Rename each SVG to name.<hash>.svg and point the README at it.
+
+    A brand-new path per content change means neither raw.githubusercontent.com
+    nor GitHub's image proxy can ever serve a stale copy.
+    """
+    names = {}
+    for f in sorted(OUT.glob("*.svg")):
+        digest = hashlib.sha1(f.read_bytes()).hexdigest()[:10]
+        target = OUT / f"{f.stem}.{digest}.svg"
+        f.rename(target)
+        names[f.stem] = target.name
+    return re.sub(
+        r"assets/generated/([\w-]+?)(?:\.[0-9a-f]{10})?\.svg(?:\?v=\w+)?",
+        lambda m: f"assets/generated/{names.get(m.group(1), m.group(1) + '.svg')}",
+        text,
+    )
 
 
 if __name__ == "__main__":

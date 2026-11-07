@@ -1,5 +1,5 @@
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=ea76b220e1" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=852999c7c7" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.ea76b220e1.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.852999c7c7.svg" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
 </p>
 
 <p align="center">
@@ -10,19 +10,19 @@
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.svg?v=0c07b411b5" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.svg?v=b608935932" width="100%" alt="01 Về mình" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.0c07b411b5.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.b608935932.svg" width="100%" alt="01 Về mình" /></picture>
 
 **Xin chào!** Mình là **penguy.** — một full-stack engineer ở Hà Nội. Mình thích nhận những quy trình rối rắm ngoài đời thực và biến chúng thành phần mềm **gọn gàng, ổn định và dễ tin cậy**.
 
 Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội ngũ doanh nghiệp và khối công: luồng phê duyệt, nền tảng bảo mật và bộ công cụ cho lập trình viên xung quanh chúng. Ngoài giờ, mình làm những công cụ desktop nhỏ ưu tiên chạy offline.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-dark.svg?v=35d2f4681f" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-light.svg?v=7f615545f2" width="100%" alt="Hiện tại" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-dark.35d2f4681f.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-light.7f615545f2.svg" width="100%" alt="Hiện tại" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=78017f5f1c" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=33d24ccc17" width="100%" alt="02 Chuyên môn" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.78017f5f1c.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.33d24ccc17.svg" width="100%" alt="02 Chuyên môn" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.svg?v=b60009bb20" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.svg?v=80469e9db9" width="100%" alt="Kiến trúc, bảo mật, AI-native, Web/Desktop/Mobile, DevOps" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.b60009bb20.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.80469e9db9.svg" width="100%" alt="Kiến trúc, bảo mật, AI-native, Web/Desktop/Mobile, DevOps" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.svg?v=6b5f804424" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.svg?v=fa9421e532" width="100%" alt="03 Công cụ" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.6b5f804424.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.fa9421e532.svg" width="100%" alt="03 Công cụ" /></picture>
 
 <table>
   <tr>
@@ -51,12 +51,12 @@ Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội 
   </tr>
 </table>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=82864d53a3" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=5986c8c560" width="100%" alt="04 Cách mình làm việc" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.82864d53a3.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.5986c8c560.svg" width="100%" alt="04 Cách mình làm việc" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-dark.svg?v=5f28b98e4c" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-light.svg?v=4cc1b75113" width="100%" alt="Nguyên tắc làm việc" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-dark.5f28b98e4c.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-light.4cc1b75113.svg" width="100%" alt="Nguyên tắc làm việc" /></picture>
 
 <br/>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=b056b7a280" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=a5eb037205" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.b056b7a280.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.a5eb037205.svg" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
 </p>
