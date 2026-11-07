@@ -4,8 +4,8 @@
 <defs><linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="#0F766E"/><stop offset=".5" stop-color="#0F766E" stop-opacity=".15"/><stop offset="1" stop-color="#0F766E" stop-opacity="0"/></linearGradient></defs>
 <rect x="2" y="12" width="40" height="40" rx="12" fill="#0F766E" fill-opacity="0.12" stroke="#0F766E" stroke-opacity="0.5"/>
 <text x="22" y="38" class="mono" font-size="14" font-weight="700" fill="#0F766E" text-anchor="middle">02</text>
-<text x="58" y="31" font-size="20" font-weight="700" fill="#0F172A">Mình làm gì</text>
-<text x="58" y="50" font-size="12.5" fill="#5B6678">những mảng mình làm hằng ngày</text>
+<text x="58" y="31" font-size="20" font-weight="700" fill="#0F172A">Chuyên môn</text>
+<text x="58" y="50" font-size="12.5" fill="#5B6678">từ kiến trúc hệ thống tới lúc chạy ổn định trên production</text>
 <rect x="2" y="64" width="836" height="1.5" rx="1" fill="url(#l)"/>
 
 </svg>

@@ -162,12 +162,118 @@ def card_grid(items: list[tuple[str, str, str, list[str]]], height: int) -> str:
     return svg(840, height, "\n".join(parts))
 
 
+# Line icons drawn on a 24x24 grid (stroke only), so they look the same everywhere.
+ICONS = {
+    "layers": '<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".55"/>',
+    "shield": '<path d="M12 2.5 4 5.5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10v-6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+    "spark": '<path d="M12 2.5c.6 4.6 2.9 6.9 7.5 7.5-4.6.6-6.9 2.9-7.5 7.5-.6-4.6-2.9-6.9-7.5-7.5 4.6-.6 6.9-2.9 7.5-7.5Z"/><path d="M19 16.5c.3 2 1.2 2.9 3 3.2-1.8.3-2.7 1.2-3 3.2-.3-2-1.2-2.9-3-3.2 1.8-.3 2.7-1.2 3-3.2Z"/>',
+    "devices": '<rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="17" y="9" width="5.5" height="11" rx="1.5"/>',
+    "pipeline": '<circle cx="5" cy="6" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M5 8.5v7M7.3 7l9.4 4M7.3 17l9.4-4"/>',
+}
+
+
+def icon(name: str, x: float, y: float, color: str, size: float = 44) -> str:
+    s = (size - 20) / 24
+    return (
+        f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="12" fill="{color}" fill-opacity="0.12" stroke="{color}" stroke-opacity="0.35"/>'
+        f'<g transform="translate({x + 10} {y + 10}) scale({s:.3f})" fill="none" stroke="{color}" stroke-width="1.8" '
+        f'stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</g>'
+    )
+
+
+def tags(x: float, y: float, labels: list[str], color: str) -> str:
+    out = []
+    for label in labels:
+        w = len(label) * 6.6 + 22
+        out.append(
+            f'<rect x="{x:.0f}" y="{y}" width="{w:.0f}" height="24" rx="7" fill="{PANEL2}" stroke="{BORDER}"/>'
+            f'<text x="{x + 11:.0f}" y="{y + 16}" class="mono" font-size="11" fill="{color}">{t(label)}</text>'
+        )
+        x += w + 8
+    return "".join(out)
+
+
+EXPERTISE = [
+    ("layers", "Kiến trúc hệ thống & Backend", "ICE",
+     "Hệ thống chịu tải, dễ mở rộng, dễ bảo trì lâu dài",
+     ["Modular monolith, tách service khi thật sự cần",
+      "DDD, Clean Architecture, CQRS cho nghiệp vụ khó",
+      "Event-driven với Redis/BullMQ, retry & idempotency",
+      "Tối ưu PostgreSQL, migration không downtime"],
+     ["NestJS", "PostgreSQL", "Redis", "BullMQ"]),
+    ("shield", "Bảo mật & nền tảng doanh nghiệp", "LILAC",
+     "Nền móng cho khối công và doanh nghiệp lớn",
+     ["SSO, OAuth2/JWT, RBAC & ABAC đa tenant",
+      "Phân quyền tới từng bản ghi, audit log đầy đủ",
+      "Workflow engine phê duyệt nhiều cấp, nhiều nhánh",
+      "Secret management, secure-by-default từ thiết kế"],
+     ["OAuth2", "RBAC", "Audit", "Workflow"]),
+    ("spark", "Sản phẩm AI-native", "MINT",
+     "Đưa LLM vào nghiệp vụ thật, không chỉ là demo",
+     ["Tích hợp LLM vào luồng làm việc hằng ngày",
+      "RAG, tool calling, agent có kiểm soát",
+      "Eval & guardrail trước khi lên production",
+      "UX cho AI: minh bạch, kiểm chứng, hoàn tác được"],
+     ["LLM", "RAG", "Agents", "Evals"]),
+    ("devices", "Web, Desktop & Mobile", "BEAK",
+     "Giao diện nhanh, gọn, dễ dùng trên mọi màn hình",
+     ["React/Next.js cho dashboard & form nghiệp vụ lớn",
+      "Rust + Tauri: app desktop nhẹ, local-first",
+      "Flutter cho mobile đa nền tảng",
+      "Design system, hiệu năng & accessibility"],
+     ["Next.js", "Tauri", "Flutter", "Tailwind"]),
+]
+
+DELIVERY = [
+    ("CI/CD có cổng chặn", "lint · test · build bắt buộc xanh"),
+    ("Container hoá", "Docker · Nginx · mọi môi trường"),
+    ("Quan sát hệ thống", "metrics · health check · log"),
+    ("Kiểm thử thật", "test phải fail được mới đáng tin"),
+]
+
+
 def what_i_do() -> str:
-    return card_grid([
-        ("⚙️", "Backend & nền tảng", ICE, ["API & kiến trúc NestJS", "Auth, phân quyền, audit", "Queue, job nền, cache"]),
-        ("🖥️", "Web & giao diện", MINT, ["React · Next.js", "Dashboard, form nghiệp vụ", "UI gọn, dễ dùng, nhanh"]),
-        ("📱", "Desktop & mobile", BEAK, ["Rust · Tauri", "Flutter · Dart", "Ưu tiên chạy offline"]),
-    ], 206)
+    cw, ch, gap = 411, 262, 18
+    parts = []
+    for i, (ic, title, col, tagline, bullets, chips) in enumerate(EXPERTISE):
+        color = globals()[col]
+        x, y = (i % 2) * (cw + gap) + 0.5, (i // 2) * (ch + gap) + 0.5
+        parts.append(
+            f'<g><rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
+            f'<rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="16" fill="url(#glow{col})"/>'
+            + icon(ic, x + 22, y + 22, color)
+            + f'<text x="{x + 80}" y="{y + 41}" font-size="16.5" font-weight="700" fill="{TEXT}">{t(title)}</text>'
+            f'<text x="{x + 80}" y="{y + 61}" font-size="12.5" fill="{MUTED}">{t(tagline)}</text>'
+            f'<rect x="{x + 22}" y="{y + 84}" width="{cw - 45}" height="1" fill="{BORDER}"/>'
+            + "".join(
+                f'<circle cx="{x + 27}" cy="{y + 108 + j * 26}" r="2.5" fill="{color}"/>'
+                f'<text x="{x + 38}" y="{y + 112.5 + j * 26}" font-size="13" fill="{TEXT}" fill-opacity="0.88">{t(b)}</text>'
+                for j, b in enumerate(bullets)
+            )
+            + tags(x + 22, y + ch - 46, chips, color)
+            + "</g>"
+        )
+    # wide delivery strip
+    y0 = 2 * (ch + gap) + 0.5
+    parts.append(
+        f'<rect x="0.5" y="{y0}" width="839" height="118" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
+        + icon("pipeline", 22.5, y0 + 22, ICE2)
+        + f'<text x="80.5" y="{y0 + 41}" font-size="16.5" font-weight="700" fill="{TEXT}">DevOps &amp; chất lượng</text>'
+        f'<text x="80.5" y="{y0 + 61}" font-size="12.5" fill="{MUTED}">Đưa code lên production an toàn, đều đặn, không hồi hộp</text>'
+    )
+    for k, (head, sub) in enumerate(DELIVERY):
+        x = 22.5 + k * 202
+        parts.append(
+            f'<rect x="{x}" y="{y0 + 80}" width="3" height="26" rx="1.5" fill="{ICE2}"/>'
+            f'<text x="{x + 12}" y="{y0 + 91}" font-size="12.5" font-weight="700" fill="{TEXT}">{t(head)}</text>'
+            f'<text x="{x + 12}" y="{y0 + 106}" font-size="11" fill="{MUTED}">{t(sub)}</text>'
+        )
+    defs = "<defs>" + "".join(
+        f'<radialGradient id="glow{c}" cx="0" cy="0" r="0.9"><stop offset="0" stop-color="{globals()[c]}" stop-opacity="0.13"/>'
+        f'<stop offset="1" stop-color="{globals()[c]}" stop-opacity="0"/></radialGradient>'
+        for c in ("ICE", "LILAC", "MINT", "BEAK")
+    ) + "</defs>"
+    return svg(840, int(y0 + 119), defs + "\n".join(parts))
 
 
 def principles() -> str:
@@ -210,7 +316,7 @@ def footer() -> str:
 
 SECTIONS = [
     ("Về mình", "mình là ai và quan tâm điều gì", "ICE"),
-    ("Mình làm gì", "những mảng mình làm hằng ngày", "MINT"),
+    ("Chuyên môn", "từ kiến trúc hệ thống tới lúc chạy ổn định trên production", "MINT"),
     ("Công cụ", "ngôn ngữ, framework và hạ tầng quen tay", "BEAK"),
     ("Cách mình làm việc", "vài nguyên tắc mình giữ", "LILAC"),
 ]

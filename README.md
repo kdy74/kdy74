@@ -18,9 +18,9 @@ Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội 
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-dark.svg?v=35d2f4681f" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-light.svg?v=7f615545f2" width="100%" alt="Hiện tại" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=c22395cfbb" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=298062d220" width="100%" alt="02 Mình làm gì" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=78017f5f1c" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=33d24ccc17" width="100%" alt="02 Chuyên môn" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.svg?v=7582ec4176" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.svg?v=0ee388d769" width="100%" alt="Backend, Web, Desktop & mobile" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.svg?v=b60009bb20" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.svg?v=80469e9db9" width="100%" alt="Kiến trúc, bảo mật, AI-native, Web/Desktop/Mobile, DevOps" /></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.svg?v=6b5f804424" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.svg?v=fa9421e532" width="100%" alt="03 Công cụ" /></picture>
 
