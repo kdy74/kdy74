@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "generated"
 
 # ── palettes ───────────────────────────────────────────────────────────────
-# "Polar night" identity: ice-blue primary, a warm beak-orange accent.
+# Ice-blue primary with a warm orange accent.
 THEMES = {
     "dark": dict(
         BG="#0A0E1A", PANEL="#0F1526", PANEL2="#131B30", BORDER="#1F2A44",
@@ -23,7 +23,7 @@ THEMES = {
         ICE="#7DD3FC", ICE2="#38BDF8", BEAK="#FB923C", SNOW="#F8FAFC",
         MINT="#5EEAD4", LILAC="#A5B4FC",
         HERO_A="#070B16", HERO_B="#0F1A33", STAR_OP="0.8", AURORA_OP="0.35",
-        BODY="#111827", BELLY="#F1F5F9",
+        TILE_A="#1E3A5F", TILE_B="#0B1630", TILE_TEXT="#F8FAFC",
     ),
     "light": dict(
         BG="#F6F8FB", PANEL="#FFFFFF", PANEL2="#F1F5FA", BORDER="#D8E0EA",
@@ -31,7 +31,7 @@ THEMES = {
         ICE="#0284C7", ICE2="#0369A1", BEAK="#EA580C", SNOW="#FFFFFF",
         MINT="#0F766E", LILAC="#4F46E5",
         HERO_A="#EFF7FF", HERO_B="#E0F2FE", STAR_OP="0.0", AURORA_OP="0.28",
-        BODY="#0F172A", BELLY="#FFFFFF",
+        TILE_A="#0EA5E9", TILE_B="#0369A1", TILE_TEXT="#FFFFFF",
     ),
 }
 
@@ -62,22 +62,17 @@ def write(name: str, content: str) -> None:
 
 
 # ── pieces ─────────────────────────────────────────────────────────────────
-def penguin(cx: float, cy: float, s: float = 1.0) -> str:
-    """A small, friendly penguin mascot, centred at (cx, cy)."""
+def emblem(cx: float, cy: float) -> str:
+    """Monogram logo: a glass tile with "p." circled by slow orbits."""
     return f"""
-<g transform="translate({cx} {cy}) scale({s})">
-  <ellipse cx="0" cy="92" rx="58" ry="8" fill="{ICE}" fill-opacity="0.18"/>
-  <path d="M-46 30 C-52 -40 -30 -78 0 -78 C30 -78 52 -40 46 30 C44 70 24 90 0 90 C-24 90 -44 70 -46 30Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/>
-  <path d="M-30 10 C-34 -30 -18 -50 0 -50 C18 -50 34 -30 30 10 C30 52 16 76 0 76 C-16 76 -30 52 -30 10Z" fill="{BELLY}"/>
-  <g class="wave"><path d="M44 0 C66 6 72 30 62 44 C56 34 50 26 42 22Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/></g>
-  <path d="M-44 0 C-64 8 -68 32 -58 44 C-52 34 -46 26 -40 22Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/>
-  <g class="blink"><circle cx="-14" cy="-36" r="5.5" fill="{BODY}"/><circle cx="14" cy="-36" r="5.5" fill="{BODY}"/>
-  <circle cx="-12.5" cy="-38" r="1.8" fill="{SNOW}"/><circle cx="15.5" cy="-38" r="1.8" fill="{SNOW}"/></g>
-  <path d="M-9 -26 L9 -26 L0 -15Z" fill="{BEAK}"/>
-  <circle cx="-24" cy="-22" r="5" fill="{BEAK}" fill-opacity="0.25"/><circle cx="24" cy="-22" r="5" fill="{BEAK}" fill-opacity="0.25"/>
-  <ellipse cx="-16" cy="90" rx="13" ry="5" fill="{BEAK}"/><ellipse cx="16" cy="90" rx="13" ry="5" fill="{BEAK}"/>
-  <path d="M-30 -66 C-10 -84 10 -84 30 -66 L26 -58 C8 -72 -8 -72 -26 -58Z" fill="{ICE}"/>
-  <rect x="-34" y="-66" width="68" height="9" rx="4.5" fill="{ICE2}"/>
+<g transform="translate({cx} {cy})">
+  <circle r="104" fill="none" stroke="{ICE}" stroke-opacity="0.18" stroke-dasharray="2 7"/>
+  <circle r="80" fill="none" stroke="{ICE}" stroke-opacity="0.28"/>
+  <g class="spin"><circle cx="80" cy="0" r="5" fill="{ICE}"/><circle cx="-80" cy="0" r="3" fill="{MINT}"/></g>
+  <g class="spin2"><circle cx="0" cy="-104" r="4" fill="{BEAK}"/><circle cx="0" cy="104" r="2.5" fill="{LILAC}"/></g>
+  <rect x="-52" y="-52" width="104" height="104" rx="28" fill="url(#tile)" stroke="{ICE}" stroke-opacity="0.55"/>
+  <rect x="-52" y="-52" width="104" height="52" rx="28" fill="{SNOW}" fill-opacity="0.07"/>
+  <text x="-4" y="22" font-size="66" font-weight="800" fill="{TILE_TEXT}" text-anchor="middle" letter-spacing="-2">p<tspan fill="{BEAK}">.</tspan></text>
 </g>"""
 
 
@@ -102,16 +97,16 @@ def hero() -> str:
         chips.append(c)
         x += w + 10
     style = (
+        ".spin{animation:sp 18s linear infinite}.spin2{animation:sp 28s linear infinite reverse}@keyframes sp{to{transform:rotate(360deg)}}"
         ".tw{opacity:" + STAR_OP + ";animation:tw 4s ease-in-out infinite}@keyframes tw{50%{opacity:.15}}"
         ".au{animation:au 9s ease-in-out infinite}@keyframes au{50%{transform:translateX(-30px)}}"
-        ".wave{transform-origin:44px 6px;animation:wv 2.6s ease-in-out infinite}@keyframes wv{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-22deg)}85%{transform:rotate(8deg)}}"
-        ".blink{transform-origin:0 -36px;animation:bl 5s infinite}@keyframes bl{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}"
     )
     body = f"""
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{HERO_A}"/><stop offset="1" stop-color="{HERO_B}"/></linearGradient>
   <linearGradient id="au" x1="0" x2="1"><stop offset="0" stop-color="{MINT}" stop-opacity="0"/><stop offset=".4" stop-color="{MINT}"/><stop offset=".7" stop-color="{ICE}"/><stop offset="1" stop-color="{LILAC}" stop-opacity="0"/></linearGradient>
   <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="{TEXT}"/><stop offset="1" stop-color="{ICE}"/></linearGradient>
+  <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{TILE_A}"/><stop offset="1" stop-color="{TILE_B}"/></linearGradient>
   <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
   <clipPath id="clip"><rect width="840" height="300" rx="20"/></clipPath>
 </defs>
@@ -128,7 +123,7 @@ def hero() -> str:
 <text x="48" y="174" font-size="19" font-weight="600" fill="{TEXT}">Full-stack Software Engineer</text>
 <text x="48" y="200" font-size="14.5" fill="{MUTED}">Biến những quy trình rối rắm thành phần mềm gọn gàng, đáng tin.</text>
 {''.join(chips)}
-{penguin(686, 148, 1.0)}
+{emblem(690, 150)}
 """
     return svg(840, 300, body, style)
 
@@ -207,7 +202,7 @@ def footer() -> str:
     body = f"""
 <defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="{ICE}" stop-opacity="0"/><stop offset=".5" stop-color="{ICE}"/><stop offset="1" stop-color="{ICE}" stop-opacity="0"/></linearGradient></defs>
 <rect x="120" y="10" width="600" height="1.5" fill="url(#f)"/>
-<text x="420" y="46" font-size="15.5" fill="{TEXT}" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 🐧</text>
+<text x="420" y="46" font-size="15.5" fill="{TEXT}" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 👋</text>
 <text x="420" y="70" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="middle">penguy. · made with care in Hà Nội</text>
 """
     return svg(840, 86, body)

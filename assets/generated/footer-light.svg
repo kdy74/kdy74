@@ -3,7 +3,7 @@
 
 <defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="#0284C7" stop-opacity="0"/><stop offset=".5" stop-color="#0284C7"/><stop offset="1" stop-color="#0284C7" stop-opacity="0"/></linearGradient></defs>
 <rect x="120" y="10" width="600" height="1.5" fill="url(#f)"/>
-<text x="420" y="46" font-size="15.5" fill="#0F172A" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 🐧</text>
+<text x="420" y="46" font-size="15.5" fill="#0F172A" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 👋</text>
 <text x="420" y="70" class="mono" font-size="11.5" fill="#5B6678" text-anchor="middle">penguy. · made with care in Hà Nội</text>
 
 </svg>

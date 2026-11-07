@@ -1,5 +1,5 @@
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=bc43ce4a42" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=476f120555" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=ea76b220e1" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=852999c7c7" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
 </p>
 
 <p align="center">
@@ -58,5 +58,5 @@ Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội 
 <br/>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=11b9dae149" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=0e731112fc" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=b056b7a280" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=a5eb037205" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
 </p>
