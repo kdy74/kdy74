@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="234" viewBox="0 0 840 234" role="img">
+<style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}</style>
+<rect x="0.5" y="0.5" width="839" height="233" rx="14" fill="#FFFFFF" stroke="#DDE2E9"/>
+<text x="28" y="39" class="mono" font-size="11.5" fill="#64748B" letter-spacing="1.2">CURRENTLY</text><text x="196" y="39" font-size="14.5" fill="#0F172A">Building an AI-native workspace for enterprise and public-sector teams</text>
+<rect x="24" y="54" width="792" height="1" fill="#DDE2E9"/>
+<text x="28" y="81" class="mono" font-size="11.5" fill="#64748B" letter-spacing="1.2">FOCUS</text><text x="196" y="81" font-size="14.5" fill="#0F172A">Platform architecture, access control, approval workflows, audit</text>
+<rect x="24" y="96" width="792" height="1" fill="#DDE2E9"/>
+<text x="28" y="123" class="mono" font-size="11.5" fill="#64748B" letter-spacing="1.2">EXPLORING</text><text x="196" y="123" font-size="14.5" fill="#0F172A">Rust &amp; Tauri internals, product design for LLM features</text>
+<rect x="24" y="138" width="792" height="1" fill="#DDE2E9"/>
+<text x="28" y="165" class="mono" font-size="11.5" fill="#64748B" letter-spacing="1.2">ASK ME ABOUT</text><text x="196" y="165" font-size="14.5" fill="#0F172A">NestJS architecture, job queues, authentication, CI quality gates</text>
+<rect x="24" y="180" width="792" height="1" fill="#DDE2E9"/>
+<text x="28" y="207" class="mono" font-size="11.5" fill="#64748B" letter-spacing="1.2">LANGUAGES</text><text x="196" y="207" font-size="14.5" fill="#0F172A">Vietnamese (native)  ·  English (professional working)</text>
+</svg>

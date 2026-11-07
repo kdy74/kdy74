@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Draw the SVG artwork for the profile README (intro only, no project cards).
+"""Draw the SVG artwork for the profile README (introduction only, no project cards).
 
 Runs in GitHub Actions on every push to scripts/ (see .github/workflows/build-profile.yml).
 Standard library only; no network access needed.
@@ -15,23 +15,17 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "generated"
 
 # ── palettes ───────────────────────────────────────────────────────────────
-# Ice-blue primary with a warm orange accent.
+# Restrained on purpose: neutrals plus one accent (sky) and a single warm dot.
 THEMES = {
     "dark": dict(
-        BG="#0A0E1A", PANEL="#0F1526", PANEL2="#131B30", BORDER="#1F2A44",
-        TEXT="#E8EEF7", MUTED="#8A97B1", FAINT="#3A4766",
-        ICE="#7DD3FC", ICE2="#38BDF8", BEAK="#FB923C", SNOW="#F8FAFC",
-        MINT="#5EEAD4", LILAC="#A5B4FC",
-        HERO_A="#070B16", HERO_B="#0F1A33", STAR_OP="0.8", AURORA_OP="0.35",
-        TILE_A="#1E3A5F", TILE_B="#0B1630", TILE_TEXT="#F8FAFC",
+        BG="#0B0F17", PANEL="#0F141E", PANEL2="#151B27", BORDER="#232B3A",
+        TEXT="#E6EAF0", SOFT="#B4BCC9", MUTED="#7D8798",
+        ACCENT="#7DD3FC", DOT="#FB923C", OK="#4ADE80", GRID="#1A2130",
     ),
     "light": dict(
-        BG="#F6F8FB", PANEL="#FFFFFF", PANEL2="#F1F5FA", BORDER="#D8E0EA",
-        TEXT="#0F172A", MUTED="#5B6678", FAINT="#C5CFDC",
-        ICE="#0284C7", ICE2="#0369A1", BEAK="#EA580C", SNOW="#FFFFFF",
-        MINT="#0F766E", LILAC="#4F46E5",
-        HERO_A="#EFF7FF", HERO_B="#E0F2FE", STAR_OP="0.0", AURORA_OP="0.28",
-        TILE_A="#0EA5E9", TILE_B="#0369A1", TILE_TEXT="#FFFFFF",
+        BG="#FFFFFF", PANEL="#FFFFFF", PANEL2="#F5F7FA", BORDER="#DDE2E9",
+        TEXT="#0F172A", SOFT="#334155", MUTED="#64748B",
+        ACCENT="#0369A1", DOT="#EA580C", OK="#16A34A", GRID="#EEF2F6",
     ),
 }
 
@@ -61,108 +55,99 @@ def write(name: str, content: str) -> None:
     (OUT / name).write_text(content, encoding="utf-8")
 
 
-# ── pieces ─────────────────────────────────────────────────────────────────
-def emblem(cx: float, cy: float) -> str:
-    """Monogram logo: a glass tile with "p." circled by slow orbits."""
-    return f"""
-<g transform="translate({cx} {cy})">
-  <circle r="104" fill="none" stroke="{ICE}" stroke-opacity="0.18" stroke-dasharray="2 7"/>
-  <circle r="80" fill="none" stroke="{ICE}" stroke-opacity="0.28"/>
-  <g class="spin"><circle cx="80" cy="0" r="5" fill="{ICE}"/><circle cx="-80" cy="0" r="3" fill="{MINT}"/></g>
-  <g class="spin2"><circle cx="0" cy="-104" r="4" fill="{BEAK}"/><circle cx="0" cy="104" r="2.5" fill="{LILAC}"/></g>
-  <rect x="-52" y="-52" width="104" height="104" rx="28" fill="url(#tile)" stroke="{ICE}" stroke-opacity="0.55"/>
-  <rect x="-52" y="-52" width="104" height="52" rx="28" fill="{SNOW}" fill-opacity="0.07"/>
-  <text x="-4" y="22" font-size="66" font-weight="800" fill="{TILE_TEXT}" text-anchor="middle" letter-spacing="-2">p<tspan fill="{BEAK}">.</tspan></text>
-</g>"""
+def panel(w: float, h: float, x: float = 0.5, y: float = 0.5) -> str:
+    return f'<rect x="{x}" y="{y}" width="{w - 1}" height="{h - 1}" rx="14" fill="{PANEL}" stroke="{BORDER}"/>'
 
 
-def chip(x: float, y: float, label: str, color: str) -> tuple[str, float]:
-    w = len(label) * 7.0 + 30
-    return (
-        f'<rect x="{x}" y="{y}" width="{w:.0f}" height="30" rx="15" fill="{color}" fill-opacity="0.10" stroke="{color}" stroke-opacity="0.45"/>'
-        f'<circle cx="{x + 14}" cy="{y + 15}" r="3.5" fill="{color}"/>'
-        f'<text x="{x + 24}" y="{y + 19.5}" font-size="13" fill="{TEXT}">{t(label)}</text>'
-    ), w
+# ── hero ───────────────────────────────────────────────────────────────────
+SPEC = [
+    ("role", "Full-stack Engineer"),
+    ("focus", "Platforms · Security · AI"),
+    ("core", "NestJS · Postgres · Redis"),
+    ("also", "React · Rust · Flutter"),
+    ("based", "Hanoi, Vietnam (UTC+7)"),
+]
 
 
 def hero() -> str:
-    stars = "".join(
-        f'<circle class="tw" cx="{x}" cy="{y}" r="{r}" fill="{SNOW}" style="animation-delay:{d}s"/>'
-        for x, y, r, d in [(470, 40, 1.4, 0), (520, 92, 1, 1.2), (612, 28, 1.6, .6), (700, 70, 1.1, 2),
-                           (780, 30, 1.3, 1.5), (808, 120, 1, .3), (430, 130, 1, 2.4), (560, 150, 1.2, 1.8)]
+    rows = []
+    for i, (k, v) in enumerate(SPEC):
+        y = 132 + i * 24
+        rows.append(
+            f'<text x="532" y="{y}" class="mono" font-size="12" fill="{MUTED}">{t(k)}</text>'
+            f'<text x="588" y="{y}" class="mono" font-size="12" fill="{TEXT}">{t(v)}</text>'
+        )
+    y = 132 + len(SPEC) * 24
+    rows.append(
+        f'<text x="532" y="{y}" class="mono" font-size="12" fill="{MUTED}">status</text>'
+        f'<circle class="pulse" cx="593" cy="{y - 4}" r="3.5" fill="{OK}"/>'
+        f'<text x="602" y="{y}" class="mono" font-size="12" fill="{OK}">open to conversations</text>'
     )
-    chips, x = [], 48
-    for label, color in [("Full-stack", ICE), ("AI-native products", MINT), ("Hà Nội · VN", BEAK)]:
-        c, w = chip(x, 228, label, color)
-        chips.append(c)
-        x += w + 10
-    style = (
-        ".spin{animation:sp 18s linear infinite}.spin2{animation:sp 28s linear infinite reverse}@keyframes sp{to{transform:rotate(360deg)}}"
-        ".tw{opacity:" + STAR_OP + ";animation:tw 4s ease-in-out infinite}@keyframes tw{50%{opacity:.15}}"
-        ".au{animation:au 9s ease-in-out infinite}@keyframes au{50%{transform:translateX(-30px)}}"
-    )
+    style = ".pulse{animation:p 2.4s ease-in-out infinite}@keyframes p{50%{opacity:.25}}"
     body = f"""
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{HERO_A}"/><stop offset="1" stop-color="{HERO_B}"/></linearGradient>
-  <linearGradient id="au" x1="0" x2="1"><stop offset="0" stop-color="{MINT}" stop-opacity="0"/><stop offset=".4" stop-color="{MINT}"/><stop offset=".7" stop-color="{ICE}"/><stop offset="1" stop-color="{LILAC}" stop-opacity="0"/></linearGradient>
-  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="{TEXT}"/><stop offset="1" stop-color="{ICE}"/></linearGradient>
-  <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{TILE_A}"/><stop offset="1" stop-color="{TILE_B}"/></linearGradient>
-  <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
-  <clipPath id="clip"><rect width="840" height="300" rx="20"/></clipPath>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="{GRID}"/></pattern>
+  <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="{PANEL}"/><stop offset=".55" stop-color="{PANEL}" stop-opacity=".6"/><stop offset="1" stop-color="{PANEL}" stop-opacity="0"/></linearGradient>
+  <clipPath id="c"><rect width="840" height="300" rx="16"/></clipPath>
 </defs>
-<g clip-path="url(#clip)">
-  <rect width="840" height="300" fill="url(#bg)"/>
-  <g class="au" opacity="{AURORA_OP}" filter="url(#blur)"><path d="M380 70 C500 10 620 120 740 50 S900 40 900 40 L900 110 C780 170 640 80 520 140 S380 130 380 130Z" fill="url(#au)"/></g>
-  {stars}
-  <path d="M520 300 L600 238 L640 258 L700 214 L780 262 L840 236 L840 300Z" fill="{ICE}" fill-opacity="0.10"/>
-  <path d="M440 300 C520 278 640 282 840 290 L840 300Z" fill="{SNOW}" fill-opacity="0.08"/>
+<g clip-path="url(#c)">
+  <rect width="840" height="300" fill="{PANEL}"/>
+  <rect width="840" height="300" fill="url(#grid)"/>
+  <rect width="840" height="300" fill="url(#fade)"/>
 </g>
-<rect x="0.5" y="0.5" width="839" height="299" rx="20" fill="none" stroke="{BORDER}"/>
-<text x="48" y="74" class="mono" font-size="13" fill="{ICE}" letter-spacing="3">XIN CHÀO, MÌNH LÀ</text>
-<text x="46" y="138" font-size="60" font-weight="800" fill="url(#name)" letter-spacing="-1.5">penguy<tspan fill="{BEAK}">.</tspan></text>
-<text x="48" y="174" font-size="19" font-weight="600" fill="{TEXT}">Full-stack Software Engineer</text>
-<text x="48" y="200" font-size="14.5" fill="{MUTED}">Biến những quy trình rối rắm thành phần mềm gọn gàng, đáng tin.</text>
-{''.join(chips)}
-{emblem(690, 150)}
+<rect x="0.5" y="0.5" width="839" height="299" rx="16" fill="none" stroke="{BORDER}"/>
+<rect x="48" y="58" width="22" height="2" fill="{ACCENT}"/>
+<text x="80" y="63" class="mono" font-size="11.5" fill="{ACCENT}" letter-spacing="2.4">SOFTWARE ENGINEER</text>
+<text x="45" y="138" font-size="66" font-weight="800" fill="{TEXT}" letter-spacing="-2.5">penguy<tspan fill="{DOT}">.</tspan></text>
+<text x="48" y="182" font-size="17" fill="{SOFT}">I design and build secure, scalable platforms,</text>
+<text x="48" y="206" font-size="17" fill="{SOFT}">from the domain model all the way to production.</text>
+<text x="48" y="252" class="mono" font-size="11.5" fill="{MUTED}">Architecture  /  Enterprise platforms  /  AI products</text>
+<rect x="508.5" y="56.5" width="292" height="210" rx="12" fill="{PANEL2}" stroke="{BORDER}"/>
+<path d="M508.5 92.5h292" stroke="{BORDER}"/>
+<circle cx="530" cy="75" r="4.5" fill="{BORDER}"/><circle cx="546" cy="75" r="4.5" fill="{BORDER}"/><circle cx="562" cy="75" r="4.5" fill="{BORDER}"/>
+<text x="782" y="79" class="mono" font-size="11" fill="{MUTED}" text-anchor="end">profile.yaml</text>
+{''.join(rows)}
 """
     return svg(840, 300, body, style)
 
 
-def section(num: str, title: str, sub: str, color: str) -> str:
+# ── section header ─────────────────────────────────────────────────────────
+def section(num: str, title: str, sub: str) -> str:
     body = f"""
-<defs><linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="{color}"/><stop offset=".5" stop-color="{color}" stop-opacity=".15"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></linearGradient></defs>
-<rect x="2" y="12" width="40" height="40" rx="12" fill="{color}" fill-opacity="0.12" stroke="{color}" stroke-opacity="0.5"/>
-<text x="22" y="38" class="mono" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{num}</text>
-<text x="58" y="31" font-size="20" font-weight="700" fill="{TEXT}">{t(title)}</text>
-<text x="58" y="50" font-size="12.5" fill="{MUTED}">{t(sub)}</text>
-<rect x="2" y="64" width="836" height="1.5" rx="1" fill="url(#l)"/>
+<text x="0" y="33" class="mono" font-size="13" font-weight="700" fill="{ACCENT}">{num}</text>
+<text x="34" y="34" font-size="22" font-weight="700" fill="{TEXT}" letter-spacing="-.3">{t(title)}</text>
+<text x="840" y="33" font-size="12.5" fill="{MUTED}" text-anchor="end">{t(sub)}</text>
+<rect x="0" y="50" width="840" height="1" fill="{BORDER}"/>
+<rect x="0" y="49.5" width="26" height="2" fill="{ACCENT}"/>
 """
-    return svg(840, 70, body)
+    return svg(840, 56, body)
 
 
-def card_grid(items: list[tuple[str, str, str, list[str]]], height: int) -> str:
-    """Row of 3 cards: (icon, title, accent, lines)."""
-    w, gap = 268, 18
-    parts = []
-    for i, (icon, title, color, lines) in enumerate(items):
-        x = i * (w + gap) + 0.5
+# ── at a glance ────────────────────────────────────────────────────────────
+GLANCE = [
+    ("Currently", "Building an AI-native workspace for enterprise and public-sector teams"),
+    ("Focus", "Platform architecture, access control, approval workflows, audit"),
+    ("Exploring", "Rust & Tauri internals, product design for LLM features"),
+    ("Ask me about", "NestJS architecture, job queues, authentication, CI quality gates"),
+    ("Languages", "Vietnamese (native)  ·  English (professional working)"),
+]
+
+
+def glance() -> str:
+    h = 24 + len(GLANCE) * 42
+    parts = [panel(840, h)]
+    for i, (k, v) in enumerate(GLANCE):
+        y = 12 + i * 42
+        if i:
+            parts.append(f'<rect x="24" y="{y}" width="792" height="1" fill="{BORDER}"/>')
         parts.append(
-            f'<g><rect x="{x}" y="0.5" width="{w - 1}" height="{height - 1}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
-            f'<rect x="{x + 22}" y="0.5" width="44" height="3" rx="1.5" fill="{color}"/>'
-            f'<rect x="{x + 22}" y="26" width="42" height="42" rx="12" fill="{color}" fill-opacity="0.12"/>'
-            f'<text x="{x + 43}" y="55" font-size="20" text-anchor="middle">{icon}</text>'
-            f'<text x="{x + 22}" y="98" font-size="16.5" font-weight="700" fill="{TEXT}">{t(title)}</text>'
-            + "".join(
-                f'<text x="{x + 22}" y="{126 + j * 22}" font-size="13" fill="{MUTED}">'
-                f'<tspan fill="{color}">›</tspan>  {t(line)}</text>'
-                for j, line in enumerate(lines)
-            )
-            + "</g>"
+            f'<text x="28" y="{y + 27}" class="mono" font-size="11.5" fill="{MUTED}" letter-spacing="1.2">{t(k.upper())}</text>'
+            f'<text x="196" y="{y + 27}" font-size="14.5" fill="{TEXT}">{t(v)}</text>'
         )
-    return svg(840, height, "\n".join(parts))
+    return svg(840, h, "\n".join(parts))
 
 
-# Line icons drawn on a 24x24 grid (stroke only), so they look the same everywhere.
+# ── expertise ──────────────────────────────────────────────────────────────
 ICONS = {
     "layers": '<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".55"/>',
     "shield": '<path d="M12 2.5 4 5.5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10v-6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
@@ -172,153 +157,161 @@ ICONS = {
 }
 
 
-def icon(name: str, x: float, y: float, color: str, size: float = 44) -> str:
-    s = (size - 20) / 24
+def icon(name: str, x: float, y: float) -> str:
     return (
-        f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="12" fill="{color}" fill-opacity="0.12" stroke="{color}" stroke-opacity="0.35"/>'
-        f'<g transform="translate({x + 10} {y + 10}) scale({s:.3f})" fill="none" stroke="{color}" stroke-width="1.8" '
+        f'<rect x="{x}" y="{y}" width="40" height="40" rx="10" fill="{PANEL2}" stroke="{BORDER}"/>'
+        f'<g transform="translate({x + 10} {y + 10}) scale(.84)" fill="none" stroke="{ACCENT}" stroke-width="1.8" '
         f'stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</g>'
     )
 
 
-def tags(x: float, y: float, labels: list[str], color: str) -> str:
+def tags(x: float, y: float, labels: list[str]) -> str:
     out = []
     for label in labels:
-        w = len(label) * 6.6 + 22
+        w = len(label) * 6.9 + 20
         out.append(
-            f'<rect x="{x:.0f}" y="{y}" width="{w:.0f}" height="24" rx="7" fill="{PANEL2}" stroke="{BORDER}"/>'
-            f'<text x="{x + 11:.0f}" y="{y + 16}" class="mono" font-size="11" fill="{color}">{t(label)}</text>'
+            f'<rect x="{x:.0f}" y="{y}" width="{w:.0f}" height="24" rx="6" fill="{PANEL2}" stroke="{BORDER}"/>'
+            f'<text x="{x + 10:.0f}" y="{y + 16}" class="mono" font-size="11" fill="{SOFT}">{t(label)}</text>'
         )
         x += w + 8
     return "".join(out)
 
 
 EXPERTISE = [
-    ("layers", "Kiến trúc hệ thống & Backend", "ICE",
-     "Hệ thống chịu tải, dễ mở rộng, dễ bảo trì lâu dài",
-     ["Modular monolith, tách service khi thật sự cần",
-      "DDD, Clean Architecture, CQRS cho nghiệp vụ khó",
-      "Event-driven với Redis/BullMQ, retry & idempotency",
-      "Tối ưu PostgreSQL, migration không downtime"],
+    ("layers", "Systems Architecture & Backend",
+     "Services that scale and stay maintainable for years",
+     ["Modular monoliths; split services only when it pays",
+      "DDD, Clean Architecture and CQRS for complex domains",
+      "Event-driven jobs on BullMQ with idempotent retries",
+      "PostgreSQL tuning and zero-downtime migrations"],
      ["NestJS", "PostgreSQL", "Redis", "BullMQ"]),
-    ("shield", "Bảo mật & nền tảng doanh nghiệp", "LILAC",
-     "Nền móng cho khối công và doanh nghiệp lớn",
-     ["SSO, OAuth2/JWT, RBAC & ABAC đa tenant",
-      "Phân quyền tới từng bản ghi, audit log đầy đủ",
-      "Workflow engine phê duyệt nhiều cấp, nhiều nhánh",
-      "Secret management, secure-by-default từ thiết kế"],
-     ["OAuth2", "RBAC", "Audit", "Workflow"]),
-    ("spark", "Sản phẩm AI-native", "MINT",
-     "Đưa LLM vào nghiệp vụ thật, không chỉ là demo",
-     ["Tích hợp LLM vào luồng làm việc hằng ngày",
-      "RAG, tool calling, agent có kiểm soát",
-      "Eval & guardrail trước khi lên production",
-      "UX cho AI: minh bạch, kiểm chứng, hoàn tác được"],
+    ("shield", "Security & Enterprise Platforms",
+     "Foundations for enterprise and public-sector teams",
+     ["SSO with OAuth2 / OIDC, multi-tenant RBAC & ABAC",
+      "Record-level permissions with complete audit trails",
+      "Multi-step, multi-branch approval workflow engines",
+      "Secret management and secure-by-default design"],
+     ["OIDC", "RBAC", "Audit", "Workflows"]),
+    ("spark", "AI-native Products",
+     "LLMs inside real workflows, not just demos",
+     ["LLM features embedded in everyday business flows",
+      "Retrieval (RAG), tool calling and guarded agents",
+      "Evals and guardrails before anything ships",
+      "AI UX that is transparent, verifiable, reversible"],
      ["LLM", "RAG", "Agents", "Evals"]),
-    ("devices", "Web, Desktop & Mobile", "BEAK",
-     "Giao diện nhanh, gọn, dễ dùng trên mọi màn hình",
-     ["React/Next.js cho dashboard & form nghiệp vụ lớn",
-      "Rust + Tauri: app desktop nhẹ, local-first",
-      "Flutter cho mobile đa nền tảng",
-      "Design system, hiệu năng & accessibility"],
+    ("devices", "Web, Desktop & Mobile",
+     "Fast, focused interfaces on every screen",
+     ["React / Next.js for data-heavy dashboards and forms",
+      "Rust + Tauri for lightweight, local-first desktop apps",
+      "Flutter for cross-platform mobile",
+      "Design systems, performance and accessibility"],
      ["Next.js", "Tauri", "Flutter", "Tailwind"]),
 ]
 
 DELIVERY = [
-    ("CI/CD có cổng chặn", "lint · test · build bắt buộc xanh"),
-    ("Container hoá", "Docker · Nginx · mọi môi trường"),
-    ("Quan sát hệ thống", "metrics · health check · log"),
-    ("Kiểm thử thật", "test phải fail được mới đáng tin"),
+    ("Gated CI/CD", "lint · test · build must pass"),
+    ("Containerised", "Docker · Nginx · env parity"),
+    ("Observability", "metrics · health checks · logs"),
+    ("Real tests", "tests that can actually fail"),
 ]
 
 
-def what_i_do() -> str:
-    cw, ch, gap = 411, 262, 18
+def expertise() -> str:
+    cw, ch, gap = 411, 258, 18
     parts = []
-    for i, (ic, title, col, tagline, bullets, chips) in enumerate(EXPERTISE):
-        color = globals()[col]
+    for i, (ic, title, tagline, bullets, chips) in enumerate(EXPERTISE):
         x, y = (i % 2) * (cw + gap) + 0.5, (i // 2) * (ch + gap) + 0.5
         parts.append(
-            f'<g><rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
-            f'<rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="16" fill="url(#glow{col})"/>'
-            + icon(ic, x + 22, y + 22, color)
-            + f'<text x="{x + 80}" y="{y + 41}" font-size="16.5" font-weight="700" fill="{TEXT}">{t(title)}</text>'
-            f'<text x="{x + 80}" y="{y + 61}" font-size="12.5" fill="{MUTED}">{t(tagline)}</text>'
-            f'<rect x="{x + 22}" y="{y + 84}" width="{cw - 45}" height="1" fill="{BORDER}"/>'
+            f'<g><rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="14" fill="{PANEL}" stroke="{BORDER}"/>'
+            + icon(ic, x + 24, y + 24)
+            + f'<text x="{x + 78}" y="{y + 41}" font-size="16" font-weight="700" fill="{TEXT}">{t(title)}</text>'
+            f'<text x="{x + 78}" y="{y + 60}" font-size="12.5" fill="{MUTED}">{t(tagline)}</text>'
             + "".join(
-                f'<circle cx="{x + 27}" cy="{y + 108 + j * 26}" r="2.5" fill="{color}"/>'
-                f'<text x="{x + 38}" y="{y + 112.5 + j * 26}" font-size="13" fill="{TEXT}" fill-opacity="0.88">{t(b)}</text>'
+                f'<rect x="{x + 25}" y="{y + 98 + j * 26}" width="8" height="1.6" fill="{ACCENT}"/>'
+                f'<text x="{x + 42}" y="{y + 103.5 + j * 26}" font-size="13" fill="{SOFT}">{t(b)}</text>'
                 for j, b in enumerate(bullets)
             )
-            + tags(x + 22, y + ch - 46, chips, color)
+            + tags(x + 24, y + ch - 46, chips)
             + "</g>"
         )
-    # wide delivery strip
     y0 = 2 * (ch + gap) + 0.5
     parts.append(
-        f'<rect x="0.5" y="{y0}" width="839" height="118" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
-        + icon("pipeline", 22.5, y0 + 22, ICE2)
-        + f'<text x="80.5" y="{y0 + 41}" font-size="16.5" font-weight="700" fill="{TEXT}">DevOps &amp; chất lượng</text>'
-        f'<text x="80.5" y="{y0 + 61}" font-size="12.5" fill="{MUTED}">Đưa code lên production an toàn, đều đặn, không hồi hộp</text>'
+        f'<rect x="0.5" y="{y0}" width="839" height="122" rx="14" fill="{PANEL}" stroke="{BORDER}"/>'
+        + icon("pipeline", 24.5, y0 + 24)
+        + f'<text x="78.5" y="{y0 + 41}" font-size="16" font-weight="700" fill="{TEXT}">Engineering &amp; Delivery</text>'
+        f'<text x="78.5" y="{y0 + 60}" font-size="12.5" fill="{MUTED}">Shipping to production safely, steadily and without drama</text>'
     )
     for k, (head, sub) in enumerate(DELIVERY):
-        x = 22.5 + k * 202
+        x = 24.5 + k * 200
         parts.append(
-            f'<rect x="{x}" y="{y0 + 80}" width="3" height="26" rx="1.5" fill="{ICE2}"/>'
-            f'<text x="{x + 12}" y="{y0 + 91}" font-size="12.5" font-weight="700" fill="{TEXT}">{t(head)}</text>'
-            f'<text x="{x + 12}" y="{y0 + 106}" font-size="11" fill="{MUTED}">{t(sub)}</text>'
+            f'<rect x="{x}" y="{y0 + 82}" width="2" height="28" fill="{ACCENT}"/>'
+            f'<text x="{x + 12}" y="{y0 + 93}" font-size="12.5" font-weight="700" fill="{TEXT}">{t(head)}</text>'
+            f'<text x="{x + 12}" y="{y0 + 109}" font-size="11" fill="{MUTED}">{t(sub)}</text>'
         )
-    defs = "<defs>" + "".join(
-        f'<radialGradient id="glow{c}" cx="0" cy="0" r="0.9"><stop offset="0" stop-color="{globals()[c]}" stop-opacity="0.13"/>'
-        f'<stop offset="1" stop-color="{globals()[c]}" stop-opacity="0"/></radialGradient>'
-        for c in ("ICE", "LILAC", "MINT", "BEAK")
-    ) + "</defs>"
-    return svg(840, int(y0 + 119), defs + "\n".join(parts))
+    return svg(840, int(y0 + 123), "\n".join(parts))
+
+
+# ── technology ─────────────────────────────────────────────────────────────
+STACK = [
+    ("Languages", ["TypeScript", "JavaScript", "Rust", "Python", "Java", "Dart"]),
+    ("Backend", ["NestJS", "Node.js", "Express", "FastAPI", "Prisma", "TypeORM"]),
+    ("Frontend", ["React", "Next.js", "Vite", "Redux", "Tailwind CSS"]),
+    ("Desktop & Mobile", ["Tauri", "Flutter"]),
+    ("Data & Messaging", ["PostgreSQL", "MongoDB", "Redis", "MySQL", "BullMQ"]),
+    ("Infra & Tooling", ["Docker", "Nginx", "GitHub Actions", "Linux", "Jest", "Figma"]),
+]
+
+
+def stack() -> str:
+    h = 20 + len(STACK) * 46
+    parts = [panel(840, h)]
+    for i, (k, items) in enumerate(STACK):
+        y = 10 + i * 46
+        if i:
+            parts.append(f'<rect x="24" y="{y}" width="792" height="1" fill="{BORDER}"/>')
+        parts.append(f'<text x="28" y="{y + 28}" font-size="13.5" font-weight="600" fill="{TEXT}">{t(k)}</text>')
+        parts.append(tags(196, y + 11, items))
+    return svg(840, h, "\n".join(parts))
+
+
+# ── principles ─────────────────────────────────────────────────────────────
+PRINCIPLES = [
+    ("Evidence over assumptions", "Every claim ships with a command, a log or a link."),
+    ("Small, reversible changes", "One slice, one branch, one reviewable pull request."),
+    ("Secure by default", "Permissions, audit and secrets are designed in on day one."),
+    ("Tests that can fail", "If breaking the code doesn't break the test, it isn't a test."),
+]
 
 
 def principles() -> str:
-    return card_grid([
-        ("🔍", "Bằng chứng > phỏng đoán", ICE, ["Mỗi kết luận đi kèm", "lệnh, log hoặc đường link"]),
-        ("🪶", "Thay đổi nhỏ, dễ lùi", MINT, ["Một lát cắt, một nhánh,", "một PR dễ review"]),
-        ("🔐", "An toàn ngay từ đầu", LILAC, ["Quyền, audit, bí mật", "được tính từ ngày đầu"]),
-    ], 184)
-
-
-def now_panel() -> str:
-    rows = [
-        ("Đang làm", "Không gian làm việc AI-native cho doanh nghiệp & khối công", ICE),
-        ("Đang học", "Rust & Tauri chuyên sâu, thiết kế sản phẩm có LLM", MINT),
-        ("Hỏi mình về", "Kiến trúc NestJS, queue, xác thực, CI gate", BEAK),
-        ("Ngôn ngữ", "Tiếng Việt · English", LILAC),
-    ]
-    parts = [f'<rect x="0.5" y="0.5" width="839" height="{44 + len(rows) * 40}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>']
-    for i, (k, v, c) in enumerate(rows):
-        y = 22 + i * 40
-        if i:
-            parts.append(f'<rect x="24" y="{y}" width="792" height="1" fill="{BORDER}"/>')
+    cw, ch, gap = 411, 104, 18
+    parts = []
+    for i, (head, sub) in enumerate(PRINCIPLES):
+        x, y = (i % 2) * (cw + gap) + 0.5, (i // 2) * (ch + gap) + 0.5
         parts.append(
-            f'<circle cx="34" cy="{y + 21}" r="4" fill="{c}"/>'
-            f'<text x="50" y="{y + 26}" class="mono" font-size="12.5" fill="{c}" letter-spacing="1">{t(k.upper())}</text>'
-            f'<text x="200" y="{y + 26}" font-size="14.5" fill="{TEXT}">{t(v)}</text>'
+            f'<rect x="{x}" y="{y}" width="{cw - 1}" height="{ch - 1}" rx="14" fill="{PANEL}" stroke="{BORDER}"/>'
+            f'<text x="{x + 24}" y="{y + 40}" class="mono" font-size="12" font-weight="700" fill="{ACCENT}">{i + 1:02d}</text>'
+            f'<text x="{x + 54}" y="{y + 41}" font-size="16" font-weight="700" fill="{TEXT}">{t(head)}</text>'
+            f'<text x="{x + 54}" y="{y + 68}" font-size="13" fill="{MUTED}">{t(sub)}</text>'
         )
-    return svg(840, 44 + len(rows) * 40 + 1, "\n".join(parts))
+    return svg(840, 2 * ch + gap, "\n".join(parts))
 
 
+# ── footer ─────────────────────────────────────────────────────────────────
 def footer() -> str:
     body = f"""
-<defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="{ICE}" stop-opacity="0"/><stop offset=".5" stop-color="{ICE}"/><stop offset="1" stop-color="{ICE}" stop-opacity="0"/></linearGradient></defs>
-<rect x="120" y="10" width="600" height="1.5" fill="url(#f)"/>
-<text x="420" y="46" font-size="15.5" fill="{TEXT}" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 👋</text>
-<text x="420" y="70" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="middle">penguy. · made with care in Hà Nội</text>
+<rect x="0" y="8" width="840" height="1" fill="{BORDER}"/>
+<text x="420" y="48" font-size="15" fill="{TEXT}" text-anchor="middle" font-weight="600">Always happy to talk platform engineering, enterprise systems and AI products.</text>
+<text x="420" y="74" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="middle">penguy<tspan fill="{DOT}">.</tspan>  ·  Hanoi, Vietnam</text>
 """
-    return svg(840, 86, body)
+    return svg(840, 90, body)
 
 
 SECTIONS = [
-    ("Về mình", "mình là ai và quan tâm điều gì", "ICE"),
-    ("Chuyên môn", "từ kiến trúc hệ thống tới lúc chạy ổn định trên production", "MINT"),
-    ("Công cụ", "ngôn ngữ, framework và hạ tầng quen tay", "BEAK"),
-    ("Cách mình làm việc", "vài nguyên tắc mình giữ", "LILAC"),
+    ("About", "who I am and how I think"),
+    ("Core expertise", "from system design to stable production"),
+    ("Technology", "tools I reach for every day"),
+    ("How I work", "principles I hold myself to"),
 ]
 
 
@@ -329,12 +322,13 @@ def main() -> None:
         apply_theme(theme)
         w = lambda name, content: write(f"{name}-{theme}.svg", content)  # noqa: E731
         w("hero", hero())
-        w("now", now_panel())
-        w("what", what_i_do())
+        w("glance", glance())
+        w("expertise", expertise())
+        w("stack", stack())
         w("principles", principles())
         w("footer", footer())
-        for i, (title, sub, color) in enumerate(SECTIONS, start=1):
-            w(f"section-{i}", section(f"{i:02d}", title, sub, globals()[color]))
+        for i, (title, sub) in enumerate(SECTIONS, start=1):
+            w(f"section-{i}", section(f"{i:02d}", title, sub))
     readme = ROOT / "README.md"
     readme.write_text(bust_cache(readme.read_text(encoding="utf-8")), encoding="utf-8")
 

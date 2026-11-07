@@ -1,62 +1,43 @@
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.ea76b220e1.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.852999c7c7.svg" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.bb8144473d.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.e9d439bf44.svg" width="100%" alt="penguy. — Software Engineer" /></picture>
 </p>
 
 <p align="center">
-  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-0284C7?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-  <img src="https://img.shields.io/badge/H%C3%A0_N%E1%BB%99i-Vi%E1%BB%87t_Nam-EA580C?style=for-the-badge" />
-  <img src="https://komarev.com/ghpvc/?username=kdy74&style=for-the-badge&color=0F766E&label=l%C6%B0%E1%BB%A3t+gh%C3%A9" />
+  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/Email-duycaduoc0704%40gmail.com-0369A1?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
+  <img src="https://img.shields.io/badge/Based_in-Hanoi%2C_Vietnam-334155?style=flat-square" alt="Based in Hanoi, Vietnam" />
+  <img src="https://img.shields.io/badge/Timezone-UTC%2B7-334155?style=flat-square" alt="Timezone UTC+7" />
 </p>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.0c07b411b5.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.b608935932.svg" width="100%" alt="01 Về mình" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.6458af567a.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.aee4de440f.svg" width="100%" alt="01 About" /></picture>
 
-**Xin chào!** Mình là **penguy.** — một full-stack engineer ở Hà Nội. Mình thích nhận những quy trình rối rắm ngoài đời thực và biến chúng thành phần mềm **gọn gàng, ổn định và dễ tin cậy**.
+I'm **penguy.**, a full-stack software engineer based in Hanoi. I work where product meets infrastructure: taking messy, real-world processes and turning them into systems that are **secure, observable and easy to change**.
 
-Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội ngũ doanh nghiệp và khối công: luồng phê duyệt, nền tảng bảo mật và bộ công cụ cho lập trình viên xung quanh chúng. Ngoài giờ, mình làm những công cụ desktop nhỏ ưu tiên chạy offline.
+Day to day I build an **AI-native workspace for enterprise and public-sector teams**: approval engines, access control and audit, plus the platform and developer tooling underneath. I care about clear domain models, boring and reliable infrastructure, and code the next engineer can pick up without a tour guide.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-dark.35d2f4681f.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-light.7f615545f2.svg" width="100%" alt="Hiện tại" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/glance-dark.5531db2c8b.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/glance-light.9579740888.svg" width="100%" alt="At a glance" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.78017f5f1c.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.33d24ccc17.svg" width="100%" alt="02 Chuyên môn" /></picture>
+<br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.b60009bb20.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.80469e9db9.svg" width="100%" alt="Kiến trúc, bảo mật, AI-native, Web/Desktop/Mobile, DevOps" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.353a3b352d.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.a0f17097ba.svg" width="100%" alt="02 Core expertise" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.6b5f804424.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.fa9421e532.svg" width="100%" alt="03 Công cụ" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/expertise-dark.a22888942f.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/expertise-light.2f2b4b83f2.svg" width="100%" alt="Systems architecture, security and enterprise platforms, AI-native products, web/desktop/mobile, engineering and delivery" /></picture>
 
-<table>
-  <tr>
-    <td align="right" width="22%"><b>Ngôn ngữ</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=dark" /><img src="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=light" height="44" /></picture></td>
-  </tr>
-  <tr>
-    <td align="right" width="22%"><b>Backend</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=dark" /><img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=light" height="44" /></picture></td>
-  </tr>
-  <tr>
-    <td align="right" width="22%"><b>Frontend</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind&theme=dark" /><img src="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind&theme=light" height="44" /></picture></td>
-  </tr>
-  <tr>
-    <td align="right" width="22%"><b>Desktop · Mobile</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tauri,flutter&theme=dark" /><img src="https://skillicons.dev/icons?i=tauri,flutter&theme=light" height="44" /></picture></td>
-  </tr>
-  <tr>
-    <td align="right" width="22%"><b>Dữ liệu</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=dark" /><img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=light" height="44" /></picture></td>
-  </tr>
-  <tr>
-    <td align="right" width="22%"><b>Vận hành</b></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,figma&theme=dark" /><img src="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,figma&theme=light" height="44" /></picture></td>
-  </tr>
-</table>
+<br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.82864d53a3.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.5986c8c560.svg" width="100%" alt="04 Cách mình làm việc" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.098f23f9e6.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.becabe08c7.svg" width="100%" alt="03 Technology" /></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-dark.5f28b98e4c.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-light.4cc1b75113.svg" width="100%" alt="Nguyên tắc làm việc" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/stack-dark.cd0f4b307d.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/stack-light.0821dd4bb2.svg" width="100%" alt="Technology stack" /></picture>
+
+<br/>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.e55d765bf5.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.1fa6c0d5e7.svg" width="100%" alt="04 How I work" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-dark.639aea0b16.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-light.e210a3bc01.svg" width="100%" alt="Engineering principles" /></picture>
 
 <br/>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.b056b7a280.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.a5eb037205.svg" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.7f6e5cdc41.svg" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.85a4b365f8.svg" width="100%" alt="Always happy to talk platform engineering, enterprise systems and AI products" /></picture>
 </p>

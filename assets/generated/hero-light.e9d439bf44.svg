@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="300" viewBox="0 0 840 300" role="img">
+<style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}.pulse{animation:p 2.4s ease-in-out infinite}@keyframes p{50%{opacity:.25}}</style>
+
+<defs>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#EEF2F6"/></pattern>
+  <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+  <clipPath id="c"><rect width="840" height="300" rx="16"/></clipPath>
+</defs>
+<g clip-path="url(#c)">
+  <rect width="840" height="300" fill="#FFFFFF"/>
+  <rect width="840" height="300" fill="url(#grid)"/>
+  <rect width="840" height="300" fill="url(#fade)"/>
+</g>
+<rect x="0.5" y="0.5" width="839" height="299" rx="16" fill="none" stroke="#DDE2E9"/>
+<rect x="48" y="58" width="22" height="2" fill="#0369A1"/>
+<text x="80" y="63" class="mono" font-size="11.5" fill="#0369A1" letter-spacing="2.4">SOFTWARE ENGINEER</text>
+<text x="45" y="138" font-size="66" font-weight="800" fill="#0F172A" letter-spacing="-2.5">penguy<tspan fill="#EA580C">.</tspan></text>
+<text x="48" y="182" font-size="17" fill="#334155">I design and build secure, scalable platforms,</text>
+<text x="48" y="206" font-size="17" fill="#334155">from the domain model all the way to production.</text>
+<text x="48" y="252" class="mono" font-size="11.5" fill="#64748B">Architecture  /  Enterprise platforms  /  AI products</text>
+<rect x="508.5" y="56.5" width="292" height="210" rx="12" fill="#F5F7FA" stroke="#DDE2E9"/>
+<path d="M508.5 92.5h292" stroke="#DDE2E9"/>
+<circle cx="530" cy="75" r="4.5" fill="#DDE2E9"/><circle cx="546" cy="75" r="4.5" fill="#DDE2E9"/><circle cx="562" cy="75" r="4.5" fill="#DDE2E9"/>
+<text x="782" y="79" class="mono" font-size="11" fill="#64748B" text-anchor="end">profile.yaml</text>
+<text x="532" y="132" class="mono" font-size="12" fill="#64748B">role</text><text x="588" y="132" class="mono" font-size="12" fill="#0F172A">Full-stack Engineer</text><text x="532" y="156" class="mono" font-size="12" fill="#64748B">focus</text><text x="588" y="156" class="mono" font-size="12" fill="#0F172A">Platforms · Security · AI</text><text x="532" y="180" class="mono" font-size="12" fill="#64748B">core</text><text x="588" y="180" class="mono" font-size="12" fill="#0F172A">NestJS · Postgres · Redis</text><text x="532" y="204" class="mono" font-size="12" fill="#64748B">also</text><text x="588" y="204" class="mono" font-size="12" fill="#0F172A">React · Rust · Flutter</text><text x="532" y="228" class="mono" font-size="12" fill="#64748B">based</text><text x="588" y="228" class="mono" font-size="12" fill="#0F172A">Hanoi, Vietnam (UTC+7)</text><text x="532" y="252" class="mono" font-size="12" fill="#64748B">status</text><circle class="pulse" cx="593" cy="248" r="3.5" fill="#16A34A"/><text x="602" y="252" class="mono" font-size="12" fill="#16A34A">open to conversations</text>
+
+</svg>
