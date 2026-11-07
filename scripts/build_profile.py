@@ -1,49 +1,39 @@
 #!/usr/bin/env python3
-"""Build the custom SVG artwork and the live sections of the profile README.
+"""Draw the SVG artwork for the profile README (intro only, no project cards).
 
-Runs daily in GitHub Actions (see .github/workflows/build-profile.yml).
-Only the standard library is used. Needs GITHUB_TOKEN in the environment.
+Runs in GitHub Actions on every push to scripts/ (see .github/workflows/build-profile.yml).
+Standard library only; no network access needed.
 """
 from __future__ import annotations
 
-import datetime as dt
 import hashlib
-import json
-import os
 import re
-import urllib.request
 from html import escape
 from pathlib import Path
 
-USER = "kdy74"
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "generated"
-TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 # ── palettes ───────────────────────────────────────────────────────────────
-# Every SVG is drawn twice; README picks the variant matching the viewer's theme.
-# ORANGE/RED/VIOLET are historical names: primary green, lime and teal accents.
+# "Polar night" identity: ice-blue primary, a warm beak-orange accent.
 THEMES = {
     "dark": dict(
-        BG="#0B1020", PANEL="#111833", BORDER="#22305A", TEXT="#E6EDF3", MUTED="#8B98B8",
-        ORANGE="#22C55E", RED="#A3E635", CYAN="#22D3EE", VIOLET="#2DD4BF", GREEN="#34D399",
-        MINT="#5EEAD4", STAR="#FBBF24",
-        HERO_A="#0B1020", HERO_B="#131B3A", GRID="#1B2547", GRID_OPACITY="0.55",
-        NAME_A="#FFFFFF", NAME_B="#86EFAC", ORB_OPACITY="0.45",
-        HEAT=["#1A2342", "#14532D", "#15803D", "#22C55E", "#86EFAC"],
+        BG="#0A0E1A", PANEL="#0F1526", PANEL2="#131B30", BORDER="#1F2A44",
+        TEXT="#E8EEF7", MUTED="#8A97B1", FAINT="#3A4766",
+        ICE="#7DD3FC", ICE2="#38BDF8", BEAK="#FB923C", SNOW="#F8FAFC",
+        MINT="#5EEAD4", LILAC="#A5B4FC",
+        HERO_A="#070B16", HERO_B="#0F1A33", STAR_OP="0.8", AURORA_OP="0.35",
+        BODY="#111827", BELLY="#F1F5F9",
     ),
     "light": dict(
-        BG="#F6F8FA", PANEL="#FFFFFF", BORDER="#D0D7DE", TEXT="#1F2328", MUTED="#59636E",
-        ORANGE="#16A34A", RED="#4D7C0F", CYAN="#0E7490", VIOLET="#0F766E", GREEN="#047857",
-        MINT="#0D9488", STAR="#B45309",
-        HERO_A="#F0FDF4", HERO_B="#ECFEFF", GRID="#D1FAE5", GRID_OPACITY="0.9",
-        NAME_A="#14532D", NAME_B="#16A34A", ORB_OPACITY="0.22",
-        HEAT=["#EBEDF0", "#BBF7D0", "#4ADE80", "#16A34A", "#14532D"],
+        BG="#F6F8FB", PANEL="#FFFFFF", PANEL2="#F1F5FA", BORDER="#D8E0EA",
+        TEXT="#0F172A", MUTED="#5B6678", FAINT="#C5CFDC",
+        ICE="#0284C7", ICE2="#0369A1", BEAK="#EA580C", SNOW="#FFFFFF",
+        MINT="#0F766E", LILAC="#4F46E5",
+        HERO_A="#EFF7FF", HERO_B="#E0F2FE", STAR_OP="0.0", AURORA_OP="0.28",
+        BODY="#0F172A", BELLY="#FFFFFF",
     ),
 }
-# The terminal window stays dark in both themes.
-TERM = dict(BG="#0A0F1E", BAR="#151E3F", TEXT="#E6EDF3", MUTED="#8B98B8",
-            PROMPT="#A3E635", OK="#34D399", INFO="#22D3EE", CURSOR="#22C55E")
 
 
 def apply_theme(name: str) -> None:
@@ -54,82 +44,15 @@ apply_theme("dark")
 SANS = "'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace"
 
-LANG_COLORS = {
-    "TypeScript": "#3178C6", "JavaScript": "#F1E05A", "Rust": "#DEA584",
-    "Python": "#3572A5", "Dart": "#00B4AB", "Java": "#B07219", "CSS": "#663399",
-    "HTML": "#E34C26", "SCSS": "#C6538C", "Less": "#4F7CC4", "Shell": "#89E051",
-    "Dockerfile": "#5B8BA0", "PowerShell": "#2E6DB4", "TSQL": "#E38C00",
-}
 
-# Curated copy for the featured cards; numbers are always fetched live.
-def featured() -> list[tuple[str, str, str, str, str]]:
-    return [
-    ("Otter", "🦦", ORANGE, "Rust · Tauri · Windows",
-     "A local-first workspace time machine. Saves apps, tabs, terminals, Docker and files as a context, then restores them with verified results."),
-    ("nest_codebase", "🧱", RED, "NestJS 11 · Fastify · Prisma",
-     "Enterprise NestJS boilerplate: Prisma & TypeORM repositories, Redis + BullMQ jobs, JWT auth, Prometheus metrics and health checks."),
-    ("Vinsaky", "🛒", CYAN, "NestJS · MongoDB · React",
-     "Full-stack commerce platform with queue workers, SePay payments, live chat, dashboards and interactive maps."),
-    ("Pettopia", "🐾", GREEN, "Next.js · Tailwind · Docker",
-     "Pet-care platform: TypeScript backend, a customer app with QR scanning and a clinic portal with analytics."),
-    ("Vietnamosaic", "🇻🇳", VIOLET, "Product spec · 12 screens",
-     "A social network for discovering Việt Nam through everyday stories, experience mosaic pieces and mini postage stamps."),
-    ("EXE", "🧩", MINT, "Express · MongoDB · JWT",
-     "Express MVC API with routers, controllers, Joi validators and middleware, JWT auth and Cloudinary uploads."),
-    ]
-
-
-# ── GitHub API ─────────────────────────────────────────────────────────────
-def _request(url: str, body: dict | None = None):
-    req = urllib.request.Request(url, data=json.dumps(body).encode() if body else None)
-    req.add_header("Accept", "application/vnd.github+json")
-    req.add_header("User-Agent", f"{USER}-profile-builder")
-    if TOKEN:
-        req.add_header("Authorization", f"Bearer {TOKEN}")
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)
-
-
-def rest(path: str):
-    return _request(f"https://api.github.com/{path}")
-
-
-def graphql(query: str, variables: dict):
-    data = _request("https://api.github.com/graphql", {"query": query, "variables": variables})
-    if "errors" in data:
-        raise RuntimeError(data["errors"])
-    return data["data"]
-
-
-# ── helpers ────────────────────────────────────────────────────────────────
 def t(s) -> str:
     return escape(str(s), quote=True)
 
 
-def wrap(text: str, width: int, max_lines: int) -> list[str]:
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        if len(cur) + len(w) + (1 if cur else 0) > width:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = f"{cur} {w}" if cur else w
-    if cur:
-        lines.append(cur)
-    if len(lines) > max_lines:
-        lines = lines[:max_lines]
-        lines[-1] = lines[-1].rstrip(".,") + "…"
-    return lines
-
-
-def fmt_num(n: int) -> str:
-    return f"{n/1000:.1f}k" if n >= 1000 else str(n)
-
-
 def svg(w: int, h: int, body: str, style: str = "") -> str:
     return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-        f'role="img">\n<style>text{{font-family:{SANS}}} .mono{{font-family:{MONO}}}{style}</style>\n{body}\n</svg>\n'
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img">\n'
+        f"<style>text{{font-family:{SANS}}} .mono{{font-family:{MONO}}}{style}</style>\n{body}\n</svg>\n"
     )
 
 
@@ -138,342 +61,181 @@ def write(name: str, content: str) -> None:
     (OUT / name).write_text(content, encoding="utf-8")
 
 
-# ── static artwork ─────────────────────────────────────────────────────────
+# ── pieces ─────────────────────────────────────────────────────────────────
+def penguin(cx: float, cy: float, s: float = 1.0) -> str:
+    """A small, friendly penguin mascot, centred at (cx, cy)."""
+    return f"""
+<g transform="translate({cx} {cy}) scale({s})">
+  <ellipse cx="0" cy="92" rx="58" ry="8" fill="{ICE}" fill-opacity="0.18"/>
+  <path d="M-46 30 C-52 -40 -30 -78 0 -78 C30 -78 52 -40 46 30 C44 70 24 90 0 90 C-24 90 -44 70 -46 30Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M-30 10 C-34 -30 -18 -50 0 -50 C18 -50 34 -30 30 10 C30 52 16 76 0 76 C-16 76 -30 52 -30 10Z" fill="{BELLY}"/>
+  <g class="wave"><path d="M44 0 C66 6 72 30 62 44 C56 34 50 26 42 22Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/></g>
+  <path d="M-44 0 C-64 8 -68 32 -58 44 C-52 34 -46 26 -40 22Z" fill="{BODY}" stroke="{ICE}" stroke-opacity="0.35" stroke-width="2"/>
+  <g class="blink"><circle cx="-14" cy="-36" r="5.5" fill="{BODY}"/><circle cx="14" cy="-36" r="5.5" fill="{BODY}"/>
+  <circle cx="-12.5" cy="-38" r="1.8" fill="{SNOW}"/><circle cx="15.5" cy="-38" r="1.8" fill="{SNOW}"/></g>
+  <path d="M-9 -26 L9 -26 L0 -15Z" fill="{BEAK}"/>
+  <circle cx="-24" cy="-22" r="5" fill="{BEAK}" fill-opacity="0.25"/><circle cx="24" cy="-22" r="5" fill="{BEAK}" fill-opacity="0.25"/>
+  <ellipse cx="-16" cy="90" rx="13" ry="5" fill="{BEAK}"/><ellipse cx="16" cy="90" rx="13" ry="5" fill="{BEAK}"/>
+  <path d="M-30 -66 C-10 -84 10 -84 30 -66 L26 -58 C8 -72 -8 -72 -26 -58Z" fill="{ICE}"/>
+  <rect x="-34" y="-66" width="68" height="9" rx="4.5" fill="{ICE2}"/>
+</g>"""
+
+
+def chip(x: float, y: float, label: str, color: str) -> tuple[str, float]:
+    w = len(label) * 7.0 + 30
+    return (
+        f'<rect x="{x}" y="{y}" width="{w:.0f}" height="30" rx="15" fill="{color}" fill-opacity="0.10" stroke="{color}" stroke-opacity="0.45"/>'
+        f'<circle cx="{x + 14}" cy="{y + 15}" r="3.5" fill="{color}"/>'
+        f'<text x="{x + 24}" y="{y + 19.5}" font-size="13" fill="{TEXT}">{t(label)}</text>'
+    ), w
+
+
 def hero() -> str:
-    lines = [
-        ("$", "whoami", TERM["TEXT"]),
-        ("›", "mundo · full-stack engineer · Hà Nội", TERM["OK"]),
-        ("$", "cat focus.txt", TERM["TEXT"]),
-        ("›", "AI-native workspaces", TERM["INFO"]),
-        ("›", "secure backend platforms", TERM["INFO"]),
-        ("›", "local-first desktop tools", TERM["INFO"]),
-        ("$", "otter restore --verify", TERM["TEXT"]),
-        ("✓", "context restored · all checks green", TERM["OK"]),
-    ]
-    term = []
-    for i, (p, s, color) in enumerate(lines):
-        y = 110 + i * 20
-        pc = TERM["PROMPT"] if p == "$" else color
-        term.append(
-            "<g>"
-            f'<text x="502" y="{y}" class="mono" font-size="12.5" fill="{pc}">{t(p)}</text>'
-            f'<text x="520" y="{y}" class="mono" font-size="12.5" fill="{color}">{t(s)}</text></g>'
-        )
-    cursor_y = 110 + len(lines) * 20
-    chips = [("AI-native workspace", ORANGE), ("Local-first tools", CYAN), ("Hà Nội", RED)]
-    chip_svg, x = [], 40
-    for label, color in chips:
-        w = len(label) * 6.5 + 28
-        chip_svg.append(
-            f'<rect x="{x}" y="218" width="{w:.0f}" height="28" rx="14" fill="{color}" fill-opacity="0.12" stroke="{color}" stroke-opacity="0.55"/>'
-            f'<circle cx="{x + 13}" cy="232" r="3.5" fill="{color}"/>'
-            f'<text x="{x + 22}" y="236.5" font-size="12.5" fill="{TEXT}">{t(label)}</text>'
-        )
+    stars = "".join(
+        f'<circle class="tw" cx="{x}" cy="{y}" r="{r}" fill="{SNOW}" style="animation-delay:{d}s"/>'
+        for x, y, r, d in [(470, 40, 1.4, 0), (520, 92, 1, 1.2), (612, 28, 1.6, .6), (700, 70, 1.1, 2),
+                           (780, 30, 1.3, 1.5), (808, 120, 1, .3), (430, 130, 1, 2.4), (560, 150, 1.2, 1.8)]
+    )
+    chips, x = [], 48
+    for label, color in [("Full-stack", ICE), ("AI-native products", MINT), ("Hà Nội · VN", BEAK)]:
+        c, w = chip(x, 228, label, color)
+        chips.append(c)
         x += w + 10
     style = (
-        ""
-        ".cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}"
-        ".orb{animation:pulse 6s ease-in-out infinite}@keyframes pulse{50%{opacity:.55}}"
+        ".tw{opacity:" + STAR_OP + ";animation:tw 4s ease-in-out infinite}@keyframes tw{50%{opacity:.15}}"
+        ".au{animation:au 9s ease-in-out infinite}@keyframes au{50%{transform:translateX(-30px)}}"
+        ".wave{transform-origin:44px 6px;animation:wv 2.6s ease-in-out infinite}@keyframes wv{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-22deg)}85%{transform:rotate(8deg)}}"
+        ".blink{transform-origin:0 -36px;animation:bl 5s infinite}@keyframes bl{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}"
     )
     body = f"""
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{HERO_A}"/><stop offset="1" stop-color="{HERO_B}"/></linearGradient>
-  <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{ORANGE}" stop-opacity="{ORB_OPACITY}"/><stop offset="1" stop-color="{ORANGE}" stop-opacity="0"/></radialGradient>
-  <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="{VIOLET}" stop-opacity="0.30"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="{GRID}" stroke-width="1"/></pattern>
-  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="{NAME_A}"/><stop offset="1" stop-color="{NAME_B}"/></linearGradient>
-  <clipPath id="clip"><rect width="840" height="300" rx="18"/></clipPath>
+  <linearGradient id="au" x1="0" x2="1"><stop offset="0" stop-color="{MINT}" stop-opacity="0"/><stop offset=".4" stop-color="{MINT}"/><stop offset=".7" stop-color="{ICE}"/><stop offset="1" stop-color="{LILAC}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="{TEXT}"/><stop offset="1" stop-color="{ICE}"/></linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
+  <clipPath id="clip"><rect width="840" height="300" rx="20"/></clipPath>
 </defs>
 <g clip-path="url(#clip)">
   <rect width="840" height="300" fill="url(#bg)"/>
-  <rect width="840" height="300" fill="url(#grid)" opacity="{GRID_OPACITY}"/>
-  <circle class="orb" cx="760" cy="40" r="190" fill="url(#orb)"/>
-  <circle class="orb" cx="80" cy="300" r="170" fill="url(#orb2)" style="animation-delay:3s"/>
+  <g class="au" opacity="{AURORA_OP}" filter="url(#blur)"><path d="M380 70 C500 10 620 120 740 50 S900 40 900 40 L900 110 C780 170 640 80 520 140 S380 130 380 130Z" fill="url(#au)"/></g>
+  {stars}
+  <path d="M520 300 L600 238 L640 258 L700 214 L780 262 L840 236 L840 300Z" fill="{ICE}" fill-opacity="0.10"/>
+  <path d="M440 300 C520 278 640 282 840 290 L840 300Z" fill="{SNOW}" fill-opacity="0.08"/>
 </g>
-<rect x="0.5" y="0.5" width="839" height="299" rx="18" fill="none" stroke="{BORDER}"/>
-<g>
-  <text x="40" y="70" class="mono" font-size="13" fill="{ORANGE}" letter-spacing="3">XIN CHÀO · HELLO</text>
-  <text x="40" y="122" font-size="44" font-weight="800" fill="url(#name)">Mundo</text>
-  <text x="40" y="158" font-size="19" font-weight="600" fill="{TEXT}">Full-stack Software Engineer</text>
-  <text x="40" y="186" font-size="14" fill="{MUTED}">Turning messy workflows into calm, reliable software.</text>
-</g>
-{''.join(chip_svg)}
-<!-- terminal -->
-<rect x="482" y="62" width="326" height="222" rx="12" fill="{TERM['BG']}" stroke="#22305A"/>
-<rect x="482" y="62" width="326" height="28" rx="12" fill="{TERM['BAR']}"/><rect x="482" y="80" width="326" height="10" fill="{TERM['BAR']}"/>
-<circle cx="500" cy="76" r="5" fill="#FF5F57"/><circle cx="516" cy="76" r="5" fill="#FEBC2E"/><circle cx="532" cy="76" r="5" fill="#28C840"/>
-<text x="645" y="80" class="mono" font-size="11" fill="{TERM['MUTED']}" text-anchor="middle">mundo@hanoi: ~</text>
-{''.join(term)}
-<rect class="cur" x="502" y="{cursor_y - 11}" width="8" height="14" fill="{TERM['CURSOR']}"/>
+<rect x="0.5" y="0.5" width="839" height="299" rx="20" fill="none" stroke="{BORDER}"/>
+<text x="48" y="74" class="mono" font-size="13" fill="{ICE}" letter-spacing="3">XIN CHÀO, MÌNH LÀ</text>
+<text x="46" y="138" font-size="60" font-weight="800" fill="url(#name)" letter-spacing="-1.5">penguy<tspan fill="{BEAK}">.</tspan></text>
+<text x="48" y="174" font-size="19" font-weight="600" fill="{TEXT}">Full-stack Software Engineer</text>
+<text x="48" y="200" font-size="14.5" fill="{MUTED}">Biến những quy trình rối rắm thành phần mềm gọn gàng, đáng tin.</text>
+{''.join(chips)}
+{penguin(686, 148, 1.0)}
 """
     return svg(840, 300, body, style)
 
 
-def section(num: str, title: str, sub: str, color: str = ORANGE) -> str:
+def section(num: str, title: str, sub: str, color: str) -> str:
     body = f"""
-<defs><linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="{color}"/><stop offset="0.45" stop-color="{color}" stop-opacity="0.25"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></linearGradient></defs>
-<text x="2" y="40" class="mono" font-size="30" font-weight="700" fill="{color}">{num}</text>
-<text x="58" y="30" font-size="21" font-weight="700" fill="{TEXT}">{t(title)}</text>
+<defs><linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="{color}"/><stop offset=".5" stop-color="{color}" stop-opacity=".15"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></linearGradient></defs>
+<rect x="2" y="12" width="40" height="40" rx="12" fill="{color}" fill-opacity="0.12" stroke="{color}" stroke-opacity="0.5"/>
+<text x="22" y="38" class="mono" font-size="14" font-weight="700" fill="{color}" text-anchor="middle">{num}</text>
+<text x="58" y="31" font-size="20" font-weight="700" fill="{TEXT}">{t(title)}</text>
 <text x="58" y="50" font-size="12.5" fill="{MUTED}">{t(sub)}</text>
-<rect x="2" y="62" width="836" height="2" rx="1" fill="url(#l)"/>
+<rect x="2" y="64" width="836" height="1.5" rx="1" fill="url(#l)"/>
 """
-    return svg(840, 68, body)
+    return svg(840, 70, body)
 
 
-def journey() -> str:
-    steps = [
-        ("2024", "Hello, GitHub", ["Java web shop", "React + Vite basics"], CYAN),
-        ("2025", "Shipping full-stack", ["Express MVC APIs", "Pettopia: Next.js apps"], GREEN),
-        ("2026 · H1", "Going deeper", ["nest_codebase ⭐", "Vinsaky commerce"], VIOLET),
-        ("2026 · now", "Building tools", ["Otter (Rust/Tauri)", "AI-native workspace"], ORANGE),
-    ]
-    parts = [
-        f'<defs><linearGradient id="tl" x1="0" x2="1"><stop offset="0" stop-color="{CYAN}"/><stop offset="0.35" stop-color="{GREEN}"/>'
-        f'<stop offset="0.68" stop-color="{VIOLET}"/><stop offset="1" stop-color="{ORANGE}"/></linearGradient></defs>',
-        f'<rect x="0.5" y="0.5" width="839" height="179" rx="16" fill="{PANEL}" stroke="{BORDER}"/>',
-        f'<rect x="100" y="62" width="639" height="3" rx="1.5" fill="{BORDER}"/>',
-        f'<rect x="100" y="62" width="639" height="3" rx="1.5" fill="url(#tl)"/>',
-    ]
-    for i, (year, head, items, color) in enumerate(steps):
-        cx = 100 + i * 213
+def card_grid(items: list[tuple[str, str, str, list[str]]], height: int) -> str:
+    """Row of 3 cards: (icon, title, accent, lines)."""
+    w, gap = 268, 18
+    parts = []
+    for i, (icon, title, color, lines) in enumerate(items):
+        x = i * (w + gap) + 0.5
         parts.append(
-            "<g>"
-            + (f'<circle class="glow" cx="{cx}" cy="63.5" r="18" fill="{color}" fill-opacity="0.25"/>' if i == len(steps) - 1 else "")
-            + f'<circle cx="{cx}" cy="63.5" r="11" fill="{BG}" stroke="{color}" stroke-width="3"/>'
-            f'<circle cx="{cx}" cy="63.5" r="4" fill="{color}"/>'
-            f'<text x="{cx}" y="36" class="mono" font-size="13" font-weight="700" fill="{color}" text-anchor="middle">{t(year)}</text>'
-            f'<text x="{cx}" y="100" font-size="14.5" font-weight="700" fill="{TEXT}" text-anchor="middle">{t(head)}</text>'
+            f'<g><rect x="{x}" y="0.5" width="{w - 1}" height="{height - 1}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>'
+            f'<rect x="{x + 22}" y="0.5" width="44" height="3" rx="1.5" fill="{color}"/>'
+            f'<rect x="{x + 22}" y="26" width="42" height="42" rx="12" fill="{color}" fill-opacity="0.12"/>'
+            f'<text x="{x + 43}" y="55" font-size="20" text-anchor="middle">{icon}</text>'
+            f'<text x="{x + 22}" y="98" font-size="16.5" font-weight="700" fill="{TEXT}">{t(title)}</text>'
             + "".join(
-                f'<text x="{cx}" y="{124 + j * 19}" font-size="12.5" fill="{MUTED}" text-anchor="middle">{t(it)}</text>'
-                for j, it in enumerate(items)
+                f'<text x="{x + 22}" y="{126 + j * 22}" font-size="13" fill="{MUTED}">'
+                f'<tspan fill="{color}">›</tspan>  {t(line)}</text>'
+                for j, line in enumerate(lines)
             )
             + "</g>"
         )
-    style = (
-        ".glow{animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{opacity:.35}}"
-    )
-    return svg(840, 180, "\n".join(parts), style)
+    return svg(840, height, "\n".join(parts))
+
+
+def what_i_do() -> str:
+    return card_grid([
+        ("⚙️", "Backend & nền tảng", ICE, ["API & kiến trúc NestJS", "Auth, phân quyền, audit", "Queue, job nền, cache"]),
+        ("🖥️", "Web & giao diện", MINT, ["React · Next.js", "Dashboard, form nghiệp vụ", "UI gọn, dễ dùng, nhanh"]),
+        ("📱", "Desktop & mobile", BEAK, ["Rust · Tauri", "Flutter · Dart", "Ưu tiên chạy offline"]),
+    ], 206)
+
+
+def principles() -> str:
+    return card_grid([
+        ("🔍", "Bằng chứng > phỏng đoán", ICE, ["Mỗi kết luận đi kèm", "lệnh, log hoặc đường link"]),
+        ("🪶", "Thay đổi nhỏ, dễ lùi", MINT, ["Một lát cắt, một nhánh,", "một PR dễ review"]),
+        ("🔐", "An toàn ngay từ đầu", LILAC, ["Quyền, audit, bí mật", "được tính từ ngày đầu"]),
+    ], 184)
+
+
+def now_panel() -> str:
+    rows = [
+        ("Đang làm", "Không gian làm việc AI-native cho doanh nghiệp & khối công", ICE),
+        ("Đang học", "Rust & Tauri chuyên sâu, thiết kế sản phẩm có LLM", MINT),
+        ("Hỏi mình về", "Kiến trúc NestJS, queue, xác thực, CI gate", BEAK),
+        ("Ngôn ngữ", "Tiếng Việt · English", LILAC),
+    ]
+    parts = [f'<rect x="0.5" y="0.5" width="839" height="{44 + len(rows) * 40}" rx="16" fill="{PANEL}" stroke="{BORDER}"/>']
+    for i, (k, v, c) in enumerate(rows):
+        y = 22 + i * 40
+        if i:
+            parts.append(f'<rect x="24" y="{y}" width="792" height="1" fill="{BORDER}"/>')
+        parts.append(
+            f'<circle cx="34" cy="{y + 21}" r="4" fill="{c}"/>'
+            f'<text x="50" y="{y + 26}" class="mono" font-size="12.5" fill="{c}" letter-spacing="1">{t(k.upper())}</text>'
+            f'<text x="200" y="{y + 26}" font-size="14.5" fill="{TEXT}">{t(v)}</text>'
+        )
+    return svg(840, 44 + len(rows) * 40 + 1, "\n".join(parts))
 
 
 def footer() -> str:
     body = f"""
-<defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="{ORANGE}" stop-opacity="0"/><stop offset="0.5" stop-color="{ORANGE}"/><stop offset="1" stop-color="{ORANGE}" stop-opacity="0"/></linearGradient></defs>
-<rect x="120" y="10" width="600" height="2" fill="url(#f)"/>
-<text x="420" y="44" font-size="15" fill="{TEXT}" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm · Thanks for stopping by</text>
-<text x="420" y="68" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="middle">made with care in Hà Nội · artwork generated by scripts/build_profile.py</text>
+<defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="{ICE}" stop-opacity="0"/><stop offset=".5" stop-color="{ICE}"/><stop offset="1" stop-color="{ICE}" stop-opacity="0"/></linearGradient></defs>
+<rect x="120" y="10" width="600" height="1.5" fill="url(#f)"/>
+<text x="420" y="46" font-size="15.5" fill="{TEXT}" text-anchor="middle" font-weight="600">Cảm ơn bạn đã ghé thăm 🐧</text>
+<text x="420" y="70" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="middle">penguy. · made with care in Hà Nội</text>
 """
-    return svg(840, 84, body)
+    return svg(840, 86, body)
 
 
-# ── live artwork ───────────────────────────────────────────────────────────
-def lang_bar(langs: dict[str, int], x: float, y: float, w: float, h: float, rid: str) -> str:
-    total = sum(langs.values()) or 1
-    out, cx = [f'<clipPath id="{rid}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2}"/></clipPath><g clip-path="url(#{rid})">'], x
-    for name, size in langs.items():
-        seg = w * size / total
-        out.append(f'<rect x="{cx:.2f}" y="{y}" width="{seg + 0.5:.2f}" height="{h}" fill="{LANG_COLORS.get(name, MUTED)}"/>')
-        cx += seg
-    out.append("</g>")
-    return "".join(out)
-
-
-def repo_card(repo: dict, langs: dict[str, int], emoji: str, accent: str, tagline: str, desc: str) -> str:
-    top = dict(sorted(langs.items(), key=lambda kv: -kv[1])[:4])
-    total = sum(langs.values()) or 1
-    pushed = dt.datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00")).strftime("%b %Y")
-    desc_lines = wrap(desc, 52, 3)
-    legend, lx = [], 24
-    for name, size in list(top.items())[:3]:
-        label = f"{name} {size * 100 / total:.0f}%"
-        legend.append(
-            f'<circle cx="{lx + 4}" cy="168" r="4" fill="{LANG_COLORS.get(name, MUTED)}"/>'
-            f'<text x="{lx + 13}" y="172" font-size="11.5" fill="{MUTED}">{t(label)}</text>'
-        )
-        lx += len(label) * 6.4 + 26
-    no_code = not langs
-    body = f"""
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{accent}" stop-opacity="0.16"/><stop offset="0.55" stop-color="{PANEL}" stop-opacity="0"/></linearGradient></defs>
-<rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="{PANEL}" stroke="{BORDER}"/>
-<rect x="0.5" y="0.5" width="409" height="219" rx="14" fill="url(#g)"/>
-<rect x="24" y="0.5" width="64" height="3" rx="1.5" fill="{accent}"/>
-<text x="24" y="44" font-size="22">{emoji}</text>
-<text x="58" y="43" font-size="19" font-weight="700" fill="{TEXT}">{t(repo["name"])}</text>
-<text x="386" y="42" font-size="12" fill="{MUTED}" text-anchor="end" class="mono">★ {fmt_num(repo["stargazers_count"])}  ⑂ {fmt_num(repo["forks_count"])}</text>
-<text x="24" y="66" class="mono" font-size="11.5" fill="{accent}">{t(tagline)}</text>
-{''.join(f'<text x="24" y="{94 + i * 19}" font-size="13" fill="{TEXT}" fill-opacity="0.86">{t(line)}</text>' for i, line in enumerate(desc_lines))}
-{'<rect x="24" y="148" width="362" height="6" rx="3" fill="' + BORDER + '"/>' if no_code else lang_bar(top, 24, 148, 362, 6, "c")}
-{''.join(legend) if legend else f'<text x="24" y="172" font-size="11.5" fill="{MUTED}">Spec &amp; design documents</text>'}
-<text x="24" y="202" class="mono" font-size="11" fill="{MUTED}">updated {pushed}</text>
-<text x="386" y="202" class="mono" font-size="11" fill="{accent}" text-anchor="end">view repo →</text>
-"""
-    return svg(410, 220, body)
-
-
-def contributions() -> dict:
-    q = """query($login:String!){user(login:$login){followers{totalCount}
-      contributionsCollection{contributionCalendar{totalContributions
-        weeks{contributionDays{date contributionCount}}}}}}"""
-    return graphql(q, {"login": USER})["user"]
-
-
-def streaks(days: list[tuple[str, int]]) -> tuple[int, int]:
-    longest = run = 0
-    for _, c in days:
-        run = run + 1 if c else 0
-        longest = max(longest, run)
-    current, seq = 0, list(days)
-    if seq and seq[-1][1] == 0:
-        seq = seq[:-1]  # today may not have contributions yet
-    for _, c in reversed(seq):
-        if not c:
-            break
-        current += 1
-    return current, longest
-
-
-def dashboard(user: dict, repos: list[dict], lang_totals: dict[str, int]) -> str:
-    cal = user["contributionsCollection"]["contributionCalendar"]
-    weeks = cal["weeks"]
-    days = [(d["date"], d["contributionCount"]) for w in weeks for d in w["contributionDays"]]
-    current, longest = streaks(days)
-    stars = sum(r["stargazers_count"] for r in repos)
-    kpis = [
-        (fmt_num(cal["totalContributions"]), "public contributions · 1y", ORANGE),
-        (f"{current}d", "current streak", RED),
-        (f"{longest}d", "longest streak", VIOLET),
-        (fmt_num(stars), "stars earned", STAR),
-        (str(len(repos)), "public repositories", CYAN),
-    ]
-    parts = [f'<rect x="0.5" y="0.5" width="839" height="411" rx="16" fill="{PANEL}" stroke="{BORDER}"/>']
-    for i, (val, label, color) in enumerate(kpis):
-        x = 20 + i * 162
-        parts.append(
-            f'<rect x="{x}" y="20" width="150" height="74" rx="10" fill="{BG}" stroke="{BORDER}"/>'
-            f'<rect x="{x}" y="20" width="3" height="74" rx="1.5" fill="{color}"/>'
-            f'<text x="{x + 18}" y="58" font-size="27" font-weight="800" fill="{color}">{t(val)}</text>'
-            f'<text x="{x + 18}" y="80" font-size="11.5" fill="{MUTED}">{t(label)}</text>'
-        )
-    # heatmap
-    peak = max((c for _, c in days), default=0) or 1
-    scale = HEAT
-    cell, gap, hx, hy = 11, 3, 52, 152
-    parts.append(f'<text x="20" y="124" font-size="13" font-weight="700" fill="{TEXT}">Public contribution heatmap</text>')
-    parts.append(f'<text x="820" y="124" font-size="11.5" fill="{MUTED}" text-anchor="end">{t(cal["totalContributions"])} public contributions in the last year</text>')
-    last_month = None
-    for wi, w in enumerate(weeks):
-        for d in w["contributionDays"]:
-            date = dt.date.fromisoformat(d["date"])
-            wd = (date.weekday() + 1) % 7  # Sunday first
-            c = d["contributionCount"]
-            lvl = 0 if c == 0 else min(4, 1 + int(3 * c / peak))
-            parts.append(
-                f'<rect x="{hx + wi * (cell + gap)}" y="{hy + wd * (cell + gap)}" width="{cell}" height="{cell}" rx="2.5" fill="{scale[lvl]}"><title>{d["date"]}: {c}</title></rect>'
-            )
-            if date.day <= 7 and wd == 0 and date.month != last_month:
-                last_month = date.month
-                parts.append(f'<text x="{hx + wi * (cell + gap)}" y="{hy - 6}" font-size="10" fill="{MUTED}">{date.strftime("%b")}</text>')
-    for wd, name in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
-        parts.append(f'<text x="20" y="{hy + wd * (cell + gap) + 9}" font-size="10" fill="{MUTED}">{name}</text>')
-    lx = 820 - 5 * 14 - 30
-    parts.append(f'<text x="{lx - 6}" y="{hy + 7 * (cell + gap) + 14}" font-size="10" fill="{MUTED}" text-anchor="end">less</text>')
-    for i, col in enumerate(scale):
-        parts.append(f'<rect x="{lx + i * 14}" y="{hy + 7 * (cell + gap) + 5}" width="11" height="11" rx="2.5" fill="{col}"/>')
-    parts.append(f'<text x="{lx + 5 * 14 + 4}" y="{hy + 7 * (cell + gap) + 14}" font-size="10" fill="{MUTED}">more</text>')
-    # languages
-    ly = 302
-    top = sorted(lang_totals.items(), key=lambda kv: -kv[1])
-    total = sum(lang_totals.values()) or 1
-    shown = dict(top[:7])
-    other = sum(v for _, v in top[7:])
-    if other:
-        shown["Other"] = other
-    parts.append(f'<text x="20" y="{ly}" font-size="13" font-weight="700" fill="{TEXT}">Languages across public repositories</text>')
-    parts.append(lang_bar(shown, 20, ly + 14, 800, 10, "lb"))
-    for i, (name, size) in enumerate(shown.items()):
-        col, row = i % 4, i // 4
-        x, y = 20 + col * 205, ly + 52 + row * 24
-        parts.append(
-            f'<circle cx="{x + 5}" cy="{y - 4}" r="5" fill="{LANG_COLORS.get(name, MUTED)}"/>'
-            f'<text x="{x + 16}" y="{y}" font-size="12.5" fill="{TEXT}">{t(name)}</text>'
-            f'<text x="{x + 180}" y="{y}" class="mono" font-size="11.5" fill="{MUTED}" text-anchor="end">{size * 100 / total:.1f}%</text>'
-        )
-    return svg(840, 412, "\n".join(parts))
-
-
-COMMIT_ICONS = {"feat": "✨", "fix": "🐛", "docs": "📝", "chore": "🧹", "refactor": "♻️",
-                "test": "🧪", "perf": "⚡", "ci": "🤖", "build": "📦", "style": "🎨"}
-
-
-def recent_activity(repos: list[dict], limit: int = 6) -> str:
-    """Latest commit of the most recently pushed public repositories."""
-    rows = []
-    for r in sorted(repos, key=lambda r: r["pushed_at"], reverse=True):
-        if r["name"] == USER:
-            continue
-        try:
-            commits = rest(f"repos/{USER}/{r['name']}/commits?per_page=1")
-        except Exception:  # empty repository
-            continue
-        if not commits:
-            continue
-        c = commits[0]["commit"]
-        msg = c["message"].splitlines()[0].strip()
-        kind = re.match(r"^(\w+)(\(.*?\))?!?:", msg)
-        icon = COMMIT_ICONS.get(kind.group(1).lower(), "🔨") if kind else "🔨"
-        if len(msg) > 64:
-            msg = msg[:63].rstrip() + "…"
-        msg = msg.replace("|", "\\|").replace("`", "'")
-        date = dt.datetime.fromisoformat(c["committer"]["date"].replace("Z", "+00:00")).strftime("%b&nbsp;%d,&nbsp;%Y")
-        rows.append(f"| {icon} | **[{r['name']}]({r['html_url']})**<br/><sub>{escape(msg)}</sub> | {date} |")
-        if len(rows) >= limit:
-            break
-    if not rows:
-        return "_No public activity yet._"
-    return "| | Latest commit | When |\n|:-:|---|--:|\n" + "\n".join(rows)
-
-
-def replace_block(text: str, tag: str, content: str) -> str:
-    pattern = re.compile(rf"(<!--{tag}:START-->)(.*?)(<!--{tag}:END-->)", re.S)
-    return pattern.sub(lambda m: f"{m.group(1)}\n{content}\n{m.group(3)}", text)
+SECTIONS = [
+    ("Về mình", "mình là ai và quan tâm điều gì", "ICE"),
+    ("Mình làm gì", "những mảng mình làm hằng ngày", "MINT"),
+    ("Công cụ", "ngôn ngữ, framework và hạ tầng quen tay", "BEAK"),
+    ("Cách mình làm việc", "vài nguyên tắc mình giữ", "LILAC"),
+]
 
 
 def main() -> None:
-    repos = [r for r in rest(f"users/{USER}/repos?per_page=100&type=owner") if not r["fork"]]
-    by_name = {r["name"]: r for r in repos}
-    lang_totals: dict[str, int] = {}
-    for r in repos:
-        for k, v in rest(f"repos/{USER}/{r['name']}/languages").items():
-            lang_totals[k] = lang_totals.get(k, 0) + v
-    card_langs = {name: rest(f"repos/{USER}/{name}/languages") for name, *_ in featured() if name in by_name}
-    user = contributions()
+    for old in OUT.glob("*.svg"):
+        old.unlink()
     for theme in THEMES:
         apply_theme(theme)
-        draw(theme, repos, by_name, lang_totals, card_langs, user)
-
+        w = lambda name, content: write(f"{name}-{theme}.svg", content)  # noqa: E731
+        w("hero", hero())
+        w("now", now_panel())
+        w("what", what_i_do())
+        w("principles", principles())
+        w("footer", footer())
+        for i, (title, sub, color) in enumerate(SECTIONS, start=1):
+            w(f"section-{i}", section(f"{i:02d}", title, sub, globals()[color]))
     readme = ROOT / "README.md"
-    text = replace_block(readme.read_text(encoding="utf-8"), "ACTIVITY", recent_activity(repos))
-    readme.write_text(bust_cache(text), encoding="utf-8")
-
-
-def draw(theme, repos, by_name, lang_totals, card_langs, user) -> None:
-    def write_t(name: str, content: str) -> None:
-        write(f"{name}-{theme}.svg", content)
-
-    write_t("hero", hero())
-    write_t("journey", journey())
-    write_t("footer", footer())
-    for i, (title, sub, color) in enumerate([
-        ("About me", "who I am, what I care about", ORANGE),
-        ("Toolbox", "languages, frameworks and the tools around them", CYAN),
-        ("Featured work", "live cards — stars, languages and dates refresh daily", RED),
-        ("Activity", "a heatmap, the numbers and what I touched recently", VIOLET),
-        ("Journey & principles", "how I got here and how I work", GREEN),
-    ], start=1):
-        write_t(f"section-{i}", section(f"{i:02d}", title, sub, color))
-    for name, emoji, accent, tagline, desc in featured():
-        if name in by_name:
-            write_t(f"card-{name.lower()}", repo_card(by_name[name], card_langs[name], emoji, accent, tagline, desc))
-    write_t("dashboard", dashboard(user, repos, lang_totals))
+    readme.write_text(bust_cache(readme.read_text(encoding="utf-8")), encoding="utf-8")
 
 
 def bust_cache(text: str) -> str:

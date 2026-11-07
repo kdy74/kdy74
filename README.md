@@ -1,169 +1,62 @@
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=afdca8ca94" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=d03865b10e" width="100%" alt="Penguy. — Full-stack Software Engineer" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-dark.svg?v=bc43ce4a42" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/hero-light.svg?v=476f120555" width="100%" alt="penguy. — Full-stack Software Engineer" /></picture>
 </p>
 
 <p align="center">
-  <a href="https://github.com/kdy74?tab=followers"><img src="https://img.shields.io/github/followers/kdy74?label=followers&style=flat-square&color=22C55E&labelColor=555555&logo=github" /></a>
-  <a href="https://github.com/kdy74?tab=repositories"><img src="https://img.shields.io/github/stars/kdy74?affiliations=OWNER&label=stars&style=flat-square&color=FBBF24&labelColor=555555&logo=github" /></a>
-  <img src="https://komarev.com/ghpvc/?username=kdy74&style=flat-square&color=2DD4BF&label=profile+views" />
-  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-22D3EE?style=flat-square&labelColor=555555&logo=gmail&logoColor=white" /></a>
-  <img src="https://img.shields.io/badge/based_in-H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam-A3E635?style=flat-square&labelColor=555555" />
+  <a href="mailto:duycaduoc0704@gmail.com"><img src="https://img.shields.io/badge/email-duycaduoc0704%40gmail.com-0284C7?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <img src="https://img.shields.io/badge/H%C3%A0_N%E1%BB%99i-Vi%E1%BB%87t_Nam-EA580C?style=for-the-badge" />
+  <img src="https://komarev.com/ghpvc/?username=kdy74&style=for-the-badge&color=0F766E&label=l%C6%B0%E1%BB%A3t+gh%C3%A9" />
 </p>
 
 <br/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.svg?v=99b525ba5e" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.svg?v=fdda095126" width="100%" alt="01 About me" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-dark.svg?v=0c07b411b5" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-1-light.svg?v=b608935932" width="100%" alt="01 Về mình" /></picture>
 
-<table>
-<tr>
-<td width="60%" valign="top">
+**Xin chào!** Mình là **penguy.** — một full-stack engineer ở Hà Nội. Mình thích nhận những quy trình rối rắm ngoài đời thực và biến chúng thành phần mềm **gọn gàng, ổn định và dễ tin cậy**.
 
-**Xin chào!** I'm **Mundo** — a full-stack engineer from Hà Nội who likes turning messy, real-world workflows into calm, reliable software.
+Hằng ngày mình xây dựng **không gian làm việc AI-native** cho đội ngũ doanh nghiệp và khối công: luồng phê duyệt, nền tảng bảo mật và bộ công cụ cho lập trình viên xung quanh chúng. Ngoài giờ, mình làm những công cụ desktop nhỏ ưu tiên chạy offline.
 
-Day to day I build an **AI-native workspace** for public-sector and enterprise teams: approval engines, secure platform foundations and the developer tooling around them. After hours I build **[Otter](https://github.com/kdy74/Otter)** 🦦, a desktop app that remembers exactly where you left off.
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-dark.svg?v=35d2f4681f" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/now-light.svg?v=7f615545f2" width="100%" alt="Hiện tại" /></picture>
 
-- 🔭 **Now** — AI-native collaboration, approval workflows, local-first desktop
-- 🌱 **Learning** — Rust & Tauri internals, LLM product design
-- 💬 **Ask me about** — NestJS architecture, queues, auth, CI gates
-- 🌏 **Languages** — Tiếng Việt · English
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=c22395cfbb" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=298062d220" width="100%" alt="02 Mình làm gì" /></picture>
 
-</td>
-<td width="40%" valign="top">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-dark.svg?v=7582ec4176" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/what-light.svg?v=0ee388d769" width="100%" alt="Backend, Web, Desktop & mobile" /></picture>
 
-```yaml
-name: Mundo
-role: Full-stack Engineer
-base: Hà Nội, Việt Nam
-building:
-  - AI-native workspace
-  - Otter (time machine)
-stack:
-  api:  [NestJS, Express]
-  web:  [React, Next.js]
-  app:  [Rust, Tauri, Flutter]
-  data: [Postgres, Mongo, Redis]
-believes_in:
-  - evidence > assumptions
-  - small, reversible changes
-  - tests that can fail
-```
-
-</td>
-</tr>
-</table>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-dark.svg?v=423453f90d" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-2-light.svg?v=1ed1a6249e" width="100%" alt="02 Toolbox" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.svg?v=6b5f804424" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.svg?v=fa9421e532" width="100%" alt="03 Công cụ" /></picture>
 
 <table>
   <tr>
-    <td align="right" width="20%"><b>Languages</b><br/><sub>daily drivers</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=dark" /><img src="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Ngôn ngữ</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=dark" /><img src="https://skillicons.dev/icons?i=ts,js,rust,python,java,dart&theme=light" height="44" /></picture></td>
   </tr>
   <tr>
-    <td align="right"><b>Backend</b><br/><sub>APIs &amp; services</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=dark" /><img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Backend</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=dark" /><img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,fastapi&theme=light" height="44" /></picture></td>
   </tr>
   <tr>
-    <td align="right"><b>Frontend</b><br/><sub>web UI</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind,html,css&theme=dark" /><img src="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind,html,css&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Frontend</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind&theme=dark" /><img src="https://skillicons.dev/icons?i=react,nextjs,vite,redux,tailwind&theme=light" height="44" /></picture></td>
   </tr>
   <tr>
-    <td align="right"><b>Desktop &amp; mobile</b><br/><sub>native-ish</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tauri,flutter&theme=dark" /><img src="https://skillicons.dev/icons?i=tauri,flutter&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Desktop · Mobile</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tauri,flutter&theme=dark" /><img src="https://skillicons.dev/icons?i=tauri,flutter&theme=light" height="44" /></picture></td>
   </tr>
   <tr>
-    <td align="right"><b>Data</b><br/><sub>storage &amp; queues</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=dark" /><img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Dữ liệu</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=dark" /><img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,prisma,mysql&theme=light" height="44" /></picture></td>
   </tr>
   <tr>
-    <td align="right"><b>Ops &amp; tooling</b><br/><sub>ship it safely</sub></td>
-    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,vscode,jest,figma&theme=dark" /><img src="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,vscode,jest,figma&theme=light" height="46" /></picture></td>
+    <td align="right" width="22%"><b>Vận hành</b></td>
+    <td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,figma&theme=dark" /><img src="https://skillicons.dev/icons?i=docker,nginx,githubactions,git,linux,figma&theme=light" height="44" /></picture></td>
   </tr>
 </table>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-dark.svg?v=2dffcc8548" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-3-light.svg?v=9090f376bb" width="100%" alt="03 Featured work" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=82864d53a3" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=5986c8c560" width="100%" alt="04 Cách mình làm việc" /></picture>
 
-<table>
-  <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Otter"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-otter-dark.svg?v=24a6a2a65b" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-otter-light.svg?v=623489a00f" width="100%" alt="Otter" /></picture></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/nest_codebase"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-nest_codebase-dark.svg?v=45e1cbb64e" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-nest_codebase-light.svg?v=c63adeb227" width="100%" alt="nest_codebase" /></picture></a></td>
-  </tr>
-  <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vinsaky"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vinsaky-dark.svg?v=df2c70b110" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vinsaky-light.svg?v=92785531f2" width="100%" alt="Vinsaky" /></picture></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/Pettopia"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-dark.svg?v=cfb08ad2a7" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-pettopia-light.svg?v=4687199eed" width="100%" alt="Pettopia" /></picture></a></td>
-  </tr>
-  <tr>
-    <td width="50%"><a href="https://github.com/kdy74/Vietnamosaic"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-dark.svg?v=8fa534e1c3" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-vietnamosaic-light.svg?v=b9aa9268e2" width="100%" alt="Vietnamosaic" /></picture></a></td>
-    <td width="50%"><a href="https://github.com/kdy74/EXE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-dark.svg?v=0652f1f001" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/card-exe-light.svg?v=6f754569bb" width="100%" alt="EXE" /></picture></a></td>
-  </tr>
-</table>
-
-<details>
-<summary><b>🦦 Why Otter?</b> — a closer look at my favourite side project</summary>
-<br/>
-
-Work rarely lives in one window. Otter turns your desktop state into a **named, portable, restorable workspace** — and tells you honestly what came back.
-
-| Feature | What you get |
-|---|---|
-| 💾 **Hold Context** | Save running apps, files, folders, browser tabs, Docker refs and notes |
-| ♻️ **Verified Restore** | Confirmed / failed / missing states instead of a vague “success” toast |
-| 🩺 **Context Health** | Detect missing apps and moved paths, one-click *Install all* via winget |
-| 🕰️ **Timeline** | Scrub through auto-saved snapshots and jump back to any moment |
-| 📦 **`.paw` packages** | Password-protected backups or signed, shareable project recipes |
-| 🌿 **Git-aware import** | Clone/fetch referenced repos and check out the captured commit |
-
-</details>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-dark.svg?v=4c4ba70170" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-4-light.svg?v=2513c1bdf9" width="100%" alt="04 Activity" /></picture>
-
-<p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-dark.svg?v=366ca182ed" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/dashboard-light.svg?v=793e46f483" width="100%" alt="Contribution dashboard" /></picture>
-</p>
-
-<table>
-<tr>
-<td width="58%" valign="top">
-
-**Recently on GitHub**
-
-<!--ACTIVITY:START-->
-| | Latest commit | When |
-|:-:|---|--:|
-| 📝 | **[Vietnamosaic](https://github.com/kdy74/Vietnamosaic)**<br/><sub>docs: ghi lại ý tưởng Ghim nhanh vào README</sub> | Nov&nbsp;05,&nbsp;2026 |
-| 🧹 | **[Otter](https://github.com/kdy74/Otter)**<br/><sub>chore(release): prepare Otter 0.4.1 launch</sub> | Jul&nbsp;13,&nbsp;2026 |
-| ✨ | **[nest_codebase](https://github.com/kdy74/nest_codebase)**<br/><sub>feat(infra): implement base repository pattern and add TypeORM…</sub> | May&nbsp;11,&nbsp;2026 |
-| 🔨 | **[Vinsaky](https://github.com/kdy74/Vinsaky)**<br/><sub>ddd structure</sub> | Apr&nbsp;02,&nbsp;2026 |
-| 🔨 | **[Pettopia](https://github.com/kdy74/Pettopia)**<br/><sub>add middleware to logging api-gateway</sub> | Jan&nbsp;30,&nbsp;2026 |
-| 🔨 | **[Pettopia-Fe](https://github.com/kdy74/Pettopia-Fe)**<br/><sub>sửa link</sub> | Dec&nbsp;19,&nbsp;2025 |
-<!--ACTIVITY:END-->
-
-</td>
-<td width="42%" valign="top">
-
-**Snake eating my contributions** 🐍
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/output/github-contribution-grid-snake-dark.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/kdy74/kdy74/output/github-contribution-grid-snake.svg" width="100%" />
-</picture>
-
-</td>
-</tr>
-</table>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-5-dark.svg?v=672a09fa9a" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/section-5-light.svg?v=7409f97aef" width="100%" alt="05 Journey and principles" /></picture>
-
-<p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/journey-dark.svg?v=0eed014709" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/journey-light.svg?v=85b500f1e7" width="100%" alt="Journey 2024–2026" /></picture>
-</p>
-
-| 🔍 Evidence over assumptions | 🪶 Small, reversible changes | 🧪 Tests that can fail | 🔐 Secure by default | 📝 Docs as code |
-|:-:|:-:|:-:|:-:|:-:|
-| every claim ships with a command, log or link | one slice · one branch · one PR | break the code on purpose to prove the test | permissions, audit and secrets from day one | decisions live in ADRs, not chat history |
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-dark.svg?v=5f28b98e4c" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/principles-light.svg?v=4cc1b75113" width="100%" alt="Nguyên tắc làm việc" /></picture>
 
 <br/>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=96f447fa34" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=f78476a885" width="100%" alt="Thanks for stopping by" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-dark.svg?v=11b9dae149" /><img src="https://raw.githubusercontent.com/kdy74/kdy74/main/assets/generated/footer-light.svg?v=0e731112fc" width="100%" alt="Cảm ơn bạn đã ghé thăm" /></picture>
 </p>

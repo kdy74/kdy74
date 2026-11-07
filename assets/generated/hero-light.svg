@@ -1,34 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="300" viewBox="0 0 840 300" role="img">
-<style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}.cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}.orb{animation:pulse 6s ease-in-out infinite}@keyframes pulse{50%{opacity:.55}}</style>
+<style>text{font-family:'Segoe UI', Ubuntu, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace}.tw{opacity:0.0;animation:tw 4s ease-in-out infinite}@keyframes tw{50%{opacity:.15}}.au{animation:au 9s ease-in-out infinite}@keyframes au{50%{transform:translateX(-30px)}}.wave{transform-origin:44px 6px;animation:wv 2.6s ease-in-out infinite}@keyframes wv{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-22deg)}85%{transform:rotate(8deg)}}.blink{transform-origin:0 -36px;animation:bl 5s infinite}@keyframes bl{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}</style>
 
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0FDF4"/><stop offset="1" stop-color="#ECFEFF"/></linearGradient>
-  <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#16A34A" stop-opacity="0.22"/><stop offset="1" stop-color="#16A34A" stop-opacity="0"/></radialGradient>
-  <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#0F766E" stop-opacity="0.30"/><stop offset="1" stop-color="#0F766E" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#D1FAE5" stroke-width="1"/></pattern>
-  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="#14532D"/><stop offset="1" stop-color="#16A34A"/></linearGradient>
-  <clipPath id="clip"><rect width="840" height="300" rx="18"/></clipPath>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFF7FF"/><stop offset="1" stop-color="#E0F2FE"/></linearGradient>
+  <linearGradient id="au" x1="0" x2="1"><stop offset="0" stop-color="#0F766E" stop-opacity="0"/><stop offset=".4" stop-color="#0F766E"/><stop offset=".7" stop-color="#0284C7"/><stop offset="1" stop-color="#4F46E5" stop-opacity="0"/></linearGradient>
+  <linearGradient id="name" x1="0" x2="1"><stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#0284C7"/></linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
+  <clipPath id="clip"><rect width="840" height="300" rx="20"/></clipPath>
 </defs>
 <g clip-path="url(#clip)">
   <rect width="840" height="300" fill="url(#bg)"/>
-  <rect width="840" height="300" fill="url(#grid)" opacity="0.9"/>
-  <circle class="orb" cx="760" cy="40" r="190" fill="url(#orb)"/>
-  <circle class="orb" cx="80" cy="300" r="170" fill="url(#orb2)" style="animation-delay:3s"/>
+  <g class="au" opacity="0.28" filter="url(#blur)"><path d="M380 70 C500 10 620 120 740 50 S900 40 900 40 L900 110 C780 170 640 80 520 140 S380 130 380 130Z" fill="url(#au)"/></g>
+  <circle class="tw" cx="470" cy="40" r="1.4" fill="#FFFFFF" style="animation-delay:0s"/><circle class="tw" cx="520" cy="92" r="1" fill="#FFFFFF" style="animation-delay:1.2s"/><circle class="tw" cx="612" cy="28" r="1.6" fill="#FFFFFF" style="animation-delay:0.6s"/><circle class="tw" cx="700" cy="70" r="1.1" fill="#FFFFFF" style="animation-delay:2s"/><circle class="tw" cx="780" cy="30" r="1.3" fill="#FFFFFF" style="animation-delay:1.5s"/><circle class="tw" cx="808" cy="120" r="1" fill="#FFFFFF" style="animation-delay:0.3s"/><circle class="tw" cx="430" cy="130" r="1" fill="#FFFFFF" style="animation-delay:2.4s"/><circle class="tw" cx="560" cy="150" r="1.2" fill="#FFFFFF" style="animation-delay:1.8s"/>
+  <path d="M520 300 L600 238 L640 258 L700 214 L780 262 L840 236 L840 300Z" fill="#0284C7" fill-opacity="0.10"/>
+  <path d="M440 300 C520 278 640 282 840 290 L840 300Z" fill="#FFFFFF" fill-opacity="0.08"/>
 </g>
-<rect x="0.5" y="0.5" width="839" height="299" rx="18" fill="none" stroke="#D0D7DE"/>
-<g>
-  <text x="40" y="70" class="mono" font-size="13" fill="#16A34A" letter-spacing="3">XIN CHÀO · HELLO</text>
-  <text x="40" y="122" font-size="44" font-weight="800" fill="url(#name)">Mundo</text>
-  <text x="40" y="158" font-size="19" font-weight="600" fill="#1F2328">Full-stack Software Engineer</text>
-  <text x="40" y="186" font-size="14" fill="#59636E">Turning messy workflows into calm, reliable software.</text>
+<rect x="0.5" y="0.5" width="839" height="299" rx="20" fill="none" stroke="#D8E0EA"/>
+<text x="48" y="74" class="mono" font-size="13" fill="#0284C7" letter-spacing="3">XIN CHÀO, MÌNH LÀ</text>
+<text x="46" y="138" font-size="60" font-weight="800" fill="url(#name)" letter-spacing="-1.5">penguy<tspan fill="#EA580C">.</tspan></text>
+<text x="48" y="174" font-size="19" font-weight="600" fill="#0F172A">Full-stack Software Engineer</text>
+<text x="48" y="200" font-size="14.5" fill="#5B6678">Biến những quy trình rối rắm thành phần mềm gọn gàng, đáng tin.</text>
+<rect x="48" y="228" width="100" height="30" rx="15" fill="#0284C7" fill-opacity="0.10" stroke="#0284C7" stroke-opacity="0.45"/><circle cx="62" cy="243" r="3.5" fill="#0284C7"/><text x="72" y="247.5" font-size="13" fill="#0F172A">Full-stack</text><rect x="158.0" y="228" width="156" height="30" rx="15" fill="#0F766E" fill-opacity="0.10" stroke="#0F766E" stroke-opacity="0.45"/><circle cx="172.0" cy="243" r="3.5" fill="#0F766E"/><text x="182.0" y="247.5" font-size="13" fill="#0F172A">AI-native products</text><rect x="324.0" y="228" width="107" height="30" rx="15" fill="#EA580C" fill-opacity="0.10" stroke="#EA580C" stroke-opacity="0.45"/><circle cx="338.0" cy="243" r="3.5" fill="#EA580C"/><text x="348.0" y="247.5" font-size="13" fill="#0F172A">Hà Nội · VN</text>
+
+<g transform="translate(686 148) scale(1.0)">
+  <ellipse cx="0" cy="92" rx="58" ry="8" fill="#0284C7" fill-opacity="0.18"/>
+  <path d="M-46 30 C-52 -40 -30 -78 0 -78 C30 -78 52 -40 46 30 C44 70 24 90 0 90 C-24 90 -44 70 -46 30Z" fill="#0F172A" stroke="#0284C7" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M-30 10 C-34 -30 -18 -50 0 -50 C18 -50 34 -30 30 10 C30 52 16 76 0 76 C-16 76 -30 52 -30 10Z" fill="#FFFFFF"/>
+  <g class="wave"><path d="M44 0 C66 6 72 30 62 44 C56 34 50 26 42 22Z" fill="#0F172A" stroke="#0284C7" stroke-opacity="0.35" stroke-width="2"/></g>
+  <path d="M-44 0 C-64 8 -68 32 -58 44 C-52 34 -46 26 -40 22Z" fill="#0F172A" stroke="#0284C7" stroke-opacity="0.35" stroke-width="2"/>
+  <g class="blink"><circle cx="-14" cy="-36" r="5.5" fill="#0F172A"/><circle cx="14" cy="-36" r="5.5" fill="#0F172A"/>
+  <circle cx="-12.5" cy="-38" r="1.8" fill="#FFFFFF"/><circle cx="15.5" cy="-38" r="1.8" fill="#FFFFFF"/></g>
+  <path d="M-9 -26 L9 -26 L0 -15Z" fill="#EA580C"/>
+  <circle cx="-24" cy="-22" r="5" fill="#EA580C" fill-opacity="0.25"/><circle cx="24" cy="-22" r="5" fill="#EA580C" fill-opacity="0.25"/>
+  <ellipse cx="-16" cy="90" rx="13" ry="5" fill="#EA580C"/><ellipse cx="16" cy="90" rx="13" ry="5" fill="#EA580C"/>
+  <path d="M-30 -66 C-10 -84 10 -84 30 -66 L26 -58 C8 -72 -8 -72 -26 -58Z" fill="#0284C7"/>
+  <rect x="-34" y="-66" width="68" height="9" rx="4.5" fill="#0369A1"/>
 </g>
-<rect x="40" y="218" width="152" height="28" rx="14" fill="#16A34A" fill-opacity="0.12" stroke="#16A34A" stroke-opacity="0.55"/><circle cx="53" cy="232" r="3.5" fill="#16A34A"/><text x="62" y="236.5" font-size="12.5" fill="#1F2328">AI-native workspace</text><rect x="201.5" y="218" width="138" height="28" rx="14" fill="#0E7490" fill-opacity="0.12" stroke="#0E7490" stroke-opacity="0.55"/><circle cx="214.5" cy="232" r="3.5" fill="#0E7490"/><text x="223.5" y="236.5" font-size="12.5" fill="#1F2328">Local-first tools</text><rect x="350.0" y="218" width="67" height="28" rx="14" fill="#4D7C0F" fill-opacity="0.12" stroke="#4D7C0F" stroke-opacity="0.55"/><circle cx="363.0" cy="232" r="3.5" fill="#4D7C0F"/><text x="372.0" y="236.5" font-size="12.5" fill="#1F2328">Hà Nội</text>
-<!-- terminal -->
-<rect x="482" y="62" width="326" height="222" rx="12" fill="#0A0F1E" stroke="#22305A"/>
-<rect x="482" y="62" width="326" height="28" rx="12" fill="#151E3F"/><rect x="482" y="80" width="326" height="10" fill="#151E3F"/>
-<circle cx="500" cy="76" r="5" fill="#FF5F57"/><circle cx="516" cy="76" r="5" fill="#FEBC2E"/><circle cx="532" cy="76" r="5" fill="#28C840"/>
-<text x="645" y="80" class="mono" font-size="11" fill="#8B98B8" text-anchor="middle">mundo@hanoi: ~</text>
-<g><text x="502" y="110" class="mono" font-size="12.5" fill="#A3E635">$</text><text x="520" y="110" class="mono" font-size="12.5" fill="#E6EDF3">whoami</text></g><g><text x="502" y="130" class="mono" font-size="12.5" fill="#34D399">›</text><text x="520" y="130" class="mono" font-size="12.5" fill="#34D399">mundo · full-stack engineer · Hà Nội</text></g><g><text x="502" y="150" class="mono" font-size="12.5" fill="#A3E635">$</text><text x="520" y="150" class="mono" font-size="12.5" fill="#E6EDF3">cat focus.txt</text></g><g><text x="502" y="170" class="mono" font-size="12.5" fill="#22D3EE">›</text><text x="520" y="170" class="mono" font-size="12.5" fill="#22D3EE">AI-native workspaces</text></g><g><text x="502" y="190" class="mono" font-size="12.5" fill="#22D3EE">›</text><text x="520" y="190" class="mono" font-size="12.5" fill="#22D3EE">secure backend platforms</text></g><g><text x="502" y="210" class="mono" font-size="12.5" fill="#22D3EE">›</text><text x="520" y="210" class="mono" font-size="12.5" fill="#22D3EE">local-first desktop tools</text></g><g><text x="502" y="230" class="mono" font-size="12.5" fill="#A3E635">$</text><text x="520" y="230" class="mono" font-size="12.5" fill="#E6EDF3">otter restore --verify</text></g><g><text x="502" y="250" class="mono" font-size="12.5" fill="#34D399">✓</text><text x="520" y="250" class="mono" font-size="12.5" fill="#34D399">context restored · all checks green</text></g>
-<rect class="cur" x="502" y="259" width="8" height="14" fill="#22C55E"/>
 
 </svg>
