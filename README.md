@@ -1,646 +1,311 @@
 
-<!-- ========================================================= -->
-<!-- PENGUY. | NEON ENGINEERING COMMAND CENTER                 -->
-<!-- GitHub: https://github.com/kdy74                       -->
-<!-- Theme: Midnight Navy / Electric Purple / Cyan / Rose     -->
-<!-- ========================================================= -->
+<!-- ═══════════════════════════════════════════ -->
+<!--             PENGUY. // PROFILE              -->
+<!-- ═══════════════════════════════════════════ -->
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1026,35:26205C,70:6544CA,100:06B6D4&height=250&section=header&text=penguy.&fontColor=FFFFFF&fontSize=78&fontAlignY=38&desc=SOFTWARE%20ENGINEER%20%20%7C%20%20SYSTEMS%20BUILDER&descAlignY=59&descSize=19&animation=fadeIn" alt="penguy. — Software Engineer" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:090E23,25:30216B,55:7856D8,80:2563EB,100:06B6D4&amp;height=225&amp;section=header&amp;text=penguy.&amp;fontSize=82&amp;fontColor=FFFFFF&amp;fontAlignY=39&amp;desc=FULL-STACK%20SOFTWARE%20ENGINEER&amp;descAlignY=60&amp;descSize=18&amp;animation=fadeIn" alt="penguy." />
 
-<a href="https://github.com/kdy74">
-<img src="https://img.shields.io/badge/GITHUB-kdy74-18181B?style=for-the-badge&logo=github&logoColor=white" />
-</a>
-<a href="mailto:duycaduoc0704@gmail.com">
-<img src="https://img.shields.io/badge/EMAIL-CONTACT_ME-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-<img src="https://img.shields.io/badge/LOCATION-HANOI,_VIETNAM-0EA5E9?style=for-the-badge&logo=googlemaps&logoColor=white" />
-<img src="https://img.shields.io/badge/TIMEZONE-UTC%2B7-7C3AED?style=for-the-badge&logo=clockify&logoColor=white" />
-
-<br/><br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=900&color=8B5CF6&center=true&vCenter=true&width=780&height=65&lines=Building+real+products.+Engineering+real+systems.;Full-Stack+%E2%80%A2+Backend+%E2%80%A2+Architecture;Secure+Workflows+%E2%80%A2+AI-Native+Products;From+the+first+commit+to+production." alt="Animated introduction" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=19&amp;duration=2800&amp;pause=1000&amp;color=8B5CF6&amp;center=true&amp;vCenter=true&amp;width=700&amp;height=45&amp;lines=Design.+Build.+Ship.+Improve.;From+beautiful+interfaces+to+reliable+systems.;Engineering+the+ideas+of+tomorrow." alt="Animated introduction" />
 
 <br/>
 
-<b>ENGINEERING SOFTWARE FROM THE INTERFACE TO THE INFRASTRUCTURE.</b>
+<a href="https://github.com/kdy74">
+<img src="https://img.shields.io/badge/GITHUB-kdy74-18181B?style=for-the-badge&amp;logo=github&amp;logoColor=white" />
+</a>
+<a href="mailto:duycaduoc0704@gmail.com">
+<img src="https://img.shields.io/badge/LET'S_CONNECT-EA4335?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" />
+</a>
+<img src="https://img.shields.io/badge/HANOI-VIETNAM-0284C7?style=for-the-badge&amp;logo=googlemaps&amp;logoColor=white" />
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/FOCUS-Enterprise_Systems-7C3AED?style=flat-square" />
-<img src="https://img.shields.io/badge/FOCUS-Platform_Engineering-0891B2?style=flat-square" />
-<img src="https://img.shields.io/badge/FOCUS-AI--Native_Products-DB2777?style=flat-square" />
-<img src="https://img.shields.io/badge/MINDSET-Build_for_Reliability-059669?style=flat-square" />
-
-<br/><br/>
-
-<a href="#about-me">About</a> &nbsp;•&nbsp;
-<a href="#engineering-expertise">Expertise</a> &nbsp;•&nbsp;
-<a href="#technology-stack">Tech Stack</a> &nbsp;•&nbsp;
-<a href="#system-blueprint">Architecture</a> &nbsp;•&nbsp;
-<a href="#engineering-philosophy">Philosophy</a> &nbsp;•&nbsp;
-<a href="#github-activity">Activity</a>
+<img src="https://img.shields.io/badge/FULL_STACK-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/BACKEND-6366F1?style=flat-square" />
+<img src="https://img.shields.io/badge/ARCHITECTURE-2563EB?style=flat-square" />
+<img src="https://img.shields.io/badge/AI_ENGINEERING-DB2777?style=flat-square" />
+<img src="https://img.shields.io/badge/DEVOPS-059669?style=flat-square" />
 
 </div>
 
 ---
 
-<a id="about-me"></a>
+## 👋 A Little About Me
 
-## 🌌 About Me
+**Hey, I'm penguy.** A full-stack software engineer based in Hanoi, Vietnam.
+
+I build **AI-native enterprise products, secure backend systems and polished interfaces** — connecting product ideas with the engineering required to bring them to life.
 
 <table>
 <tr>
-<td width="56%" valign="top">
-
-### Hey, I'm penguy. 👋
-
-I'm a **Full-Stack Software Engineer** based in Hanoi, Vietnam.
-
-I design and build applications where **product engineering, system architecture, security and infrastructure** come together.
-
-My work focuses on turning complicated business processes into reliable software: from intuitive interfaces and backend services to authorization, approval workflows, audit trails and AI-powered experiences.
-
-I enjoy working across the entire software lifecycle — understanding requirements, designing architecture, writing code, testing behavior, deploying services and investigating production issues.
-
-**What matters to me:**
-
-- 🧩 Clear domain boundaries and maintainable architecture
-- 🔐 Security and correctness built into the design
-- ⚡ Fast, thoughtful and accessible product experiences
-- 🔍 Observable systems with predictable failure behavior
-- 🚀 Reliable delivery from development to production
-
+<td align="center" width="33%">
+<h3>🧠 THINK</h3>
+<sub>System Architecture</sub><br/>
+<sub>Domain Modeling</sub>
 </td>
-<td width="44%" valign="top">
-
-### 🖥️ Engineer Console
-
-```yaml
-identity:
-  alias: "penguy."
-  role: "Software Engineer"
-  location: "Hanoi, Vietnam"
-  timezone: "UTC+7"
-
-primary_focus:
-  - Full-Stack Engineering
-  - Backend Architecture
-  - Enterprise Platforms
-  - AI-Native Applications
-
-engineering:
-  design: "Domain first"
-  security: "By default"
-  quality: "Automated"
-  delivery: "Production minded"
-```
-
+<td align="center" width="34%">
+<h3>⚡ BUILD</h3>
+<sub>Full-Stack Products</sub><br/>
+<sub>Enterprise Platforms</sub>
+</td>
+<td align="center" width="33%">
+<h3>🚀 SHIP</h3>
+<sub>Reliable Software</sub><br/>
+<sub>Production Systems</sub>
 </td>
 </tr>
 </table>
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/BUILD-Thoughtfully-8B5CF6?style=for-the-badge" />
-<img src="https://img.shields.io/badge/TEST-Continuously-06B6D4?style=for-the-badge" />
-<img src="https://img.shields.io/badge/SHIP-Confidently-10B981?style=for-the-badge" />
+<img src="https://img.shields.io/badge/CURRENTLY-Building_AI--Native_Workspaces-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/MINDSET-Always_Learning-0891B2?style=flat-square" />
 
 </div>
 
-<br/>
+---
 
-<a id="engineering-expertise"></a>
-
-## ⚡ Engineering Expertise
-
-**The areas where I turn technical complexity into working software.**
+## ✦ What I Love Building
 
 <table>
 <tr>
+<td width="50%" align="center">
 
-<td width="50%" valign="top">
+### 🏢 Enterprise Systems
 
-### 🧠 01. Systems Architecture
+**Secure. Structured. Scalable.**
 
-Designing backend systems that can evolve without becoming difficult to maintain.
+<sub>Approval Workflows · Access Control · Audit Trails</sub>
 
-- Domain-Driven Design
-- Modular Monolith Architecture
-- Clean Architecture and CQRS
-- Event-Driven Processing
-- Background Jobs and Queues
-- API Contracts and Service Boundaries
-- Database Design and Migrations
+<img src="https://img.shields.io/badge/DOMAIN-Enterprise-7C3AED?style=flat-square" />
+
+</td>
+<td width="50%" align="center">
+
+### 🎨 Digital Products
+
+**Beautiful interfaces. Powerful systems.**
+
+<sub>Web Applications · Desktop · Mobile</sub>
+
+<img src="https://img.shields.io/badge/DOMAIN-Product-0891B2?style=flat-square" />
+
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+
+### ✨ AI Experiences
+
+**Intelligence with purpose.**
+
+<sub>LLMs · RAG · Tool Calling · AI Workflows</sub>
+
+<img src="https://img.shields.io/badge/DOMAIN-AI-DB2777?style=flat-square" />
+
+</td>
+<td width="50%" align="center">
+
+### ⚙️ Backend & Platform
+
+**Built to run. Designed to evolve.**
+
+<sub>APIs · Databases · Infrastructure · CI/CD</sub>
+
+<img src="https://img.shields.io/badge/DOMAIN-Engineering-059669?style=flat-square" />
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🪐 My Technology Universe
+
+<div align="center">
+
+**ONE STACK. MANY POSSIBILITIES.**
+
+<br/>
+
+</div>
+
+<table>
+<tr>
+<td width="24%"><b>💎 Languages</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=ts,js,py,rust,java,dart&amp;theme=dark" alt="TypeScript, JavaScript, Python, Rust, Java, Dart" />
+</td>
+</tr>
+<tr>
+<td><b>🎨 Frontend</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=react,nextjs,tailwind,vite,redux&amp;theme=dark" alt="React, Next.js, Tailwind, Vite, Redux" />
+</td>
+</tr>
+<tr>
+<td><b>⚙️ Backend</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=nodejs,nestjs,express,fastapi,prisma&amp;theme=dark" alt="Node.js, NestJS, Express, FastAPI, Prisma" />
+</td>
+</tr>
+<tr>
+<td><b>🗄️ Data</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=postgres,redis,mongodb,mysql&amp;theme=dark" alt="PostgreSQL, Redis, MongoDB, MySQL" />
+</td>
+</tr>
+<tr>
+<td><b>📱 Platforms</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=tauri,flutter&amp;theme=dark" alt="Tauri, Flutter" />
+</td>
+</tr>
+<tr>
+<td><b>🚀 DevOps & Tools</b></td>
+<td>
+<img height="36" src="https://skillicons.dev/icons?i=docker,nginx,linux,githubactions,git,jest,figma&amp;theme=dark" alt="Docker, Nginx, Linux, GitHub Actions, Git, Jest, Figma" />
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+<sub>ENGINEERING TOOLKIT</sub>
+
+<br/>
 
 <img src="https://img.shields.io/badge/DDD-6D28D9?style=flat-square" />
 <img src="https://img.shields.io/badge/CQRS-7C3AED?style=flat-square" />
-<img src="https://img.shields.io/badge/Event--Driven-8B5CF6?style=flat-square" />
-
-</td>
-
-<td width="50%" valign="top">
-
-### 🛡️ 02. Security & Enterprise
-
-Building enterprise applications with explicit permissions, traceability and controlled business operations.
-
-- Authentication and Authorization
-- OAuth 2.0 / OpenID Connect
-- Role-Based Access Control
-- Attribute-Based Access Control
-- Multi-Tenant Data Isolation
-- Approval Workflow Engines
-- Audit Logging and Traceability
-
-<img src="https://img.shields.io/badge/OIDC-0369A1?style=flat-square" />
-<img src="https://img.shields.io/badge/RBAC%20%2F%20ABAC-0284C7?style=flat-square" />
-<img src="https://img.shields.io/badge/Audit-0891B2?style=flat-square" />
-
-</td>
-
-</tr>
-
-<tr>
-
-<td width="50%" valign="top">
-
-### ✨ 03. AI-Native Engineering
-
-Exploring how AI can become a useful, dependable part of real software products.
-
-- LLM Integration
-- Retrieval-Augmented Generation
-- Tool Calling and AI Agents
-- Context and Prompt Engineering
-- Structured AI Outputs
-- AI Evaluation and Guardrails
-- Human-in-the-Loop Experiences
-
-<img src="https://img.shields.io/badge/LLM-DB2777?style=flat-square" />
-<img src="https://img.shields.io/badge/RAG-E11D48?style=flat-square" />
-<img src="https://img.shields.io/badge/Agents-F43F5E?style=flat-square" />
-
-</td>
-
-<td width="50%" valign="top">
-
-### 🎨 04. Product & Interface
-
-Developing user experiences across web, desktop and mobile platforms.
-
-- React and Next.js Applications
-- Data-Intensive Dashboards
-- Complex Forms and Workflows
-- Component and Design Systems
-- Desktop Applications with Tauri
-- Cross-Platform Mobile with Flutter
-- UI Performance and Accessibility
-
-<img src="https://img.shields.io/badge/Web-0D9488?style=flat-square" />
-<img src="https://img.shields.io/badge/Desktop-14B8A6?style=flat-square" />
-<img src="https://img.shields.io/badge/Mobile-10B981?style=flat-square" />
-
-</td>
-
-</tr>
-
-<tr>
-
-<td width="50%" valign="top">
-
-### 🗄️ 05. Backend & Data
-
-Creating reliable application services and data-processing workflows.
-
-- REST API Development
-- PostgreSQL Data Modeling
-- Redis Caching and Coordination
-- Asynchronous Processing
-- BullMQ Job Queues
-- Transactions and Concurrency
-- Idempotency and Error Recovery
-
-<img src="https://img.shields.io/badge/NestJS-B91C1C?style=flat-square" />
-<img src="https://img.shields.io/badge/PostgreSQL-2563EB?style=flat-square" />
-<img src="https://img.shields.io/badge/Redis-DC2626?style=flat-square" />
-
-</td>
-
-<td width="50%" valign="top">
-
-### 🚀 06. Platform & Delivery
-
-Making software easier to deploy, observe, operate and improve.
-
-- Linux Server Administration
-- Docker and Containerization
-- Nginx and Reverse Proxies
-- GitHub Actions and CI/CD
-- Automated Quality Gates
-- Monitoring, Logs and Health Checks
-- Deployment and Rollback Strategies
-
-<img src="https://img.shields.io/badge/Docker-0284C7?style=flat-square" />
-<img src="https://img.shields.io/badge/Linux-475569?style=flat-square" />
-<img src="https://img.shields.io/badge/CI%2FCD-16A34A?style=flat-square" />
-
-</td>
-
-</tr>
-</table>
-
----
-
-<a id="technology-stack"></a>
-
-## 🪐 Technology Stack
-
-**Languages, frameworks and tools I work with across different layers of software development.**
-
-### 💎 Languages
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=ts,js,py,rust,java,dart&theme=dark&perline=6" alt="Programming languages" />
-<br/>
-<sub>TypeScript • JavaScript • Python • Rust • Java • Dart</sub>
-</div>
-
-<br/>
-
-### 🎨 Frontend Engineering
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,vite,redux&theme=dark&perline=5" alt="Frontend technologies" />
-<br/>
-<sub>React • Next.js • Tailwind CSS • Vite • Redux</sub>
-</div>
-
-<br/>
-
-### ⚙️ Backend Engineering
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,fastapi,prisma&theme=dark&perline=5" alt="Backend technologies" />
-<br/>
-<sub>Node.js • NestJS • Express • FastAPI • Prisma / TypeORM</sub>
-</div>
-
-<br/>
-
-### 📱 Desktop & Mobile
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=tauri,flutter&theme=dark&perline=2" alt="Desktop and mobile technologies" />
-<br/>
-<sub>Rust + Tauri • Flutter</sub>
-</div>
-
-<br/>
-
-### 🗃️ Databases & Storage
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=postgres,redis,mongodb,mysql&theme=dark&perline=4" alt="Data technologies" />
-<br/>
-<sub>PostgreSQL • Redis • MongoDB • MySQL</sub>
-</div>
-
-<br/>
-
-### 🛠️ Infrastructure & Developer Tools
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=docker,nginx,linux,githubactions,git,github,jest,figma&theme=dark&perline=8" alt="Infrastructure and development tools" />
-<br/>
-<sub>Docker • Nginx • Linux • GitHub Actions • Git • Jest • Figma</sub>
-</div>
-
-<br/>
-
-<div align="center">
-
-**ARCHITECTURE & ENGINEERING CONCEPTS**
-
-<img src="https://img.shields.io/badge/Clean_Architecture-7C3AED?style=for-the-badge" />
-<img src="https://img.shields.io/badge/DDD-8B5CF6?style=for-the-badge" />
-<img src="https://img.shields.io/badge/CQRS-6366F1?style=for-the-badge" />
-<img src="https://img.shields.io/badge/REST_APIs-0891B2?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Event_Driven-0D9488?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Authentication-2563EB?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Authorization-0284C7?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Testing-16A34A?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Observability-DB2777?style=for-the-badge" />
-<img src="https://img.shields.io/badge/CI%2FCD-059669?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Clean_Architecture-6366F1?style=flat-square" />
+<img src="https://img.shields.io/badge/REST_APIs-2563EB?style=flat-square" />
+<img src="https://img.shields.io/badge/RBAC%2FABAC-0891B2?style=flat-square" />
+<img src="https://img.shields.io/badge/OIDC-0D9488?style=flat-square" />
+<img src="https://img.shields.io/badge/Event_Driven-059669?style=flat-square" />
 
 </div>
 
 ---
 
-<a id="system-blueprint"></a>
-
-## 🏗️ System Blueprint
-
-### How I think about a modern software platform
-
-An illustrative reference architecture connecting product interfaces, enterprise security, business logic, asynchronous processing and AI capabilities.
-
-```mermaid
-flowchart TB
-    U["🖥️ Web / Desktop / Mobile"] --> API["⚡ API & Application Layer"]
-
-    API --> SEC["🔐 Identity & Access"]
-    API --> DOM["🧩 Domain Services"]
-    API --> AI["✨ AI Integration"]
-
-    SEC --> POLICY["RBAC / ABAC / OIDC"]
-
-    DOM --> WF["Approval & Workflow Engine"]
-    DOM --> DATA[("🗄️ PostgreSQL")]
-    DOM --> QUEUE["📨 Async Jobs"]
-
-    QUEUE --> WORKER["⚙️ Background Workers"]
-    WORKER --> CACHE[("Redis")]
-
-    AI --> RAG["📚 Retrieval & Context"]
-    AI --> TOOLS["🔌 Tool Calling"]
-
-    WF --> AUDIT["📋 Audit Trail"]
-    DOM -.-> OBS["📈 Logs & Observability"]
-    WORKER -.-> OBS
-    AI -.-> OBS
-
-    classDef client fill:#182447,stroke:#22D3EE,color:#FFFFFF,stroke-width:2px
-    classDef entry fill:#312064,stroke:#A78BFA,color:#FFFFFF,stroke-width:2px
-    classDef core fill:#202C58,stroke:#60A5FA,color:#FFFFFF,stroke-width:1.5px
-    classDef security fill:#063C49,stroke:#2DD4BF,color:#FFFFFF,stroke-width:1.5px
-    classDef intelligence fill:#542144,stroke:#F472B6,color:#FFFFFF,stroke-width:1.5px
-    classDef storage fill:#1E3650,stroke:#38BDF8,color:#FFFFFF,stroke-width:1.5px
-    classDef monitoring fill:#143D35,stroke:#34D399,color:#FFFFFF,stroke-width:1.5px
-
-    class U client
-    class API entry
-    class DOM,WF,QUEUE,WORKER core
-    class SEC,POLICY,AUDIT security
-    class AI,RAG,TOOLS intelligence
-    class DATA,CACHE storage
-    class OBS monitoring
-```
+## 🎯 How I Think
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/01-IDENTITY-0D9488?style=flat-square" />
-<img src="https://img.shields.io/badge/02-DOMAIN-6366F1?style=flat-square" />
-<img src="https://img.shields.io/badge/03-DATA-2563EB?style=flat-square" />
-<img src="https://img.shields.io/badge/04-ASYNC-8B5CF6?style=flat-square" />
-<img src="https://img.shields.io/badge/05-OBSERVABILITY-DB2777?style=flat-square" />
-
-</div>
-
-<br/>
-
-### 🔍 The engineering problems I enjoy solving
-
-| Area | Engineering challenges |
-|:---|:---|
-| 🔐 **Identity** | Who can perform which action, on which resource, under which conditions? |
-| 🧩 **Domain** | How do complex business rules remain explicit and testable? |
-| ⚙️ **Concurrency** | How do we prevent duplicated actions and invalid state transitions? |
-| 📨 **Async processing** | How do we retry safely and make jobs recoverable? |
-| 🗄️ **Data** | How do we preserve consistency while evolving the schema? |
-| ✨ **AI** | How do we make model-driven behavior measurable and controllable? |
-| 📈 **Operations** | How do we detect, understand and recover from production failures? |
-
----
-
-## 🚧 Currently Building & Exploring
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🏢 Enterprise Workspaces
-
-**AI-native software for real organizational workflows.**
-
-Working on systems involving:
-
-- Approval and procurement flows
-- Complex business state transitions
-- Identity and permission models
-- Audit and accountability
-- Enterprise application architecture
-- Operational reliability
-
-<img src="https://img.shields.io/badge/AREA-Enterprise_Engineering-7C3AED?style=flat-square" />
-
-</td>
-<td width="50%" valign="top">
-
-### 🧠 AI + Product Engineering
-
-**From isolated AI capabilities to useful product experiences.**
-
-Exploring:
-
-- AI integration in business workflows
-- Context-aware retrieval
-- Tool-enabled applications
-- Evaluation and guardrails
-- Human review and intervention
-- Practical AI interaction patterns
-
-<img src="https://img.shields.io/badge/AREA-AI_Engineering-DB2777?style=flat-square" />
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🖥️ Cross-Platform Products
-
-**One product vision, multiple environments.**
-
-Interested in:
-
-- Rich web interfaces
-- Desktop-first experiences
-- Local-first application design
-- Rust and Tauri integration
-- Flutter mobile development
-- Shared domain contracts
-
-<img src="https://img.shields.io/badge/AREA-Product_Engineering-0891B2?style=flat-square" />
-
-</td>
-<td width="50%" valign="top">
-
-### 🛠️ Platform & Infrastructure
-
-**Understanding what happens after the code is written.**
-
-Deepening knowledge in:
-
-- Linux administration
-- Networking and HTTP infrastructure
-- Service management
-- Container deployment
-- Monitoring and troubleshooting
-- Backup, recovery and rollback
-
-<img src="https://img.shields.io/badge/AREA-Platform_Engineering-059669?style=flat-square" />
-
-</td>
-</tr>
-</table>
-
----
-
-<a id="engineering-philosophy"></a>
-
-## 🎯 Engineering Philosophy
-
-<div align="center">
-
-### ✦ Design for change. Build for correctness. Operate with confidence.
-
-</div>
+### Good engineering is more than writing code.
 
 <table>
 <tr>
 <td align="center" width="25%">
-<h2>🧱</h2>
-<b>ARCHITECTURE</b>
-<br/>
-<sub>Clear boundaries<br/>Explicit contracts<br/>Simple abstractions</sub>
+<h2>🧩</h2>
+<b>DESIGN</b><br/>
+<sub>For Change</sub>
 </td>
 <td align="center" width="25%">
-<h2>🛡️</h2>
-<b>SECURITY</b>
-<br/>
-<sub>Least privilege<br/>Safe defaults<br/>Auditable decisions</sub>
+<h2>🔐</h2>
+<b>SECURE</b><br/>
+<sub>By Default</sub>
 </td>
 <td align="center" width="25%">
 <h2>🧪</h2>
-<b>QUALITY</b>
-<br/>
-<sub>Meaningful tests<br/>Automated checks<br/>Predictable releases</sub>
+<b>VERIFY</b><br/>
+<sub>With Confidence</sub>
 </td>
 <td align="center" width="25%">
 <h2>📡</h2>
-<b>RELIABILITY</b>
-<br/>
-<sub>Useful telemetry<br/>Visible failures<br/>Recoverable systems</sub>
+<b>OBSERVE</b><br/>
+<sub>In Production</sub>
 </td>
 </tr>
 </table>
 
-### ⚙️ My development loop
-
-```mermaid
-flowchart LR
-    A["🔎 Understand"] --> B["🧠 Model"]
-    B --> C["🛠️ Implement"]
-    C --> D["🧪 Verify"]
-    D --> E["🚀 Deliver"]
-    E --> F["📈 Observe"]
-    F --> A
-
-    classDef step fill:#28234D,stroke:#A78BFA,color:#FFFFFF,stroke-width:1.5px
-    class A,B,C,D,E,F step
-```
-
-<details>
-<summary><b>🔬 What I value in a codebase — click to expand</b></summary>
 <br/>
 
-**Maintainability:** Code should communicate intent through meaningful names, focused modules and predictable contracts.
+`UNDERSTAND` → `DESIGN` → `BUILD` → `TEST` → `SHIP` → `IMPROVE`
 
-**Correctness:** Important business rules should be enforced in the domain and verified through tests, not scattered across controllers and UI components.
+<br/><br/>
 
-**Security:** Authentication, authorization, validation and auditing are architectural concerns, not final-stage additions.
-
-**Reliability:** Background operations need idempotency, bounded retries, visibility and recovery paths.
-
-**Delivery:** CI pipelines should provide real confidence. Every release should have a clear verification and rollback strategy.
-
-**Pragmatism:** Use the simplest architecture that solves the problem, and introduce complexity when its benefits justify the cost.
-
-</details>
-
----
-
-<a id="github-activity"></a>
-
-## 📊 GitHub Activity
-
-<div align="center">
-
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=kdy74&amp;bg_color=0B1026&amp;color=C4B5FD&amp;line=22D3EE&amp;point=F472B6&amp;area=true&amp;area_color=8B5CF6&amp;hide_border=true&amp;custom_title=Engineering%20Activity" />
-<img width="100%" alt="GitHub contribution activity" src="https://github-readme-activity-graph.vercel.app/graph?username=kdy74&amp;bg_color=F8FAFC&amp;color=475569&amp;line=7C3AED&amp;point=0891B2&amp;area=true&amp;area_color=C4B5FD&amp;hide_border=true&amp;custom_title=Engineering%20Activity" />
-</picture>
-
-<br/>
-
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=kdy74&amp;show_icons=true&amp;theme=tokyonight&amp;hide_border=true&amp;include_all_commits=true" />
-<img width="49%" alt="GitHub statistics" src="https://github-readme-stats.vercel.app/api?username=kdy74&amp;show_icons=true&amp;theme=buefy&amp;hide_border=true&amp;include_all_commits=true" />
-</picture>
-
-<br/>
-
-<sub>These cards reflect GitHub-visible activity and may not represent work in private or organization repositories.</sub>
+**Simple where possible. Robust where necessary.**
 
 </div>
 
 ---
 
-## 🌱 Beyond Writing Code
-
-I believe good engineering involves more than knowing frameworks or shipping features.
-
-It means understanding the business problem, choosing appropriate trade-offs, communicating decisions, respecting security boundaries and making systems understandable for the people who maintain them.
-
-I'm especially interested in the intersection of **software architecture, developer experience, infrastructure and AI-assisted products**.
+## 🔭 On My Radar
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/KEEP-LEARNING-7C3AED?style=for-the-badge" />
-<img src="https://img.shields.io/badge/KEEP-BUILDING-0891B2?style=for-the-badge" />
-<img src="https://img.shields.io/badge/KEEP-IMPROVING-059669?style=for-the-badge" />
+<table>
+<tr>
+<td width="33%" align="center">
+
+### 🧠 AI
+
+<sub>LLM Applications</sub><br/>
+<sub>Agents & Retrieval</sub>
+
+</td>
+<td width="34%" align="center">
+
+### 🖥️ SYSTEMS
+
+<sub>Linux & Networking</sub><br/>
+<sub>Deployment & Reliability</sub>
+
+</td>
+<td width="33%" align="center">
+
+### 🎨 PRODUCTS
+
+<sub>Rust & Tauri</sub><br/>
+<sub>Cross-Platform UX</sub>
+
+</td>
+</tr>
+</table>
 
 </div>
 
 ---
 
-## 💌 Let's Connect
+## 📈 GitHub Pulse
 
 <div align="center">
 
-### Have an interesting engineering problem to discuss?
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=kdy74&amp;bg_color=0B1026&amp;color=C4B5FD&amp;line=22D3EE&amp;point=F472B6&amp;area=true&amp;area_color=8B5CF6&amp;hide_border=true" />
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=kdy74&amp;bg_color=F8FAFC&amp;color=475569&amp;line=7C3AED&amp;point=0891B2&amp;area=true&amp;area_color=C4B5FD&amp;hide_border=true" alt="GitHub Activity" />
+</picture>
 
-I'm happy to connect about **full-stack development, backend architecture, enterprise systems, platform engineering and AI products**.
+<sub>Building, exploring and improving — one commit at a time.</sub>
+
+</div>
+
+---
+
+<div align="center">
+
+## 💌 Let's Create Something Great
+
+**Interesting ideas deserve thoughtful engineering.**
+
+Open to conversations about software architecture, full-stack development, enterprise platforms and AI-native products.
 
 <br/>
 
 <a href="mailto:duycaduoc0704@gmail.com">
-<img src="https://img.shields.io/badge/LET'S_TALK-EMAIL_ME-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+<img src="https://img.shields.io/badge/GET_IN_TOUCH-SEND_EMAIL-EA4335?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" />
 </a>
-
 <a href="https://github.com/kdy74">
-<img src="https://img.shields.io/badge/EXPLORE-MY_GITHUB-18181B?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/EXPLORE-GITHUB-18181B?style=for-the-badge&amp;logo=github&amp;logoColor=white" />
 </a>
 
 <br/><br/>
 
-**Vietnamese** — Native &nbsp; | &nbsp; **English** — Professional Working
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=500&amp;size=15&amp;duration=2500&amp;pause=1100&amp;color=8B5CF6&amp;center=true&amp;vCenter=true&amp;width=550&amp;height=40&amp;lines=Thanks+for+stopping+by!;Stay+curious.+Keep+building.;See+you+in+the+next+commit." alt="Closing message" />
 
-<br/><br/>
+<br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2800&pause=1100&color=8B5CF6&center=true&vCenter=true&width=650&height=40&lines=Thanks+for+visiting+my+profile!;Great+software+is+built+with+care.;See+you+in+the+next+commit." alt="Closing animation" />
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1026,35:26205C,70:6544CA,100:06B6D4&height=135&section=footer" alt="Footer decoration" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:090E23,25:30216B,55:7856D8,80:2563EB,100:06B6D4&amp;height=115&amp;section=footer" alt="Footer" />
 
 </div>
